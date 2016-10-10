@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
+		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
+		B7492F651DAB381F002EADDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7492F631DAB381F002EADDC /* Main.storyboard */; };
+		B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7492F661DAB381F002EADDC /* Vittles.xcdatamodeld */; };
+		B7492F6A1DAB381F002EADDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7492F691DAB381F002EADDC /* Assets.xcassets */; };
+		B7492F6D1DAB381F002EADDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7492F6B1DAB381F002EADDC /* LaunchScreen.storyboard */; };
+		B7492F781DAB381F002EADDC /* VittlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F771DAB381F002EADDC /* VittlesTests.swift */; };
+		B7492F831DAB3820002EADDC /* VittlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F821DAB3820002EADDC /* VittlesUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7492F741DAB381F002EADDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7492F541DAB381F002EADDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7492F5B1DAB381F002EADDC;
+			remoteInfo = Vittles;
+		};
+		B7492F7F1DAB381F002EADDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7492F541DAB381F002EADDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7492F5B1DAB381F002EADDC;
+			remoteInfo = Vittles;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7492F5F1DAB381F002EADDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7492F611DAB381F002EADDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B7492F641DAB381F002EADDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B7492F671DAB381F002EADDC /* Vittles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Vittles.xcdatamodel; sourceTree = "<group>"; };
+		B7492F691DAB381F002EADDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7492F6C1DAB381F002EADDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B7492F6E1DAB381F002EADDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7492F731DAB381F002EADDC /* VittlesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VittlesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7492F771DAB381F002EADDC /* VittlesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VittlesTests.swift; sourceTree = "<group>"; };
+		B7492F791DAB381F002EADDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7492F7E1DAB381F002EADDC /* VittlesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VittlesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7492F821DAB3820002EADDC /* VittlesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VittlesUITests.swift; sourceTree = "<group>"; };
+		B7492F841DAB3820002EADDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7492F591DAB381F002EADDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7492F701DAB381F002EADDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7492F7B1DAB381F002EADDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B7492F531DAB381F002EADDC = {
+			isa = PBXGroup;
+			children = (
+				B7492F5E1DAB381F002EADDC /* Vittles */,
+				B7492F761DAB381F002EADDC /* VittlesTests */,
+				B7492F811DAB3820002EADDC /* VittlesUITests */,
+				B7492F5D1DAB381F002EADDC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7492F5D1DAB381F002EADDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7492F5C1DAB381F002EADDC /* Vittles.app */,
+				B7492F731DAB381F002EADDC /* VittlesTests.xctest */,
+				B7492F7E1DAB381F002EADDC /* VittlesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7492F5E1DAB381F002EADDC /* Vittles */ = {
+			isa = PBXGroup;
+			children = (
+				B7492F5F1DAB381F002EADDC /* AppDelegate.swift */,
+				B7492F611DAB381F002EADDC /* ViewController.swift */,
+				B7492F631DAB381F002EADDC /* Main.storyboard */,
+				B7492F691DAB381F002EADDC /* Assets.xcassets */,
+				B7492F6B1DAB381F002EADDC /* LaunchScreen.storyboard */,
+				B7492F6E1DAB381F002EADDC /* Info.plist */,
+				B7492F661DAB381F002EADDC /* Vittles.xcdatamodeld */,
+			);
+			path = Vittles;
+			sourceTree = "<group>";
+		};
+		B7492F761DAB381F002EADDC /* VittlesTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7492F771DAB381F002EADDC /* VittlesTests.swift */,
+				B7492F791DAB381F002EADDC /* Info.plist */,
+			);
+			path = VittlesTests;
+			sourceTree = "<group>";
+		};
+		B7492F811DAB3820002EADDC /* VittlesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B7492F821DAB3820002EADDC /* VittlesUITests.swift */,
+				B7492F841DAB3820002EADDC /* Info.plist */,
+			);
+			path = VittlesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7492F5B1DAB381F002EADDC /* Vittles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7492F871DAB3820002EADDC /* Build configuration list for PBXNativeTarget "Vittles" */;
+			buildPhases = (
+				B7492F581DAB381F002EADDC /* Sources */,
+				B7492F591DAB381F002EADDC /* Frameworks */,
+				B7492F5A1DAB381F002EADDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vittles;
+			productName = Vittles;
+			productReference = B7492F5C1DAB381F002EADDC /* Vittles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7492F721DAB381F002EADDC /* VittlesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7492F8A1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesTests" */;
+			buildPhases = (
+				B7492F6F1DAB381F002EADDC /* Sources */,
+				B7492F701DAB381F002EADDC /* Frameworks */,
+				B7492F711DAB381F002EADDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7492F751DAB381F002EADDC /* PBXTargetDependency */,
+			);
+			name = VittlesTests;
+			productName = VittlesTests;
+			productReference = B7492F731DAB381F002EADDC /* VittlesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B7492F7D1DAB381F002EADDC /* VittlesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7492F8D1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesUITests" */;
+			buildPhases = (
+				B7492F7A1DAB381F002EADDC /* Sources */,
+				B7492F7B1DAB381F002EADDC /* Frameworks */,
+				B7492F7C1DAB381F002EADDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7492F801DAB381F002EADDC /* PBXTargetDependency */,
+			);
+			name = VittlesUITests;
+			productName = VittlesUITests;
+			productReference = B7492F7E1DAB381F002EADDC /* VittlesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7492F541DAB381F002EADDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jenny Kwok";
+				TargetAttributes = {
+					B7492F5B1DAB381F002EADDC = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					B7492F721DAB381F002EADDC = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B7492F5B1DAB381F002EADDC;
+					};
+					B7492F7D1DAB381F002EADDC = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B7492F5B1DAB381F002EADDC;
+					};
+				};
+			};
+			buildConfigurationList = B7492F571DAB381F002EADDC /* Build configuration list for PBXProject "Vittles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7492F531DAB381F002EADDC;
+			productRefGroup = B7492F5D1DAB381F002EADDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7492F5B1DAB381F002EADDC /* Vittles */,
+				B7492F721DAB381F002EADDC /* VittlesTests */,
+				B7492F7D1DAB381F002EADDC /* VittlesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7492F5A1DAB381F002EADDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7492F6D1DAB381F002EADDC /* LaunchScreen.storyboard in Resources */,
+				B7492F6A1DAB381F002EADDC /* Assets.xcassets in Resources */,
+				B7492F651DAB381F002EADDC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7492F711DAB381F002EADDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7492F7C1DAB381F002EADDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7492F581DAB381F002EADDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
+				B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */,
+				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7492F6F1DAB381F002EADDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7492F781DAB381F002EADDC /* VittlesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7492F7A1DAB381F002EADDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7492F831DAB3820002EADDC /* VittlesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7492F751DAB381F002EADDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7492F5B1DAB381F002EADDC /* Vittles */;
+			targetProxy = B7492F741DAB381F002EADDC /* PBXContainerItemProxy */;
+		};
+		B7492F801DAB381F002EADDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7492F5B1DAB381F002EADDC /* Vittles */;
+			targetProxy = B7492F7F1DAB381F002EADDC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B7492F631DAB381F002EADDC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7492F641DAB381F002EADDC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B7492F6B1DAB381F002EADDC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7492F6C1DAB381F002EADDC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B7492F851DAB3820002EADDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7492F861DAB3820002EADDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7492F881DAB3820002EADDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Vittles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.Vittles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B7492F891DAB3820002EADDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Vittles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.Vittles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B7492F8B1DAB3820002EADDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VittlesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.VittlesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vittles.app/Vittles";
+			};
+			name = Debug;
+		};
+		B7492F8C1DAB3820002EADDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VittlesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.VittlesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vittles.app/Vittles";
+			};
+			name = Release;
+		};
+		B7492F8E1DAB3820002EADDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VittlesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.VittlesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Vittles;
+			};
+			name = Debug;
+		};
+		B7492F8F1DAB3820002EADDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VittlesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.VittlesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Vittles;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7492F571DAB381F002EADDC /* Build configuration list for PBXProject "Vittles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7492F851DAB3820002EADDC /* Debug */,
+				B7492F861DAB3820002EADDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7492F871DAB3820002EADDC /* Build configuration list for PBXNativeTarget "Vittles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7492F881DAB3820002EADDC /* Debug */,
+				B7492F891DAB3820002EADDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B7492F8A1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7492F8B1DAB3820002EADDC /* Debug */,
+				B7492F8C1DAB3820002EADDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B7492F8D1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7492F8E1DAB3820002EADDC /* Debug */,
+				B7492F8F1DAB3820002EADDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B7492F661DAB381F002EADDC /* Vittles.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B7492F671DAB381F002EADDC /* Vittles.xcdatamodel */,
+			);
+			currentVersion = B7492F671DAB381F002EADDC /* Vittles.xcdatamodel */;
+			path = Vittles.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B7492F541DAB381F002EADDC /* Project object */;
+}
