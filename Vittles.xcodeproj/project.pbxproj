@@ -10,6 +10,9 @@
 		B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */; };
 		B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */; };
 		B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */; };
+		B167F1EC1DAB3D3F008EE90B /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E91DAB3D3F008EE90B /* FirebaseConstants.swift */; };
+		B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1EA1DAB3D3F008EE90B /* FirebaseUserHandler.swift */; };
+		B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1EB1DAB3D3F008EE90B /* FirebaseImageHandler.swift */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
 		B7492F651DAB381F002EADDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7492F631DAB381F002EADDC /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MALocationManager.swift; sourceTree = "<group>"; };
 		B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerHandler.swift; sourceTree = "<group>"; };
 		B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
+		B167F1E91DAB3D3F008EE90B /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		B167F1EA1DAB3D3F008EE90B /* FirebaseUserHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUserHandler.swift; sourceTree = "<group>"; };
+		B167F1EB1DAB3D3F008EE90B /* FirebaseImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseImageHandler.swift; sourceTree = "<group>"; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5F1DAB381F002EADDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7492F611DAB381F002EADDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +98,16 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		B167F1E81DAB3D2F008EE90B /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				B167F1E91DAB3D3F008EE90B /* FirebaseConstants.swift */,
+				B167F1EA1DAB3D3F008EE90B /* FirebaseUserHandler.swift */,
+				B167F1EB1DAB3D3F008EE90B /* FirebaseImageHandler.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		B7492F531DAB381F002EADDC = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 		B7492F5E1DAB381F002EADDC /* Vittles */ = {
 			isa = PBXGroup;
 			children = (
+				B167F1E81DAB3D2F008EE90B /* Firebase */,
 				B167F1E11DAB3CCD008EE90B /* Utilities */,
 				B7492F5F1DAB381F002EADDC /* AppDelegate.swift */,
 				B7492F611DAB381F002EADDC /* ViewController.swift */,
@@ -281,10 +298,13 @@
 			files = (
 				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
+				B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */,
 				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
 				B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
+				B167F1EC1DAB3D3F008EE90B /* FirebaseConstants.swift in Sources */,
+				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
