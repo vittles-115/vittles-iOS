@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		489ED0083DCF466643F1E0BC /* Pods_Vittles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */; };
+		4C11684618F0458C8138CF59 /* Pods_VittlesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69218590389A6581B712C /* Pods_VittlesTests.framework */; };
+		6C202C4C035DAB45DE5A3B44 /* Pods_VittlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */; };
 		B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */; };
 		B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */; };
 		B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */; };
@@ -41,12 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08EEB7F45333593906524832 /* Pods-VittlesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VittlesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VittlesTests/Pods-VittlesTests.release.xcconfig"; sourceTree = "<group>"; };
+		2DAC6CCDF88015B2205F66F8 /* Pods-VittlesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VittlesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VittlesTests/Pods-VittlesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VittlesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67317E34336183899428DB2F /* Pods-VittlesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VittlesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VittlesUITests/Pods-VittlesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vittles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vittles/Pods-Vittles.release.xcconfig"; sourceTree = "<group>"; };
 		B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MALocationManager.swift; sourceTree = "<group>"; };
 		B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerHandler.swift; sourceTree = "<group>"; };
 		B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
 		B167F1E91DAB3D3F008EE90B /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		B167F1EA1DAB3D3F008EE90B /* FirebaseUserHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUserHandler.swift; sourceTree = "<group>"; };
 		B167F1EB1DAB3D3F008EE90B /* FirebaseImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseImageHandler.swift; sourceTree = "<group>"; };
+		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5F1DAB381F002EADDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7492F611DAB381F002EADDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +70,9 @@
 		B7492F7E1DAB381F002EADDC /* VittlesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VittlesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F821DAB3820002EADDC /* VittlesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VittlesUITests.swift; sourceTree = "<group>"; };
 		B7492F841DAB3820002EADDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C750FDCF1E2BD1356738AD65 /* Pods-Vittles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vittles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vittles/Pods-Vittles.debug.xcconfig"; sourceTree = "<group>"; };
+		CFF69218590389A6581B712C /* Pods_VittlesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VittlesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F466C8E562EAFF3A34C0681F /* Pods-VittlesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VittlesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VittlesUITests/Pods-VittlesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489ED0083DCF466643F1E0BC /* Pods_Vittles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C11684618F0458C8138CF59 /* Pods_VittlesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +96,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C202C4C035DAB45DE5A3B44 /* Pods_VittlesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49338323E45B06029B7F9AD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C750FDCF1E2BD1356738AD65 /* Pods-Vittles.debug.xcconfig */,
+				A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */,
+				2DAC6CCDF88015B2205F66F8 /* Pods-VittlesTests.debug.xcconfig */,
+				08EEB7F45333593906524832 /* Pods-VittlesTests.release.xcconfig */,
+				67317E34336183899428DB2F /* Pods-VittlesUITests.debug.xcconfig */,
+				F466C8E562EAFF3A34C0681F /* Pods-VittlesUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5539562110D9E12BB9DF77D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */,
+				CFF69218590389A6581B712C /* Pods_VittlesTests.framework */,
+				658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B167F1E11DAB3CCD008EE90B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +153,8 @@
 				B7492F761DAB381F002EADDC /* VittlesTests */,
 				B7492F811DAB3820002EADDC /* VittlesUITests */,
 				B7492F5D1DAB381F002EADDC /* Products */,
+				49338323E45B06029B7F9AD1 /* Pods */,
+				5539562110D9E12BB9DF77D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,9 +209,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7492F871DAB3820002EADDC /* Build configuration list for PBXNativeTarget "Vittles" */;
 			buildPhases = (
+				B49CBF7C42BFFAD335A8DA5D /* [CP] Check Pods Manifest.lock */,
 				B7492F581DAB381F002EADDC /* Sources */,
 				B7492F591DAB381F002EADDC /* Frameworks */,
 				B7492F5A1DAB381F002EADDC /* Resources */,
+				72075EA226D16A9CEA941847 /* [CP] Embed Pods Frameworks */,
+				10DE68EEB387E73AC4C14466 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,9 +229,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7492F8A1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesTests" */;
 			buildPhases = (
+				98A3B05757A29633382C0BF9 /* [CP] Check Pods Manifest.lock */,
 				B7492F6F1DAB381F002EADDC /* Sources */,
 				B7492F701DAB381F002EADDC /* Frameworks */,
 				B7492F711DAB381F002EADDC /* Resources */,
+				1E390598C5B7AD182B66D62A /* [CP] Embed Pods Frameworks */,
+				A909B68F07E02CBA209280D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,9 +250,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7492F8D1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesUITests" */;
 			buildPhases = (
+				98CDC3D8CB0D4867966EC61B /* [CP] Check Pods Manifest.lock */,
 				B7492F7A1DAB381F002EADDC /* Sources */,
 				B7492F7B1DAB381F002EADDC /* Frameworks */,
 				B7492F7C1DAB381F002EADDC /* Resources */,
+				6475EDF7576F7D2E64690366 /* [CP] Embed Pods Frameworks */,
+				D93609273D737840FEC543C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,6 +339,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10DE68EEB387E73AC4C14466 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vittles/Pods-Vittles-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E390598C5B7AD182B66D62A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VittlesTests/Pods-VittlesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6475EDF7576F7D2E64690366 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VittlesUITests/Pods-VittlesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72075EA226D16A9CEA941847 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vittles/Pods-Vittles-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98A3B05757A29633382C0BF9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98CDC3D8CB0D4867966EC61B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A909B68F07E02CBA209280D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VittlesTests/Pods-VittlesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B49CBF7C42BFFAD335A8DA5D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D93609273D737840FEC543C5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VittlesUITests/Pods-VittlesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7492F581DAB381F002EADDC /* Sources */ = {
@@ -454,6 +641,7 @@
 		};
 		B7492F881DAB3820002EADDC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C750FDCF1E2BD1356738AD65 /* Pods-Vittles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Vittles/Info.plist;
@@ -466,6 +654,7 @@
 		};
 		B7492F891DAB3820002EADDC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Vittles/Info.plist;
@@ -478,6 +667,7 @@
 		};
 		B7492F8B1DAB3820002EADDC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DAC6CCDF88015B2205F66F8 /* Pods-VittlesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +682,7 @@
 		};
 		B7492F8C1DAB3820002EADDC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08EEB7F45333593906524832 /* Pods-VittlesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +697,7 @@
 		};
 		B7492F8E1DAB3820002EADDC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67317E34336183899428DB2F /* Pods-VittlesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = VittlesUITests/Info.plist;
@@ -519,6 +711,7 @@
 		};
 		B7492F8F1DAB3820002EADDC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F466C8E562EAFF3A34C0681F /* Pods-VittlesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = VittlesUITests/Info.plist;
