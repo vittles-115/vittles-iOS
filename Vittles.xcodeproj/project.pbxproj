@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */; };
+		B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */; };
+		B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
 		B7492F651DAB381F002EADDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7492F631DAB381F002EADDC /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MALocationManager.swift; sourceTree = "<group>"; };
+		B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerHandler.swift; sourceTree = "<group>"; };
+		B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5F1DAB381F002EADDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7492F611DAB381F002EADDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B167F1E11DAB3CCD008EE90B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */,
+				B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */,
+				B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		B7492F531DAB381F002EADDC = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +115,7 @@
 		B7492F5E1DAB381F002EADDC /* Vittles */ = {
 			isa = PBXGroup;
 			children = (
+				B167F1E11DAB3CCD008EE90B /* Utilities */,
 				B7492F5F1DAB381F002EADDC /* AppDelegate.swift */,
 				B7492F611DAB381F002EADDC /* ViewController.swift */,
 				B7492F631DAB381F002EADDC /* Main.storyboard */,
@@ -262,9 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
+				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
 				B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
+				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +529,7 @@
 				B7492F891DAB3820002EADDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B7492F8A1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +538,7 @@
 				B7492F8C1DAB3820002EADDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B7492F8D1DAB3820002EADDC /* Build configuration list for PBXNativeTarget "VittlesUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +547,7 @@
 				B7492F8F1DAB3820002EADDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
