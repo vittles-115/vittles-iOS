@@ -29,7 +29,7 @@
         <scene sceneID="Pvd-5z-7Z8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HbR-5F-fVa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Review" selectedImage="Review" id="OUV-aG-hmy"/>
+                    <tabBarItem key="tabBarItem" title="Review" image="Review" selectedImage="Review" id="OUV-aG-hmy"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SRj-7f-bNY">

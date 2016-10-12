@@ -46,6 +46,7 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Placeholder Code: ",searchBar.text)
+        self.searchBar.resignFirstResponder()
     }
 
     // MARK: - Segment Control

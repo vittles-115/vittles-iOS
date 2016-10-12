@@ -46,6 +46,12 @@ class FoodDishTableViewController: UITableViewController {
         return cell
     }
  
+    //Hide keyboard when tableview moves
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        (self.parent as? HomeSearchViewController)?.searchBar.resignFirstResponder()
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

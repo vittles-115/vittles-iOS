@@ -46,6 +46,14 @@ class RestaurantTableViewController: UITableViewController {
 
         return cell
     }
+    
+    //Hide keyboard when tableview moves
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        (self.parent as? HomeSearchViewController)?.searchBar.resignFirstResponder()
+    
+    }
+
  
 
     /*

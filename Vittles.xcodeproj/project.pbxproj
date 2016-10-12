@@ -32,6 +32,7 @@
 		B11B5DC01DADC25400614BB4 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DB21DADC25400614BB4 /* SourceSansPro-Semibold.otf */; };
 		B11B5DC11DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DB31DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf */; };
 		B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DC41DADC2D500614BB4 /* AppConstants.swift */; };
+		B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */; };
 		B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */; };
 		B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */; };
 		B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */; };
@@ -99,6 +100,7 @@
 		B11B5DB31DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
 		B11B5DC21DADC25D00614BB4 /* arialRoundedMT_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arialRoundedMT_Bold.ttf; sourceTree = "<group>"; };
 		B11B5DC41DADC2D500614BB4 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MALocationManager.swift; sourceTree = "<group>"; };
 		B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerHandler.swift; sourceTree = "<group>"; };
 		B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				B167F1F41DAB4F33008EE90B /* Profile.storyboard */,
+				B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
 				B11B5D991DADBD8E00614BB4 /* FoodDishTableViewController.swift in Sources */,
+				B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */,
 				B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */,
 				B11B5DA21DADC19100614BB4 /* MARestaurantTableViewCell.swift in Sources */,
 				B11B5D9E1DADC18800614BB4 /* MAFoodItemTableViewCell.swift in Sources */,
@@ -843,6 +847,7 @@
 			baseConfigurationReference = C750FDCF1E2BD1356738AD65 /* Pods-Vittles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Vittles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jk.Vittles;
@@ -856,6 +861,7 @@
 			baseConfigurationReference = A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Vittles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jk.Vittles;

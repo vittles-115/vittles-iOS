@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tQ6-PF-Q2T" id="ywa-F3-kLH">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -39,7 +39,7 @@
         <scene sceneID="edO-Oe-zHJ">
             <objects>
                 <navigationController id="8zt-RE-ChY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved" selectedImage="Star" id="kix-37-aTy"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="Star" selectedImage="Star" id="kix-37-aTy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="E58-zE-vPJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
