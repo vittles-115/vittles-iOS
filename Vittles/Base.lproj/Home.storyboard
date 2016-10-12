@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Search View Controller-->
         <scene sceneID="C0R-2U-Cjd">
             <objects>
-                <viewController id="nCl-Ks-cT1" sceneMemberID="viewController">
+                <viewController id="nCl-Ks-cT1" customClass="HomeSearchViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q1X-Qe-3wT"/>
                         <viewControllerLayoutGuide type="bottom" id="jj4-xu-FhE"/>
@@ -18,21 +18,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDX-E7-vpt">
-                                <frame key="frameInset" minX="166" minY="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cvZ-ug-5rF">
+                                <segments>
+                                    <segment title="Food"/>
+                                    <segment title="Restaurant"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlDidChange:" destination="nCl-Ks-cT1" eventType="valueChanged" id="bZ1-dH-SJS"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZc-04-R3q">
+                                <connections>
+                                    <segue destination="lx9-Mo-lfE" kind="embed" id="rFr-rU-imK"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xt-oN-gvf">
+                                <connections>
+                                    <segue destination="1Nv-MS-BHs" kind="embed" id="48G-1Z-TZv"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pZc-04-R3q" secondAttribute="trailing" id="CDX-9j-ZbY"/>
+                            <constraint firstAttribute="bottom" secondItem="pZc-04-R3q" secondAttribute="bottom" id="CZB-Sf-zZE"/>
+                            <constraint firstAttribute="trailing" secondItem="cvZ-ug-5rF" secondAttribute="trailing" id="Ekw-0k-oDp"/>
+                            <constraint firstItem="cvZ-ug-5rF" firstAttribute="leading" secondItem="1XF-44-OaT" secondAttribute="leading" id="HB0-iI-aJd"/>
+                            <constraint firstAttribute="bottom" secondItem="6xt-oN-gvf" secondAttribute="bottom" id="Lg8-tY-XG4"/>
+                            <constraint firstItem="pZc-04-R3q" firstAttribute="leading" secondItem="1XF-44-OaT" secondAttribute="leading" id="MVc-f1-MYF"/>
+                            <constraint firstItem="6xt-oN-gvf" firstAttribute="trailing" secondItem="pZc-04-R3q" secondAttribute="trailing" id="Mbk-vZ-Fsu"/>
+                            <constraint firstItem="6xt-oN-gvf" firstAttribute="top" secondItem="pZc-04-R3q" secondAttribute="top" id="QvE-It-DLS"/>
+                            <constraint firstItem="6xt-oN-gvf" firstAttribute="leading" secondItem="pZc-04-R3q" secondAttribute="leading" id="brT-KP-rOi"/>
+                            <constraint firstItem="pZc-04-R3q" firstAttribute="top" secondItem="cvZ-ug-5rF" secondAttribute="bottom" id="eFr-ar-cek"/>
+                            <constraint firstItem="6xt-oN-gvf" firstAttribute="bottom" secondItem="pZc-04-R3q" secondAttribute="bottom" id="hm1-Nb-DZw"/>
+                            <constraint firstItem="cvZ-ug-5rF" firstAttribute="top" secondItem="q1X-Qe-3wT" secondAttribute="bottom" id="jVA-OF-E5a"/>
+                            <constraint firstItem="6xt-oN-gvf" firstAttribute="leading" secondItem="1XF-44-OaT" secondAttribute="leading" id="qnl-0I-xb0"/>
+                            <constraint firstAttribute="trailing" secondItem="6xt-oN-gvf" secondAttribute="trailing" id="r8A-GU-SMo"/>
+                            <constraint firstItem="6xt-oN-gvf" firstAttribute="top" secondItem="cvZ-ug-5rF" secondAttribute="bottom" id="vvJ-He-s8l"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h3A-sN-iCe"/>
+                    <connections>
+                        <outlet property="foodDishContainer" destination="pZc-04-R3q" id="qwL-BE-dph"/>
+                        <outlet property="resturantContainer" destination="6xt-oN-gvf" id="zFc-hV-Snw"/>
+                        <outlet property="segmentedControl" destination="cvZ-ug-5rF" id="PpA-yk-sns"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LuP-ZC-1gX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1490.4000000000001" y="-205.54722638680661"/>
+        </scene>
+        <!--Food Dish Table View Controller-->
+        <scene sceneID="QmH-BG-VRu">
+            <objects>
+                <tableViewController id="lx9-Mo-lfE" customClass="FoodDishTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZxU-kl-GVS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="lx9-Mo-lfE" id="ngm-zl-FC6"/>
+                            <outlet property="delegate" destination="lx9-Mo-lfE" id="i3X-YJ-Qjm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVb-OH-frz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2428" y="-405"/>
+        </scene>
+        <!--Restaurant Table View Controller-->
+        <scene sceneID="nzA-Yd-uIl">
+            <objects>
+                <tableViewController id="1Nv-MS-BHs" customClass="RestaurantTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zA5-4Y-pHN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="1Nv-MS-BHs" id="CKs-qQ-eGd"/>
+                            <outlet property="delegate" destination="1Nv-MS-BHs" id="4GX-l9-aFX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ool-nq-e0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2428" y="191"/>
         </scene>
         <!--Home-->
         <scene sceneID="shI-B0-GKe">

@@ -10,6 +10,28 @@
 		489ED0083DCF466643F1E0BC /* Pods_Vittles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */; };
 		4C11684618F0458C8138CF59 /* Pods_VittlesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69218590389A6581B712C /* Pods_VittlesTests.framework */; };
 		6C202C4C035DAB45DE5A3B44 /* Pods_VittlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */; };
+		B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */; };
+		B11B5D971DADBD7A00614BB4 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */; };
+		B11B5D991DADBD8E00614BB4 /* FoodDishTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5D981DADBD8E00614BB4 /* FoodDishTableViewController.swift */; };
+		B11B5D9E1DADC18800614BB4 /* MAFoodItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5D9C1DADC18800614BB4 /* MAFoodItemTableViewCell.swift */; };
+		B11B5D9F1DADC18800614BB4 /* MAFoodItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11B5D9D1DADC18800614BB4 /* MAFoodItemTableViewCell.xib */; };
+		B11B5DA21DADC19100614BB4 /* MARestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DA01DADC19100614BB4 /* MARestaurantTableViewCell.swift */; };
+		B11B5DA31DADC19100614BB4 /* MARestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DA11DADC19100614BB4 /* MARestaurantTableViewCell.xib */; };
+		B11B5DA51DADC1E600614BB4 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DA41DADC1E600614BB4 /* UtilityFunctions.swift */; };
+		B11B5DB51DADC25400614BB4 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DA71DADC25400614BB4 /* SIL Open Font License.txt */; };
+		B11B5DB61DADC25400614BB4 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DA81DADC25400614BB4 /* SourceSansPro-Black.otf */; };
+		B11B5DB71DADC25400614BB4 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DA91DADC25400614BB4 /* SourceSansPro-BlackIt.otf */; };
+		B11B5DB81DADC25400614BB4 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DAA1DADC25400614BB4 /* SourceSansPro-Bold.otf */; };
+		B11B5DB91DADC25400614BB4 /* SourceSansPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DAB1DADC25400614BB4 /* SourceSansPro-BoldIt.otf */; };
+		B11B5DBA1DADC25400614BB4 /* SourceSansPro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DAC1DADC25400614BB4 /* SourceSansPro-ExtraLight.otf */; };
+		B11B5DBB1DADC25400614BB4 /* SourceSansPro-ExtraLightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DAD1DADC25400614BB4 /* SourceSansPro-ExtraLightIt.otf */; };
+		B11B5DBC1DADC25400614BB4 /* SourceSansPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DAE1DADC25400614BB4 /* SourceSansPro-It.otf */; };
+		B11B5DBD1DADC25400614BB4 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DAF1DADC25400614BB4 /* SourceSansPro-Light.otf */; };
+		B11B5DBE1DADC25400614BB4 /* SourceSansPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DB01DADC25400614BB4 /* SourceSansPro-LightIt.otf */; };
+		B11B5DBF1DADC25400614BB4 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DB11DADC25400614BB4 /* SourceSansPro-Regular.otf */; };
+		B11B5DC01DADC25400614BB4 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DB21DADC25400614BB4 /* SourceSansPro-Semibold.otf */; };
+		B11B5DC11DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DB31DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf */; };
+		B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DC41DADC2D500614BB4 /* AppConstants.swift */; };
 		B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */; };
 		B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */; };
 		B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */; };
@@ -54,6 +76,29 @@
 		658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VittlesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67317E34336183899428DB2F /* Pods-VittlesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VittlesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VittlesUITests/Pods-VittlesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vittles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vittles/Pods-Vittles.release.xcconfig"; sourceTree = "<group>"; };
+		B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
+		B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		B11B5D981DADBD8E00614BB4 /* FoodDishTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDishTableViewController.swift; sourceTree = "<group>"; };
+		B11B5D9C1DADC18800614BB4 /* MAFoodItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAFoodItemTableViewCell.swift; sourceTree = "<group>"; };
+		B11B5D9D1DADC18800614BB4 /* MAFoodItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MAFoodItemTableViewCell.xib; sourceTree = "<group>"; };
+		B11B5DA01DADC19100614BB4 /* MARestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MARestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		B11B5DA11DADC19100614BB4 /* MARestaurantTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MARestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		B11B5DA41DADC1E600614BB4 /* UtilityFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		B11B5DA71DADC25400614BB4 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		B11B5DA81DADC25400614BB4 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.otf"; sourceTree = "<group>"; };
+		B11B5DA91DADC25400614BB4 /* SourceSansPro-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackIt.otf"; sourceTree = "<group>"; };
+		B11B5DAA1DADC25400614BB4 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
+		B11B5DAB1DADC25400614BB4 /* SourceSansPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldIt.otf"; sourceTree = "<group>"; };
+		B11B5DAC1DADC25400614BB4 /* SourceSansPro-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.otf"; sourceTree = "<group>"; };
+		B11B5DAD1DADC25400614BB4 /* SourceSansPro-ExtraLightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightIt.otf"; sourceTree = "<group>"; };
+		B11B5DAE1DADC25400614BB4 /* SourceSansPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-It.otf"; sourceTree = "<group>"; };
+		B11B5DAF1DADC25400614BB4 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		B11B5DB01DADC25400614BB4 /* SourceSansPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightIt.otf"; sourceTree = "<group>"; };
+		B11B5DB11DADC25400614BB4 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		B11B5DB21DADC25400614BB4 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		B11B5DB31DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
+		B11B5DC21DADC25D00614BB4 /* arialRoundedMT_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arialRoundedMT_Bold.ttf; sourceTree = "<group>"; };
+		B11B5DC41DADC2D500614BB4 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MALocationManager.swift; sourceTree = "<group>"; };
 		B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerHandler.swift; sourceTree = "<group>"; };
 		B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
@@ -136,9 +181,70 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B11B5D9A1DADC14200614BB4 /* FoodDishCell */ = {
+			isa = PBXGroup;
+			children = (
+				B11B5D9C1DADC18800614BB4 /* MAFoodItemTableViewCell.swift */,
+				B11B5D9D1DADC18800614BB4 /* MAFoodItemTableViewCell.xib */,
+			);
+			name = FoodDishCell;
+			sourceTree = "<group>";
+		};
+		B11B5D9B1DADC14F00614BB4 /* RestaurantCell */ = {
+			isa = PBXGroup;
+			children = (
+				B11B5DA01DADC19100614BB4 /* MARestaurantTableViewCell.swift */,
+				B11B5DA11DADC19100614BB4 /* MARestaurantTableViewCell.xib */,
+			);
+			name = RestaurantCell;
+			sourceTree = "<group>";
+		};
+		B11B5DA61DADC23700614BB4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B11B5DB41DADC25400614BB4 /* source-sans-pro */,
+				B11B5DC21DADC25D00614BB4 /* arialRoundedMT_Bold.ttf */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		B11B5DB41DADC25400614BB4 /* source-sans-pro */ = {
+			isa = PBXGroup;
+			children = (
+				B11B5DA71DADC25400614BB4 /* SIL Open Font License.txt */,
+				B11B5DA81DADC25400614BB4 /* SourceSansPro-Black.otf */,
+				B11B5DA91DADC25400614BB4 /* SourceSansPro-BlackIt.otf */,
+				B11B5DAA1DADC25400614BB4 /* SourceSansPro-Bold.otf */,
+				B11B5DAB1DADC25400614BB4 /* SourceSansPro-BoldIt.otf */,
+				B11B5DAC1DADC25400614BB4 /* SourceSansPro-ExtraLight.otf */,
+				B11B5DAD1DADC25400614BB4 /* SourceSansPro-ExtraLightIt.otf */,
+				B11B5DAE1DADC25400614BB4 /* SourceSansPro-It.otf */,
+				B11B5DAF1DADC25400614BB4 /* SourceSansPro-Light.otf */,
+				B11B5DB01DADC25400614BB4 /* SourceSansPro-LightIt.otf */,
+				B11B5DB11DADC25400614BB4 /* SourceSansPro-Regular.otf */,
+				B11B5DB21DADC25400614BB4 /* SourceSansPro-Semibold.otf */,
+				B11B5DB31DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf */,
+			);
+			name = "source-sans-pro";
+			path = "../../MenuApp/MenuApp/fonts/source-sans-pro";
+			sourceTree = "<group>";
+		};
+		B11B5DC31DADC2B800614BB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B167F1F91DAB4F87008EE90B /* Profile */,
+				B167F1FA1DAB4F9A008EE90B /* SavedList */,
+				B167F1FB1DAB4FA2008EE90B /* Review */,
+				B167F1FC1DAB4FAB008EE90B /* Home */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B167F1E11DAB3CCD008EE90B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B11B5DC41DADC2D500614BB4 /* AppConstants.swift */,
+				B11B5DA41DADC1E600614BB4 /* UtilityFunctions.swift */,
 				B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */,
 				B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */,
 				B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */,
@@ -183,7 +289,12 @@
 		B167F1FC1DAB4FAB008EE90B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B11B5D9B1DADC14F00614BB4 /* RestaurantCell */,
+				B11B5D9A1DADC14200614BB4 /* FoodDishCell */,
 				B167F1EF1DAB4EBB008EE90B /* Home.storyboard */,
+				B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */,
+				B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */,
+				B11B5D981DADBD8E00614BB4 /* FoodDishTableViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -213,15 +324,13 @@
 		B7492F5E1DAB381F002EADDC /* Vittles */ = {
 			isa = PBXGroup;
 			children = (
+				B11B5DA61DADC23700614BB4 /* Assets */,
 				B167F1E81DAB3D2F008EE90B /* Firebase */,
 				B167F1E11DAB3CCD008EE90B /* Utilities */,
 				B7492F5F1DAB381F002EADDC /* AppDelegate.swift */,
 				B7492F611DAB381F002EADDC /* ViewController.swift */,
 				B7492F631DAB381F002EADDC /* Main.storyboard */,
-				B167F1F91DAB4F87008EE90B /* Profile */,
-				B167F1FA1DAB4F9A008EE90B /* SavedList */,
-				B167F1FB1DAB4FA2008EE90B /* Review */,
-				B167F1FC1DAB4FAB008EE90B /* Home */,
+				B11B5DC31DADC2B800614BB4 /* Views */,
 				B7492F691DAB381F002EADDC /* Assets.xcassets */,
 				B7492F6B1DAB381F002EADDC /* LaunchScreen.storyboard */,
 				B7492F6E1DAB381F002EADDC /* Info.plist */,
@@ -365,14 +474,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11B5DA31DADC19100614BB4 /* MARestaurantTableViewCell.xib in Resources */,
+				B11B5DB51DADC25400614BB4 /* SIL Open Font License.txt in Resources */,
+				B11B5DBD1DADC25400614BB4 /* SourceSansPro-Light.otf in Resources */,
 				B167F1F61DAB4F33008EE90B /* Profile.storyboard in Resources */,
+				B11B5DBA1DADC25400614BB4 /* SourceSansPro-ExtraLight.otf in Resources */,
+				B11B5DBE1DADC25400614BB4 /* SourceSansPro-LightIt.otf in Resources */,
 				B1BCC3251DAB523C0016CA39 /* GoogleService-Info.plist in Resources */,
 				B7492F6D1DAB381F002EADDC /* LaunchScreen.storyboard in Resources */,
+				B11B5DB71DADC25400614BB4 /* SourceSansPro-BlackIt.otf in Resources */,
 				B167F1F31DAB4EE9008EE90B /* Review.storyboard in Resources */,
 				B7492F6A1DAB381F002EADDC /* Assets.xcassets in Resources */,
+				B11B5DC11DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf in Resources */,
+				B11B5DB81DADC25400614BB4 /* SourceSansPro-Bold.otf in Resources */,
+				B11B5DBC1DADC25400614BB4 /* SourceSansPro-It.otf in Resources */,
+				B11B5DBB1DADC25400614BB4 /* SourceSansPro-ExtraLightIt.otf in Resources */,
+				B11B5DB61DADC25400614BB4 /* SourceSansPro-Black.otf in Resources */,
 				B167F1F81DAB4F71008EE90B /* SavedList.storyboard in Resources */,
+				B11B5DB91DADC25400614BB4 /* SourceSansPro-BoldIt.otf in Resources */,
+				B11B5D9F1DADC18800614BB4 /* MAFoodItemTableViewCell.xib in Resources */,
+				B11B5DC01DADC25400614BB4 /* SourceSansPro-Semibold.otf in Resources */,
 				B7492F651DAB381F002EADDC /* Main.storyboard in Resources */,
 				B167F1F11DAB4EBB008EE90B /* Home.storyboard in Resources */,
+				B11B5DBF1DADC25400614BB4 /* SourceSansPro-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,10 +662,17 @@
 				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
 				B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */,
+				B11B5DA51DADC1E600614BB4 /* UtilityFunctions.swift in Sources */,
+				B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */,
 				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
+				B11B5D971DADBD7A00614BB4 /* RestaurantTableViewController.swift in Sources */,
 				B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
+				B11B5D991DADBD8E00614BB4 /* FoodDishTableViewController.swift in Sources */,
+				B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */,
+				B11B5DA21DADC19100614BB4 /* MARestaurantTableViewCell.swift in Sources */,
+				B11B5D9E1DADC18800614BB4 /* MAFoodItemTableViewCell.swift in Sources */,
 				B167F1EC1DAB3D3F008EE90B /* FirebaseConstants.swift in Sources */,
 				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,
 			);

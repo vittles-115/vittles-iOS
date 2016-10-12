@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.otf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+        <array key="SourceSansPro-Semibold.otf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" id="KGk-i7-Jjw" customClass="MAFoodItemTableViewCell" customModule="MenuApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="375" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XJQ-uL-ioV">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="KNb-DB-d2k"/>
+                            <constraint firstAttribute="width" secondItem="XJQ-uL-ioV" secondAttribute="height" multiplier="1:1" id="U3w-yH-oGf"/>
+                            <constraint firstAttribute="width" constant="60" id="xFw-tg-v4d"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n1-7L-ygi">
+                        <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
+                        <color key="textColor" red="0.38823529410000002" green="0.3921568627" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resturant" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7u-nd-DWG">
+                        <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
+                        <color key="textColor" red="0.38823529410000002" green="0.3921568627" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkL-q8-2HS">
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ym4-z2-3EI" customClass="CosmosView" customModule="Cosmos">
+                        <frame key="frameInset" minX="77" minY="51" width="95" height="15"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                <color key="value" red="1" green="0.88235294117647056" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                <color key="value" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                <color key="value" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                <color key="value" red="1" green="0.88235294119999996" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xjF-i0-RGL">
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="xjF-i0-RGL" secondAttribute="height" multiplier="1:1" id="8FG-ZI-KQp"/>
+                            <constraint firstAttribute="width" constant="15" id="iZS-0P-DPx"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XJQ-uL-ioV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3B3-zs-XXZ"/>
+                    <constraint firstItem="4n1-7L-ygi" firstAttribute="top" secondItem="XJQ-uL-ioV" secondAttribute="top" id="597-6X-8mh"/>
+                    <constraint firstItem="kkL-q8-2HS" firstAttribute="trailing" secondItem="4n1-7L-ygi" secondAttribute="trailing" constant="23" id="Eu2-jE-bOG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4n1-7L-ygi" secondAttribute="trailing" constant="23" id="NQH-xp-HIP"/>
+                    <constraint firstItem="xjF-i0-RGL" firstAttribute="top" secondItem="4n1-7L-ygi" secondAttribute="top" id="OPD-qv-ipT"/>
+                    <constraint firstItem="kkL-q8-2HS" firstAttribute="leading" secondItem="4n1-7L-ygi" secondAttribute="leading" id="QEe-Wc-kWI"/>
+                    <constraint firstItem="XJQ-uL-ioV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="Sik-5s-K5r"/>
+                    <constraint firstItem="Ym4-z2-3EI" firstAttribute="leading" secondItem="4n1-7L-ygi" secondAttribute="leading" id="Sql-Us-Rvj"/>
+                    <constraint firstItem="U7u-nd-DWG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-1" id="UCR-Yn-Q0s"/>
+                    <constraint firstItem="Ym4-z2-3EI" firstAttribute="top" secondItem="kkL-q8-2HS" secondAttribute="bottom" constant="2" id="fQI-tk-in2"/>
+                    <constraint firstItem="4n1-7L-ygi" firstAttribute="leading" secondItem="XJQ-uL-ioV" secondAttribute="trailing" constant="8" id="m4A-74-3Kp"/>
+                    <constraint firstItem="U7u-nd-DWG" firstAttribute="bottom" secondItem="XJQ-uL-ioV" secondAttribute="bottom" id="pKk-kM-bfU"/>
+                    <constraint firstItem="kkL-q8-2HS" firstAttribute="centerY" secondItem="XJQ-uL-ioV" secondAttribute="centerY" id="wRE-ov-dNp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xjF-i0-RGL" secondAttribute="trailing" id="zjN-id-dRD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="foodDescriptionLabel" destination="kkL-q8-2HS" id="mnI-u7-clV"/>
+                <outlet property="foodImageView" destination="XJQ-uL-ioV" id="V0L-3M-vav"/>
+                <outlet property="foodNameLabel" destination="4n1-7L-ygi" id="FMC-8h-AeE"/>
+                <outlet property="ratingCosmosView" destination="Ym4-z2-3EI" id="GVj-NT-yFI"/>
+                <outlet property="resturantNameLabel" destination="U7u-nd-DWG" id="W3M-N9-9e3"/>
+                <outlet property="savedStarImageView" destination="xjF-i0-RGL" id="FU9-ME-LsO"/>
+            </connections>
+            <point key="canvasLocation" x="349.5" y="296"/>
+        </tableViewCell>
+    </objects>
+</document>

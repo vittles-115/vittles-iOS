@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
+        //Global UI Setup
+        setupNavigationBarGlobal()
+        setupTabBarGlobal()
+        
         return true
     }
 
@@ -93,5 +97,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    // MARK: - Global UI
+    
+    // Naigation Bar Set Up
+    func setupNavigationBarGlobal() {
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName : UIFont(name: "Apple SD Gothic Neo", size: 18)!]
+        UINavigationBar.appearance().titleTextAttributes = titleDict as? [String : AnyObject]
+        UIBarButtonItem.appearance().setTitleTextAttributes(titleDict as? [String : AnyObject], for: UIControlState())
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = MA_Red
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        UINavigationBar.appearance().barStyle = .black
+        
+    }
+    
+    // Tab Bar Set Up
+    func setupTabBarGlobal() {
+        
+        UITabBar.appearance().tintColor = MA_Red
+        //UITabBar.appearance().barTintColor = OWCGreen
+    }
+    
+
+    
 }
 
