@@ -23,6 +23,7 @@
                                     <segment title="Food"/>
                                     <segment title="Restaurant"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="segmentedControlDidChange:" destination="nCl-Ks-cT1" eventType="valueChanged" id="bZ1-dH-SJS"/>
                                 </connections>
@@ -33,6 +34,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xt-oN-gvf">
+                                <color key="tintColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="1Nv-MS-BHs" kind="embed" id="48G-1Z-TZv"/>
                                 </connections>
@@ -111,7 +113,7 @@
                     <tabBarItem key="tabBarItem" title="Home" selectedImage="Search" id="KRP-b4-Rkz"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hHb-6g-nqC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hHb-6g-nqC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

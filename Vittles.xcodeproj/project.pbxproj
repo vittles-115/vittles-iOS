@@ -243,7 +243,6 @@
 		B167F1E11DAB3CCD008EE90B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				B11B5DC41DADC2D500614BB4 /* AppConstants.swift */,
 				B11B5DA41DADC1E600614BB4 /* UtilityFunctions.swift */,
 				B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */,
 				B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */,
@@ -328,6 +327,7 @@
 				B167F1E81DAB3D2F008EE90B /* Firebase */,
 				B167F1E11DAB3CCD008EE90B /* Utilities */,
 				B7492F5F1DAB381F002EADDC /* AppDelegate.swift */,
+				B11B5DC41DADC2D500614BB4 /* AppConstants.swift */,
 				B7492F611DAB381F002EADDC /* ViewController.swift */,
 				B7492F631DAB381F002EADDC /* Main.storyboard */,
 				B11B5DC31DADC2B800614BB4 /* Views */,

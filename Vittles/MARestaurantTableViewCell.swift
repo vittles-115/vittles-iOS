@@ -38,6 +38,25 @@ class MARestaurantTableViewCell: UITableViewCell {
         resturantImageView.image = UIImage()
     }
     
+    func setUpCell(){
+        
+        resturantNameLabel.isHidden = false
+        addressLabel.isHidden = false
+        foodCategoryLabel.isHidden = false
+        
+        //Load image from url and set corner radius
+        
+
+        self.resturantImageView.image = UIImage(named: "icons1")!
+    
+        
+        self.resturantImageView.setCornerRadius(9)
+        
+        self.resturantNameLabel.text = "Restaurant Name"
+        self.addressLabel.text = "Address"
+        self.foodCategoryLabel.text = "American, Fast Food, Burgers"
+    }
+    
     
     
 }
