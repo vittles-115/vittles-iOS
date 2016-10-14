@@ -43,6 +43,7 @@
 		B167F1F31DAB4EE9008EE90B /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F21DAB4EE9008EE90B /* Review.storyboard */; };
 		B167F1F61DAB4F33008EE90B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F41DAB4F33008EE90B /* Profile.storyboard */; };
 		B167F1F81DAB4F71008EE90B /* SavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F71DAB4F71008EE90B /* SavedList.storyboard */; };
+		B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */; };
 		B1BCC3251DAB523C0016CA39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
@@ -111,6 +112,7 @@
 		B167F1F21DAB4EE9008EE90B /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		B167F1F51DAB4F33008EE90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		B167F1F71DAB4F71008EE90B /* SavedList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedList.storyboard; sourceTree = "<group>"; };
+		B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +299,7 @@
 				B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */,
 				B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */,
 				B11B5D981DADBD8E00614BB4 /* FoodDishTableViewController.swift */,
+				B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
 				B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */,
+				B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */,
 				B11B5DA51DADC1E600614BB4 /* UtilityFunctions.swift in Sources */,
 				B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */,
 				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
