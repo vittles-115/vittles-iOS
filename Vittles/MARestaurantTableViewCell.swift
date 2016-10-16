@@ -38,7 +38,7 @@ class MARestaurantTableViewCell: UITableViewCell {
         resturantImageView.image = UIImage()
     }
     
-    func setUpCell(){
+    func setUpCell(restaurant:RestaurantObject){
         
         resturantNameLabel.isHidden = false
         addressLabel.isHidden = false
@@ -52,9 +52,9 @@ class MARestaurantTableViewCell: UITableViewCell {
         
         self.resturantImageView.setCornerRadius(9)
         
-        self.resturantNameLabel.text = "Restaurant Name"
-        self.addressLabel.text = "Address"
-        self.foodCategoryLabel.text = "American, Fast Food, Burgers"
+        self.resturantNameLabel.text = restaurant.name
+        self.addressLabel.text = restaurant.address
+        self.foodCategoryLabel.text = restaurant.categories?.joined(separator: ", ")
     }
     
     

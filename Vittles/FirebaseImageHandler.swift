@@ -43,6 +43,8 @@ class FirebaseImageHandler{
             }
         }
         
+        FirebaseMenuRef.childByAutoId()
+        
         return downloadedImage!
     }
 }

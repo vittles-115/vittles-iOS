@@ -6,12 +6,22 @@
 
 import UIKit
 
-class FoodDishTableViewController: UITableViewController {
+class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDelegate{
 
+    var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
+    var dishes:[DishObject] = [DishObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "MAFoodItemTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
+        dataHandler.delegate = self
+        dataHandler.getDishes(numberOfDishes: 10)
+//            FirebaseResturantRef.child("-KTBwNgW2e3fWmLpypWj").child("lowercased_name").setValue("munch")
+//            FirebaseResturantRef.child("-KTBwzEo1iRuMH8732bE").child("lowercased_name").setValue("burger.")
+//                FirebaseDishRef.child("-KTD3kA15O5pPCIv_ep5").child("food_description").setValue("A tasty burger topped with grilled onions, mayo, and house made dressing.")
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +38,7 @@ class FoodDishTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return dishes.count
     }
     
     //Row hieght of 80
@@ -41,7 +51,7 @@ class FoodDishTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as! MAFoodItemTableViewCell
 
         // Configure the cell...
-        cell.setupCell()
+        cell.setupCell(fromDish: dishes[indexPath.row])
 
         return cell
     }
@@ -54,19 +64,19 @@ class FoodDishTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let parentVC = self.parent as! HomeSearchViewController
-        parentVC.performSegue(withIdentifier: "showFoodDetails", sender: nil)
+        self.parent?.performSegue(withIdentifier: "showFoodDetails", sender: self.dishes[indexPath.row])
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func didFetchDishes(value:NSDictionary?) {
+        
+        self.dishes = FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
+        self.tableView.reloadData()
+        //print("dishes",foodArray)
     }
-    */
-
+    
+    func failedToFetchDishes(errorString: String) {
+        print("error is: ",errorString)
+    }
+    
 }

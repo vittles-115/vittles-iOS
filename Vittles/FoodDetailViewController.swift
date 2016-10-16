@@ -17,6 +17,7 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
   
     var selectedImageURL:String = ""
     var selectedImage:UIImage?
+    var dish:DishObject?
   
     
     //var loadedObjects:[MAReview] = [MAReview]()
@@ -25,16 +26,15 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Initialize Data Managers
-        
-        
         addTopDivider(self.showMoreButton, thickness: 1, color: MA_BGGray)
         
         //Setup delegates
         self.scrollView.delegate = self
         //self.scrollView.contentSize.height = 2000
         
+        self.foodDescriptionLabel.text = dish?.foodDescription
+        self.title = dish?.name
+    
       
 
         

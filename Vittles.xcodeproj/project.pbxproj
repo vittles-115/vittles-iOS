@@ -44,6 +44,15 @@
 		B167F1F61DAB4F33008EE90B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F41DAB4F33008EE90B /* Profile.storyboard */; };
 		B167F1F81DAB4F71008EE90B /* SavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F71DAB4F71008EE90B /* SavedList.storyboard */; };
 		B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */; };
+		B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */; };
+		B197DD2F1DB1ABFD00D76DB5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */; };
+		B197DD311DB2FB5600D76DB5 /* DishObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD301DB2FB5600D76DB5 /* DishObject.swift */; };
+		B197DD331DB2FCDF00D76DB5 /* ReviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD321DB2FCDF00D76DB5 /* ReviewObject.swift */; };
+		B197DD351DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD341DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift */; };
+		B197DD371DB3115100D76DB5 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD361DB3115100D76DB5 /* UserObject.swift */; };
+		B197DD3B1DB31A9800D76DB5 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */; };
+		B197DD3D1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */; };
+		B197DD3F1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */; };
 		B1BCC3251DAB523C0016CA39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
@@ -113,6 +122,15 @@
 		B167F1F51DAB4F33008EE90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		B167F1F71DAB4F71008EE90B /* SavedList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedList.storyboard; sourceTree = "<group>"; };
 		B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataHandler.swift; sourceTree = "<group>"; };
+		B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
+		B197DD301DB2FB5600D76DB5 /* DishObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishObject.swift; sourceTree = "<group>"; };
+		B197DD321DB2FCDF00D76DB5 /* ReviewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewObject.swift; sourceTree = "<group>"; };
+		B197DD341DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseObjectConverter.swift; sourceTree = "<group>"; };
+		B197DD361DB3115100D76DB5 /* UserObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
+		B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPickRestaurantTableViewController.swift; sourceTree = "<group>"; };
+		B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPickRestaurantMainViewController.swift; sourceTree = "<group>"; };
 		B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,9 +276,12 @@
 		B167F1E81DAB3D2F008EE90B /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				B197DD2D1DB1ABEA00D76DB5 /* VittlesFirebaseObjects */,
 				B167F1E91DAB3D3F008EE90B /* FirebaseConstants.swift */,
 				B167F1EA1DAB3D3F008EE90B /* FirebaseUserHandler.swift */,
 				B167F1EB1DAB3D3F008EE90B /* FirebaseImageHandler.swift */,
+				B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */,
+				B197DD341DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -286,6 +307,9 @@
 			isa = PBXGroup;
 			children = (
 				B167F1F21DAB4EE9008EE90B /* Review.storyboard */,
+				B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */,
+				B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */,
+				B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */,
 			);
 			name = Review;
 			sourceTree = "<group>";
@@ -302,6 +326,17 @@
 				B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		B197DD2D1DB1ABEA00D76DB5 /* VittlesFirebaseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */,
+				B197DD301DB2FB5600D76DB5 /* DishObject.swift */,
+				B197DD321DB2FCDF00D76DB5 /* ReviewObject.swift */,
+				B197DD361DB3115100D76DB5 /* UserObject.swift */,
+			);
+			name = VittlesFirebaseObjects;
 			sourceTree = "<group>";
 		};
 		B7492F531DAB381F002EADDC = {
@@ -665,24 +700,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B197DD331DB2FCDF00D76DB5 /* ReviewObject.swift in Sources */,
 				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
 				B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */,
 				B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */,
 				B11B5DA51DADC1E600614BB4 /* UtilityFunctions.swift in Sources */,
+				B197DD2F1DB1ABFD00D76DB5 /* RestaurantObject.swift in Sources */,
 				B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */,
 				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
+				B197DD3D1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift in Sources */,
 				B11B5D971DADBD7A00614BB4 /* RestaurantTableViewController.swift in Sources */,
+				B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */,
 				B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
 				B11B5D991DADBD8E00614BB4 /* FoodDishTableViewController.swift in Sources */,
 				B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */,
+				B197DD3F1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift in Sources */,
 				B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */,
+				B197DD3B1DB31A9800D76DB5 /* ReviewViewController.swift in Sources */,
+				B197DD371DB3115100D76DB5 /* UserObject.swift in Sources */,
 				B11B5DA21DADC19100614BB4 /* MARestaurantTableViewCell.swift in Sources */,
 				B11B5D9E1DADC18800614BB4 /* MAFoodItemTableViewCell.swift in Sources */,
+				B197DD351DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift in Sources */,
 				B167F1EC1DAB3D3F008EE90B /* FirebaseConstants.swift in Sources */,
 				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,
+				B197DD311DB2FB5600D76DB5 /* DishObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

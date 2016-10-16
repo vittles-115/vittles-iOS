@@ -15,8 +15,11 @@ let FirebaseRootRef = FIRDatabase.database().reference()
 let FirebaseUserRef = FirebaseRootRef.child("Users")
 let FirebaseResturantRef = FirebaseRootRef.child("Resturants")
 let FirebaseMenuRef = FirebaseRootRef.child("Menus")
+let FirebaseDishRef = FirebaseRootRef.child("Dishes")
 
 //File Storage
 let FirebaseImageStorage = FIRStorage.storage()
-let FirebaseImageRef = FirebaseImageStorage.reference(forURL: "gs://vittles-52429.appspot.com")
+let FirebaseImageRef = FirebaseImageStorage.reference(forURL: "gs://vittles-1c0fb.appspot.com")
 let FirebaseFoodImageRef = FirebaseImageRef.child("FoodImages")
+
+//Firebase Object Keys 

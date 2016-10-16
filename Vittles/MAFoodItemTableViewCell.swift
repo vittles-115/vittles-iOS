@@ -42,7 +42,7 @@ class MAFoodItemTableViewCell: UITableViewCell {
     }
     
     //Setup cell from given MAFoodItem object
-    func setupCell(){
+    func setupCell(fromDish:DishObject){
         
         foodNameLabel.isHidden = false
         foodDescriptionLabel.isHidden = false
@@ -54,10 +54,10 @@ class MAFoodItemTableViewCell: UITableViewCell {
         
         self.foodImageView.setCornerRadius(9)
         
-        self.foodNameLabel.text = "Food"
-        self.foodDescriptionLabel.text = "This is the description of the yummy food!"
-        self.resturantNameLabel.text = "Restaurant Name"
-        self.ratingCosmosView.rating = 4.5
+        self.foodNameLabel.text = fromDish.name
+        self.foodDescriptionLabel.text = fromDish.foodDescription
+        self.resturantNameLabel.text = fromDish.restaurantName
+        self.ratingCosmosView.rating = fromDish.averageRating
         self.ratingCosmosView.settings.fillMode = StarFillMode.precise
     }
 
