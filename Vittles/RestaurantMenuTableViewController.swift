@@ -11,6 +11,7 @@ import UIKit
 class RestaurantMenuTableViewController: UITableViewController ,FirebaseDataHandlerDelegate{
     
     var dishes:[DishObject] = [DishObject]()
+    var filteredDishes:[DishObject] = [DishObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class RestaurantMenuTableViewController: UITableViewController ,FirebaseDataHand
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.dishes.count
+        return self.filteredDishes.count
     }
     
     //Row hieght of 80
@@ -53,6 +54,7 @@ class RestaurantMenuTableViewController: UITableViewController ,FirebaseDataHand
     func didFetchDishesForMenu(value:NSDictionary?) {
         print("returned with : ", value)
         self.dishes = FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
+        self.filteredDishes = dishes
         self.tableView.reloadData()
         //print("dishes",foodArray)
     }

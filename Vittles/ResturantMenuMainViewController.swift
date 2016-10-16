@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResturantMenuMainViewController: UIViewController {
+class ResturantMenuMainViewController: UIViewController, UISearchBarDelegate {
 
     var restaurant:RestaurantObject?
     var selectedMenu:String?
@@ -23,6 +23,7 @@ class ResturantMenuMainViewController: UIViewController {
         guard selectedMenu != nil else {
             return
         }
+        self.searchBar.delegate = self
         self.title = selectedMenu
         self.dataHandler.delegate = self.childViewControllers.first as! RestaurantMenuTableViewController
         self.dataHandler.getDishesFor(restaurantID: (restaurant?.uniqueID)!, menuNamed: selectedMenu!)
@@ -33,6 +34,15 @@ class ResturantMenuMainViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let childVC = self.childViewControllers.first as! RestaurantMenuTableViewController
+        childVC.filteredDishes = childVC.dishes.filter({ $0.name.localizedCaseInsensitiveContains(searchBar.text!) })
+        if self.searchBar.text == "" {
+            childVC.filteredDishes = childVC.dishes
+        }
+        childVC.tableView.reloadData()
     }
     
 
