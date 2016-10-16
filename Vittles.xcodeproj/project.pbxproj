@@ -53,6 +53,9 @@
 		B197DD3B1DB31A9800D76DB5 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */; };
 		B197DD3D1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */; };
 		B197DD3F1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */; };
+		B197DD441DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD431DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift */; };
+		B197DD461DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD451DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift */; };
+		B197DD481DB35ED100D76DB5 /* ResturantMenuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD471DB35ED100D76DB5 /* ResturantMenuMainViewController.swift */; };
 		B1BCC3251DAB523C0016CA39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
@@ -131,6 +134,9 @@
 		B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPickRestaurantTableViewController.swift; sourceTree = "<group>"; };
 		B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPickRestaurantMainViewController.swift; sourceTree = "<group>"; };
+		B197DD431DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantPickMenuTableViewController.swift; sourceTree = "<group>"; };
+		B197DD451DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenuTableViewController.swift; sourceTree = "<group>"; };
+		B197DD471DB35ED100D76DB5 /* ResturantMenuMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResturantMenuMainViewController.swift; sourceTree = "<group>"; };
 		B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,8 +314,8 @@
 			children = (
 				B167F1F21DAB4EE9008EE90B /* Review.storyboard */,
 				B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */,
-				B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */,
 				B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */,
+				B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */,
 			);
 			name = Review;
 			sourceTree = "<group>";
@@ -317,13 +323,11 @@
 		B167F1FC1DAB4FAB008EE90B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B197DD411DB35E6100D76DB5 /* Restaurant */,
+				B197DD401DB35E4100D76DB5 /* Dishes */,
 				B11B5D9B1DADC14F00614BB4 /* RestaurantCell */,
-				B11B5D9A1DADC14200614BB4 /* FoodDishCell */,
 				B167F1EF1DAB4EBB008EE90B /* Home.storyboard */,
 				B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */,
-				B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */,
-				B11B5D981DADBD8E00614BB4 /* FoodDishTableViewController.swift */,
-				B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -337,6 +341,27 @@
 				B197DD361DB3115100D76DB5 /* UserObject.swift */,
 			);
 			name = VittlesFirebaseObjects;
+			sourceTree = "<group>";
+		};
+		B197DD401DB35E4100D76DB5 /* Dishes */ = {
+			isa = PBXGroup;
+			children = (
+				B11B5D9A1DADC14200614BB4 /* FoodDishCell */,
+				B11B5D981DADBD8E00614BB4 /* FoodDishTableViewController.swift */,
+				B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */,
+			);
+			name = Dishes;
+			sourceTree = "<group>";
+		};
+		B197DD411DB35E6100D76DB5 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */,
+				B197DD431DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift */,
+				B197DD451DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift */,
+				B197DD471DB35ED100D76DB5 /* ResturantMenuMainViewController.swift */,
+			);
+			name = Restaurant;
 			sourceTree = "<group>";
 		};
 		B7492F531DAB381F002EADDC = {
@@ -702,6 +727,7 @@
 			files = (
 				B197DD331DB2FCDF00D76DB5 /* ReviewObject.swift in Sources */,
 				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
+				B197DD441DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
 				B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */,
 				B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */,
@@ -716,6 +742,7 @@
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
 				B11B5D991DADBD8E00614BB4 /* FoodDishTableViewController.swift in Sources */,
+				B197DD481DB35ED100D76DB5 /* ResturantMenuMainViewController.swift in Sources */,
 				B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */,
 				B197DD3F1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift in Sources */,
 				B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */,
@@ -725,6 +752,7 @@
 				B11B5D9E1DADC18800614BB4 /* MAFoodItemTableViewCell.swift in Sources */,
 				B197DD351DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift in Sources */,
 				B167F1EC1DAB3D3F008EE90B /* FirebaseConstants.swift in Sources */,
+				B197DD461DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift in Sources */,
 				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,
 				B197DD311DB2FB5600D76DB5 /* DishObject.swift in Sources */,
 			);

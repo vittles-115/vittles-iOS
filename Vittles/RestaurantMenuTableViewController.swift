@@ -1,22 +1,22 @@
 //
-//  ReviewPickRestaurantTableViewController.swift
+//  RestaurantMenuTableViewController.swift
 //  Vittles
 //
-//  Created by Jenny Kwok on 10/15/16.
+//  Created by Jenny Kwok on 10/16/16.
 //  Copyright © 2016 Jenny Kwok. All rights reserved.
 //
 
 import UIKit
 
-class ReviewPickRestaurantTableViewController: UITableViewController ,FirebaseDataHandlerDelegate{
-
-    var restaurants:[RestaurantObject] = [RestaurantObject]()
+class RestaurantMenuTableViewController: UITableViewController ,FirebaseDataHandlerDelegate{
+    
+    var dishes:[DishObject] = [DishObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "MARestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
-        
+        tableView.register(UINib(nibName: "MAFoodItemTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,41 +33,44 @@ class ReviewPickRestaurantTableViewController: UITableViewController ,FirebaseDa
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restaurants.count
-    }
-    
-    
-    func didFetchRestaurants(value:NSDictionary?){
-        self.restaurants = FirebaseObjectConverter.restaurantArrayFrom(dictionary: value!)
-        print("fetched the following: ",value,self.restaurants)
-        self.tableView.reloadData()
-    }
-    
-    func failedToFetchRestaurants(errorString:String){
-        print("failed to fetch restaurant: ", errorString)
-    }
-    
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MARestaurantTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantCell", for: indexPath) as! MARestaurantTableViewCell
-        
-        // Configure the cell...
-        cell.setUpCell(restaurant: restaurants[indexPath.row])
-        
-        return cell
+        return self.dishes.count
     }
     
     //Row hieght of 80
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MAFoodItemTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as! MAFoodItemTableViewCell
+        
+        // Configure the cell...
+        cell.setupCell(fromDish: dishes[indexPath.row])
+        
+        return cell
+    }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let parentVC = (parent as! ReviewPickRestaurantMainViewController)
-        parentVC.pickedRestaurant = restaurants[indexPath.row]
-        parentVC.performSegue(withIdentifier: "pickedRestaurant", sender: nil)
+    func didFetchDishesForMenu(value:NSDictionary?) {
+        print("returned with : ", value)
+        self.dishes = FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
+        self.tableView.reloadData()
+        //print("dishes",foodArray)
     }
     
+    func failedToFetchDishes(errorString: String) {
+        print("error is: ",errorString)
+    }
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+ 
+*/
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

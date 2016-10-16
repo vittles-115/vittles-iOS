@@ -10,6 +10,7 @@ class ReviewViewController: UIViewController,UITextFieldDelegate,UIPopoverPresen
 
     @IBOutlet weak var restaurantTextfield: UITextField!
     @IBOutlet weak var restaurantLabelView: UIView!
+    var pickedRestaurant:RestaurantObject?
     
     @IBOutlet weak var dishTextfield: UITextField!
     
@@ -38,6 +39,14 @@ class ReviewViewController: UIViewController,UITextFieldDelegate,UIPopoverPresen
         return UIModalPresentationStyle.none
     }
 
+    @IBAction func didFinishPickingRestaurant(_ segue: UIStoryboardSegue) {
+        print("returned from pick   ", self.pickedRestaurant?.name)
+        guard (self.pickedRestaurant?.name) != nil else{
+            return
+        }
+        self.restaurantTextfield.text = self.pickedRestaurant?.name
+    }
+    
     
     // MARK: - Navigation
 

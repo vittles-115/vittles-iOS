@@ -11,6 +11,7 @@ typealias FirebaseResponse = (NSDictionary?) -> Void
 
 @objc protocol FirebaseDataHandlerDelegate {
     @objc optional func didFetchDishes(value:NSDictionary?)
+    @objc optional func didFetchDishesForMenu(value:NSDictionary?)
     @objc optional func failedToFetchDishes(errorString:String)
     
     @objc optional func didFetchRestaurants(value:NSDictionary?)
@@ -31,6 +32,54 @@ class FirebaseDataHandler{
             
             self.delegate?.didFetchDishes?(value:value)
 
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+        }
+    }
+    
+    func getDishesFor(restaurantID:String, menuNamed:String){
+        
+        FirebaseMenuRef.child(restaurantID).child(menuNamed).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let menuObjects = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchDishes?(errorString: "Menu doesnt exist")
+                return
+            }
+            
+            let dishDictionary:NSMutableDictionary = NSMutableDictionary()
+            let numberOfObjects = menuObjects.count
+            var currObject = 0
+            for (key, _) in menuObjects{
+                
+                FirebaseDishRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // do some stuff once
+                    guard let dish = snapshot.value as? NSDictionary else{
+                        return
+                    }
+                    dishDictionary[key] = dish
+                    currObject += 1;
+                    if currObject == numberOfObjects{
+                        self.delegate?.didFetchDishesForMenu?(value:dishDictionary)
+                    }
+                })
+                
+                
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+        }
+
+        
+        FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            //print("number of objects is",value!.count," values are :",value)
+            
+            self.delegate?.didFetchDishes?(value:value)
+            
         }) { (error) in
             print(error.localizedDescription)
             self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)

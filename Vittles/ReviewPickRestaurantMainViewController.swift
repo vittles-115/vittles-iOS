@@ -11,6 +11,7 @@ import UIKit
 class ReviewPickRestaurantMainViewController: UIViewController,UISearchBarDelegate,FirebaseDataHandlerDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
+    var pickedRestaurant:RestaurantObject?
     
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     
@@ -40,7 +41,7 @@ class ReviewPickRestaurantMainViewController: UIViewController,UISearchBarDelega
         self.dismiss(animated: true, completion: nil)
         //self.view.endEditing(true)
     }
-    
+        
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         //DEV NOTE: Need to generalize numbers for diffrent sizes
@@ -49,14 +50,19 @@ class ReviewPickRestaurantMainViewController: UIViewController,UISearchBarDelega
 
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "pickedRestaurant"{
+            let destinationVC = segue.destination as! ReviewViewController
+            destinationVC.pickedRestaurant = self.pickedRestaurant
+        }
+        
     }
-    */
+    
 
 }
