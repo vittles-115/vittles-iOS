@@ -535,6 +535,7 @@
 				TargetAttributes = {
 					B7492F5B1DAB381F002EADDC = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 72FC7F34T6;
 						ProvisioningStyle = Automatic;
 					};
 					B7492F721DAB381F002EADDC = {
@@ -963,7 +964,7 @@
 			baseConfigurationReference = C750FDCF1E2BD1356738AD65 /* Pods-Vittles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 72FC7F34T6;
 				INFOPLIST_FILE = Vittles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jk.Vittles;
@@ -977,7 +978,7 @@
 			baseConfigurationReference = A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 72FC7F34T6;
 				INFOPLIST_FILE = Vittles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jk.Vittles;
