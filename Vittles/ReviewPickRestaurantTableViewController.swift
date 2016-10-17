@@ -8,15 +8,19 @@
 
 import UIKit
 
-class ReviewPickRestaurantTableViewController: UITableViewController ,FirebaseDataHandlerDelegate{
+class ReviewPickRestaurantTableViewController: UITableViewController ,UISearchBarDelegate, FirebaseDataHandlerDelegate{
 
+    //Create searchBar to be used in NavigationBar
+    lazy var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var restaurants:[RestaurantObject] = [RestaurantObject]()
+    var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "MARestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
-        
+        setUpSearchBar()
+        dataHandler.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,54 +67,49 @@ class ReviewPickRestaurantTableViewController: UITableViewController ,FirebaseDa
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let parentVC = (parent as! ReviewPickRestaurantMainViewController)
-        parentVC.pickedRestaurant = restaurants[indexPath.row]
-        parentVC.performSegue(withIdentifier: "pickedRestaurant", sender: nil)
+        let pickedRestaurant = self.restaurants[indexPath.row]
+        self.performSegue(withIdentifier: "pickedRestaurant", sender: pickedRestaurant)
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func setUpSearchBar(){
+        //Setup and put searchBar in navigationBar
+        self.searchBar.delegate = self
+        self.searchBar.placeholder = "Pick a restaurant."
+        self.searchBar.backgroundColor = MA_Red
+        self.navigationItem.titleView = searchBar
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("search")
+        dataHandler.getRestaurantsWhereName(startsWith: (searchBar.text?.lowercased())!, numberOfRestaurants: 10)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
+    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        print("canceled search")
+//        self.dismiss(animated: true, completion: nil)
+//        //self.view.endEditing(true)
+//    }
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //DEV NOTE: Need to generalize numbers for diffrent sizes
+        self.parent?.preferredContentSize = CGSize(width: self.view.frame.width, height: 300)
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+        //self.preferredContentSize
     }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "pickedRestaurant"{
+            let destinationVC = segue.destination as! ReviewViewController
+            destinationVC.pickedRestaurant = sender as? RestaurantObject
+        }
+        
     }
-    */
-
 }

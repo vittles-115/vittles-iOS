@@ -56,6 +56,9 @@
 		B197DD441DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD431DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift */; };
 		B197DD461DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD451DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift */; };
 		B197DD481DB35ED100D76DB5 /* ResturantMenuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD471DB35ED100D76DB5 /* ResturantMenuMainViewController.swift */; };
+		B197DD4A1DB43B2300D76DB5 /* ReviewPickMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD491DB43B2300D76DB5 /* ReviewPickMenuTableViewController.swift */; };
+		B197DD4C1DB43C3200D76DB5 /* ReviewMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD4B1DB43C3200D76DB5 /* ReviewMenuTableViewController.swift */; };
+		B197DD521DB4490B00D76DB5 /* ReviewPickDishMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD511DB4490B00D76DB5 /* ReviewPickDishMainViewController.swift */; };
 		B1BCC3251DAB523C0016CA39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
@@ -137,6 +140,9 @@
 		B197DD431DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantPickMenuTableViewController.swift; sourceTree = "<group>"; };
 		B197DD451DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenuTableViewController.swift; sourceTree = "<group>"; };
 		B197DD471DB35ED100D76DB5 /* ResturantMenuMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResturantMenuMainViewController.swift; sourceTree = "<group>"; };
+		B197DD491DB43B2300D76DB5 /* ReviewPickMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPickMenuTableViewController.swift; sourceTree = "<group>"; };
+		B197DD4B1DB43C3200D76DB5 /* ReviewMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewMenuTableViewController.swift; sourceTree = "<group>"; };
+		B197DD511DB4490B00D76DB5 /* ReviewPickDishMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPickDishMainViewController.swift; sourceTree = "<group>"; };
 		B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -314,8 +320,8 @@
 			children = (
 				B167F1F21DAB4EE9008EE90B /* Review.storyboard */,
 				B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */,
-				B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */,
-				B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */,
+				B197DD4F1DB446E100D76DB5 /* PickRestaurant */,
+				B197DD501DB446EA00D76DB5 /* PickDish */,
 			);
 			name = Review;
 			sourceTree = "<group>";
@@ -362,6 +368,25 @@
 				B197DD471DB35ED100D76DB5 /* ResturantMenuMainViewController.swift */,
 			);
 			name = Restaurant;
+			sourceTree = "<group>";
+		};
+		B197DD4F1DB446E100D76DB5 /* PickRestaurant */ = {
+			isa = PBXGroup;
+			children = (
+				B197DD3E1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift */,
+				B197DD3C1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift */,
+			);
+			name = PickRestaurant;
+			sourceTree = "<group>";
+		};
+		B197DD501DB446EA00D76DB5 /* PickDish */ = {
+			isa = PBXGroup;
+			children = (
+				B197DD491DB43B2300D76DB5 /* ReviewPickMenuTableViewController.swift */,
+				B197DD4B1DB43C3200D76DB5 /* ReviewMenuTableViewController.swift */,
+				B197DD511DB4490B00D76DB5 /* ReviewPickDishMainViewController.swift */,
+			);
+			name = PickDish;
 			sourceTree = "<group>";
 		};
 		B7492F531DAB381F002EADDC = {
@@ -737,6 +762,7 @@
 				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
 				B197DD3D1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift in Sources */,
 				B11B5D971DADBD7A00614BB4 /* RestaurantTableViewController.swift in Sources */,
+				B197DD4C1DB43C3200D76DB5 /* ReviewMenuTableViewController.swift in Sources */,
 				B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */,
 				B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
@@ -746,11 +772,13 @@
 				B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */,
 				B197DD3F1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift in Sources */,
 				B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */,
+				B197DD4A1DB43B2300D76DB5 /* ReviewPickMenuTableViewController.swift in Sources */,
 				B197DD3B1DB31A9800D76DB5 /* ReviewViewController.swift in Sources */,
 				B197DD371DB3115100D76DB5 /* UserObject.swift in Sources */,
 				B11B5DA21DADC19100614BB4 /* MARestaurantTableViewCell.swift in Sources */,
 				B11B5D9E1DADC18800614BB4 /* MAFoodItemTableViewCell.swift in Sources */,
 				B197DD351DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift in Sources */,
+				B197DD521DB4490B00D76DB5 /* ReviewPickDishMainViewController.swift in Sources */,
 				B167F1EC1DAB3D3F008EE90B /* FirebaseConstants.swift in Sources */,
 				B197DD461DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift in Sources */,
 				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,

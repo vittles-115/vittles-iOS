@@ -27,9 +27,11 @@ class FirebaseDataHandler{
     func getDishes(numberOfDishes:UInt){
         FirebaseDishRef.queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            //print("number of objects is",value!.count," values are :",value)
-            
+            guard let value = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchDishes?(errorString: "Dishes Not found")
+                return
+            }
+  
             self.delegate?.didFetchDishes?(value:value)
 
         }) { (error) in
@@ -54,10 +56,11 @@ class FirebaseDataHandler{
                 
                 FirebaseDishRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
                     // do some stuff once
-                    guard let dish = snapshot.value as? NSDictionary else{
+                    guard let value = snapshot.value as? NSDictionary else{
+                        self.delegate?.failedToFetchDishes?(errorString: "Dishes Not found")
                         return
                     }
-                    dishDictionary[key] = dish
+                    dishDictionary[key] = value
                     currObject += 1;
                     if currObject == numberOfObjects{
                         self.delegate?.didFetchDishesForMenu?(value:dishDictionary)
@@ -75,7 +78,10 @@ class FirebaseDataHandler{
         
         FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
+            guard let value = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchDishes?(errorString: "Dishes Not found")
+                return
+            }
             //print("number of objects is",value!.count," values are :",value)
             
             self.delegate?.didFetchDishes?(value:value)
@@ -89,9 +95,10 @@ class FirebaseDataHandler{
     func getRestaurants(numberOfRestaurants:UInt){
         FirebaseResturantRef.queryLimited(toFirst: numberOfRestaurants).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            print("number of objects is",value!.count," values are :",value)
-            // ...
+            guard let value = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchRestaurants?(errorString: "Restaurant Not found")
+                return
+            }
             self.delegate?.didFetchRestaurants?(value:value)
             
         }) { (error) in
@@ -102,12 +109,12 @@ class FirebaseDataHandler{
     
     func getRestaurantsWhereName(startsWith:String,numberOfRestaurants:UInt){
         let endingString = startsWith + "\u{f8ff}"
-        FirebaseResturantRef.queryOrdered(byChild: "lowercased_name").queryLimited(toLast: numberOfRestaurants).queryStarting(atValue: startsWith).queryEnding(atValue: endingString)
-        FirebaseResturantRef.queryLimited(toFirst: numberOfRestaurants).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseResturantRef.queryOrdered(byChild: "lowercased_name").queryStarting(atValue: startsWith).queryEnding(atValue: endingString).queryLimited(toFirst: numberOfRestaurants).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            print("number of objects is",value!.count," values are :",value)
-            // ...
+            guard let value = snapshot.value as? NSDictionary else{
+                 self.delegate?.failedToFetchRestaurants?(errorString: "Restaurant Not found")
+                return
+            }
             self.delegate?.didFetchRestaurants?(value:value)
             
         }) { (error) in

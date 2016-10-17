@@ -12,6 +12,8 @@ class ReviewViewController: UIViewController,UITextFieldDelegate,UIPopoverPresen
     @IBOutlet weak var restaurantLabelView: UIView!
     var pickedRestaurant:RestaurantObject?
     
+    var pickedDish:DishObject?
+    
     @IBOutlet weak var dishTextfield: UITextField!
     
     override func viewDidLoad() {
@@ -33,6 +35,11 @@ class ReviewViewController: UIViewController,UITextFieldDelegate,UIPopoverPresen
             self.view.endEditing(true)
             self.performSegue(withIdentifier: "showRestaurantPicker", sender: self)
         }
+        
+        if textField == self.dishTextfield {
+            self.view.endEditing(true)
+            self.performSegue(withIdentifier: "showMenuPicker", sender: self)
+        }
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -47,6 +54,15 @@ class ReviewViewController: UIViewController,UITextFieldDelegate,UIPopoverPresen
         self.restaurantTextfield.text = self.pickedRestaurant?.name
     }
     
+    @IBAction func didFinishPickingDish(_ segue: UIStoryboardSegue) {
+    
+        guard (self.pickedDish?.name) != nil else{
+            return
+        }
+        self.dishTextfield.text = self.pickedDish?.name
+    }
+
+    
     
     // MARK: - Navigation
 
@@ -55,13 +71,25 @@ class ReviewViewController: UIViewController,UITextFieldDelegate,UIPopoverPresen
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "showRestaurantPicker"{
-            let destinationVC = segue.destination as! ReviewPickRestaurantMainViewController
             
+            let destinationVC = segue.destination as! UINavigationController
+            //let rootVC = destinationVC.viewControllers.first
             let controller = destinationVC.popoverPresentationController;
             controller?.sourceView = self.view
             controller?.sourceRect = CGRect(x:self.view.bounds.midX, y:self.view.bounds.midY,width: 0, height: 0)
             controller?.delegate = self
             
+        }
+        
+        if segue.identifier == "showMenuPicker"{
+            let destinationVC = segue.destination as! UINavigationController
+            
+            let rootView = destinationVC.viewControllers.first as! ReviewPickDishMainViewController
+            rootView.restaurant = self.pickedRestaurant
+            let controller = destinationVC.popoverPresentationController;
+            controller?.sourceView = self.view
+            controller?.sourceRect = CGRect(x:self.view.bounds.midX, y:self.view.bounds.midY,width: 0, height: 0)
+            controller?.delegate = self
             
         }
     }
