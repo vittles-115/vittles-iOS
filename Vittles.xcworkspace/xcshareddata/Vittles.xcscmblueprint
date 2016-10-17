@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "17D474CFE3D91FBD857C0BADA9F52DC2E94BBF4D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "04E0846F16DE3149F9A09031A5CFD1F7D6E2BE50" : 9223372036854775807,
+    "17D474CFE3D91FBD857C0BADA9F52DC2E94BBF4D" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D9A8B1BD-15F5-429E-BE03-F8E40B0D3AA6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "04E0846F16DE3149F9A09031A5CFD1F7D6E2BE50" : "MenuApp\/",
+    "17D474CFE3D91FBD857C0BADA9F52DC2E94BBF4D" : "vittles-iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Vittles",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Vittles.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jennykwok\/menuApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04E0846F16DE3149F9A09031A5CFD1F7D6E2BE50"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vittles-115\/vittles-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "17D474CFE3D91FBD857C0BADA9F52DC2E94BBF4D"
+    }
+  ]
+}
