@@ -5,19 +5,21 @@
 
 
 import UIKit
+import Cosmos
+import FirebaseAuth
 
-class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
+class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate, UIPopoverPresentationControllerDelegate,FirebaseDataHandlerDelegate {
 
     @IBOutlet weak var restaurantTextfield: UITextField!
     @IBOutlet weak var restaurantLabelView: UIView!
-    
     @IBOutlet weak var reviewTitleTextfield: UITextField!
     @IBOutlet weak var reviewBodyTextView: UITextView!
-    
+    @IBOutlet weak var startRatingView: CosmosView!
     
     var pickedRestaurant:RestaurantObject?
-    
     var pickedDish:DishObject?
+    
+    var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     
     @IBOutlet var swipeGuestureRecognizer: UISwipeGestureRecognizer!
     
@@ -31,6 +33,7 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         dishTextfield.delegate = self
         reviewTitleTextfield.delegate = self
         reviewBodyTextView.delegate = self
+        dataHandler.delegate = self
         
         self.title = "Review"
         
@@ -95,6 +98,57 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         self.view.endEditing(true)
     }
     
+    
+    
+    @IBAction func clearButtonPressed(_ sender: AnyObject) {
+        self.pickedRestaurant = nil
+        self.pickedDish = nil
+        self.restaurantTextfield.text = ""
+        self.dishTextfield.text = ""
+        self.reviewTitleTextfield.text = ""
+        self.reviewBodyTextView.text = ""
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func postButtonPressed(_ sender: AnyObject) {
+        guard let reviewBody = reviewBodyTextView.text else {
+            self.presentSimpleAlert(title: "Whoops!", message: "Please enter a your review.")
+            return
+        }
+        
+        let rating = startRatingView.rating
+        
+        guard let reviewerUDID = FIRAuth.auth()?.currentUser?.uid else {
+            self.presentSimpleAlert(title: "Whoops!", message: "You are not currently logged in.")
+            return
+        }
+        
+//        guard let reviewerName =  FIRAuth.auth()?.currentUser?.displayName else {
+//            self.presentSimpleAlert(title: "Whoops!", message: "You are not currently logged in.")
+//            return
+//        }
+        
+        guard let reviewTitle = reviewTitleTextfield.text else {
+            self.presentSimpleAlert(title: "Whoops!", message: "Please enter a title for the review.")
+            return
+        }
+       
+        //NOTE: need to update this after we have login / signup
+       let aReview = ReviewObject(title: reviewTitle, body: reviewBody, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID)
+        dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: aReview.asDictionary())
+        self.view.endEditing(true)
+        
+    }
+    
+    func successPostingReview() {
+        presentSimpleAlert(title: "Success!", message: "Successfully posted review!")
+        self.clearButtonPressed(self)
+    }
+    
+    func failurePostingReview() {
+        presentSimpleAlert(title: "Failed!", message: "Failed to posted review!")
+
+    }
     
     // MARK: - Navigation
 

@@ -26,8 +26,10 @@ class FirebaseUserHandler{
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 self.firebaseLoginSignupDelegate?.loginFailedWithError(error: error.localizedDescription)
+                print("login fail")
                 return
             }
+            print("login success")
             self.firebaseLoginSignupDelegate?.loginSucceeded()
         }
     }

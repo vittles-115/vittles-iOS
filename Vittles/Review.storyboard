@@ -93,7 +93,8 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxV-el-wFF">
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjD-Se-Iwe" customClass="CosmosView" customModule="Cosmos">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HjD-Se-Iwe" customClass="CosmosView" customModule="Cosmos">
+                                        <frame key="frameInset" minX="127.5" minY="15.5" width="120" height="20"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starSize">
@@ -176,7 +177,18 @@
                             <outletCollection property="gestureRecognizers" destination="JMo-VB-EbI" appends="YES" id="SLk-eD-c6c"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="Lep-tm-fNQ"/>
+                    <navigationItem key="navigationItem" id="Lep-tm-fNQ">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="Vve-Nm-iQo">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="xjE-Dr-Pa7" id="A4X-WM-5aH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="MyC-3c-mu2">
+                            <connections>
+                                <action selector="postButtonPressed:" destination="xjE-Dr-Pa7" id="9gM-v8-jcn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="dishTextfield" destination="Bhc-xW-u3Z" id="Ld9-lf-lRr"/>
@@ -184,6 +196,7 @@
                         <outlet property="restaurantTextfield" destination="csh-rN-ULR" id="ibm-YZ-pp1"/>
                         <outlet property="reviewBodyTextView" destination="zd2-ls-dHj" id="zVa-sH-jhm"/>
                         <outlet property="reviewTitleTextfield" destination="nx7-s6-btw" id="bwJ-6i-Dj6"/>
+                        <outlet property="startRatingView" destination="HjD-Se-Iwe" id="1Jc-B9-PVZ"/>
                         <outlet property="swipeGuestureRecognizer" destination="JMo-VB-EbI" id="Cb8-7M-zEj"/>
                         <segue destination="U6E-vm-Sxm" kind="popoverPresentation" identifier="showMenuPicker" popoverAnchorView="hN3-V6-Hso" id="D0j-qR-qZ7">
                             <popoverArrowDirection key="popoverArrowDirection"/>

@@ -36,8 +36,9 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
         self.title = dish?.name
     
       
-
-        
+        let childVC = self.childViewControllers.first as! ReviewTableViewController
+        childVC.dish = self.dish
+        childVC.dataHandler.fetchReviewsFor(dishID:(dish!.uniqueID), numberOfReviews:10)
     }
 
     override func didReceiveMemoryWarning() {

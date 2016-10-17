@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBarGlobal()
         setupTabBarGlobal()
         
+        FirebaseUserHandler.sharedInstance.loginWithEmail(email: "jenny@gmail.com", password: "aaaaaaaa")
+        
         return true
     }
 

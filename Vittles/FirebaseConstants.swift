@@ -16,10 +16,30 @@ let FirebaseUserRef = FirebaseRootRef.child("Users")
 let FirebaseResturantRef = FirebaseRootRef.child("Resturants")
 let FirebaseMenuRef = FirebaseRootRef.child("Menus")
 let FirebaseDishRef = FirebaseRootRef.child("Dishes")
+let FirebaseReviewRef = FirebaseRootRef.child("Reviews")
 
 //File Storage
 let FirebaseImageStorage = FIRStorage.storage()
 let FirebaseImageRef = FirebaseImageStorage.reference(forURL: "gs://vittles-1c0fb.appspot.com")
 let FirebaseFoodImageRef = FirebaseImageRef.child("FoodImages")
 
-//Firebase Object Keys 
+//Firebase Object Keys
+
+//Review
+let FirebaseReviewKey_reviewTitle = "title"
+let FirebaseReviewKey_reviewBody = "body"
+let FirebaseReviewKey_reviewRating = "rating"
+let FirebaseReviewKey_reviewUserID = "reviewer_UID"
+let FirebaseReviewKey_reviewerName = "reviewer_name"
+
+//Dish
+let FirebaseDishKey_averageRating = "averageRating"
+let FirebaseDishKey_name = "name"
+let FirebaseDishKey_numberOfRatings = "number_of_ratings"
+let FirebaseDishKey_restaurantID = "restaurant"
+let FirebaseDishKey_restaurantName = "restaurant_name"
+let FirebaseDish_Keytype = "type"
+
+
+
+

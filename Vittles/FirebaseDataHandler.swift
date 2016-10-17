@@ -16,7 +16,12 @@ typealias FirebaseResponse = (NSDictionary?) -> Void
     
     @objc optional func didFetchRestaurants(value:NSDictionary?)
     @objc optional func failedToFetchRestaurants(errorString:String)
+    
+    @objc optional func successPostingReview()
+    @objc optional func failurePostingReview()
 
+    @objc optional func didFetchReviews(value:NSDictionary?)
+    @objc optional func failedToFetchReviews(errorString:String)
 }
 
 class FirebaseDataHandler{
@@ -79,10 +84,11 @@ class FirebaseDataHandler{
         FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{
-                self.delegate?.failedToFetchDishes?(errorString: "Dishes Not found")
+                self.delegate?.failurePostingReview?()
                 return
             }
-            //print("number of objects is",value!.count," values are :",value)
+            
+            
             
             self.delegate?.didFetchDishes?(value:value)
             
@@ -121,6 +127,50 @@ class FirebaseDataHandler{
             print(error.localizedDescription)
             self.delegate?.failedToFetchRestaurants?(errorString: error.localizedDescription)
         }
+    }
+    
+    //NOTE: Need to do error checking
+    func postReviewFor(dishID:String, reviewDictionary:NSDictionary){
+        
+        FirebaseDishRef.child(dishID).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchRestaurants?(errorString: "Restaurant Not found")
+                return
+            }
+            
+            var newAverageRating = (value[FirebaseDishKey_averageRating] as! Double) * Double(value[FirebaseDishKey_numberOfRatings] as! Int)
+            newAverageRating += reviewDictionary[FirebaseReviewKey_reviewRating] as! Double
+            let newNumberOfRatings:Int = value[FirebaseDishKey_numberOfRatings] as! Int + 1
+            newAverageRating = newAverageRating / Double(newNumberOfRatings)
+            
+            FirebaseDishRef.child(dishID).child(FirebaseDishKey_numberOfRatings).setValue(newNumberOfRatings)
+            FirebaseDishRef.child(dishID).child(FirebaseDishKey_averageRating).setValue(newAverageRating)
+            
+            let newReview = FirebaseReviewRef.child(dishID).childByAutoId()
+            newReview.setValue(reviewDictionary)
+            self.delegate?.successPostingReview?()
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchRestaurants?(errorString: error.localizedDescription)
+        }
+        
+    }
+    
+    func fetchReviewsFor(dishID:String, numberOfReviews:UInt){
+        FirebaseReviewRef.child(dishID).queryLimited(toFirst: numberOfReviews).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchReviews?(errorString: "Reviews Not found")
+                return
+            }
+            self.delegate?.didFetchReviews?(value:value)
+            
+        }) { (error) in
+            self.delegate?.failedToFetchReviews?(errorString: "Reviews Not found")
+        }
+
     }
     
 }

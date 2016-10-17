@@ -98,6 +98,57 @@ class FirebaseObjectConverter {
         return arrayOfRestaurants
     }
     
+    
+    class func dictionaryToReviewObject(dictionary:NSDictionary, uniqueID:String)->ReviewObject?{
+        
+        guard uniqueID != nil else{
+            print("UniqueID not found")
+            return nil
+        }
+        
+        guard let body = dictionary.object(forKey: FirebaseReviewKey_reviewBody) as? String else{
+            print("name not found")
+            return nil
+        }
+        guard let rating = dictionary.object(forKey: FirebaseReviewKey_reviewRating) as? Double else{
+            print("food description not found")
+            return nil
+        }
+        guard let userID = dictionary.object(forKey: FirebaseReviewKey_reviewUserID) as? String else{
+            print("averageRating not found")
+            return nil
+        }
+        guard let reviewerName = dictionary.object(forKey: FirebaseReviewKey_reviewerName) as? String else{
+            print("number_of_ratings not found")
+            return nil
+        }
+        guard let title =  dictionary.object(forKey: FirebaseReviewKey_reviewTitle) as? String else{
+            print("type not found")
+            return nil
+        }
+        
+        let aReview = ReviewObject(uniqueID:uniqueID, title: title, body: body, rating: rating, reviewer_name: reviewerName, reviewer_UDID: userID)
+        return aReview
+    }
+
+    class func reviewArrayFrom(dictionary:NSDictionary)->[ReviewObject]{
+        var arrayOfReviews:[ReviewObject] = [ReviewObject]()
+        for (key,review) in dictionary{
+            
+            guard review is NSDictionary else {
+                continue
+            }
+            
+            guard let aReview = dictionaryToReviewObject(dictionary: review as! NSDictionary, uniqueID: key as! String) else{
+                continue
+            }
+            
+            arrayOfReviews.append(aReview)
+        }
+        return arrayOfReviews
+    }
+    
+    
 }
 
 
