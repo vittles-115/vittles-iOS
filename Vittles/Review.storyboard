@@ -61,7 +61,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="csh-rN-ULR">
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="cCl-FP-2aC"/>
+                                    <constraint firstAttribute="height" constant="40" id="cCl-FP-2aC"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -85,7 +85,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bhc-xW-u3Z">
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kgU-By-4cj"/>
+                                    <constraint firstAttribute="height" constant="40" id="kgU-By-4cj"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -111,7 +111,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
                                                 <color key="value" red="1" green="0.88235294119999996" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -119,7 +119,7 @@
                                 <constraints>
                                     <constraint firstItem="HjD-Se-Iwe" firstAttribute="centerX" secondItem="pxV-el-wFF" secondAttribute="centerX" id="4SY-3P-D7q"/>
                                     <constraint firstItem="HjD-Se-Iwe" firstAttribute="centerY" secondItem="pxV-el-wFF" secondAttribute="centerY" id="8hp-V7-NIK"/>
-                                    <constraint firstAttribute="height" constant="70" id="M42-aW-1fr"/>
+                                    <constraint firstAttribute="height" constant="50" id="M42-aW-1fr"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Review Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-s6-btw">
@@ -128,7 +128,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zd2-ls-dHj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zd2-ls-dHj">
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="VJ1-TR-lAe"/>
@@ -144,6 +144,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="yds-Sv-ntY" firstAttribute="top" secondItem="csh-rN-ULR" secondAttribute="bottom" id="2cR-kh-gk1"/>
                             <constraint firstItem="yds-Sv-ntY" firstAttribute="leading" secondItem="hN3-V6-Hso" secondAttribute="leading" id="7dV-Wo-ETW"/>
@@ -171,6 +172,9 @@
                             <constraint firstItem="nx7-s6-btw" firstAttribute="top" secondItem="pxV-el-wFF" secondAttribute="bottom" id="qrH-Qw-cZU"/>
                             <constraint firstItem="csh-rN-ULR" firstAttribute="top" secondItem="b3d-7J-mGU" secondAttribute="bottom" id="r6d-4V-WJC"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="JMo-VB-EbI" appends="YES" id="SLk-eD-c6c"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Lep-tm-fNQ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -178,6 +182,9 @@
                         <outlet property="dishTextfield" destination="Bhc-xW-u3Z" id="Ld9-lf-lRr"/>
                         <outlet property="restaurantLabelView" destination="b3d-7J-mGU" id="7sj-ah-X4S"/>
                         <outlet property="restaurantTextfield" destination="csh-rN-ULR" id="ibm-YZ-pp1"/>
+                        <outlet property="reviewBodyTextView" destination="zd2-ls-dHj" id="zVa-sH-jhm"/>
+                        <outlet property="reviewTitleTextfield" destination="nx7-s6-btw" id="bwJ-6i-Dj6"/>
+                        <outlet property="swipeGuestureRecognizer" destination="JMo-VB-EbI" id="Cb8-7M-zEj"/>
                         <segue destination="U6E-vm-Sxm" kind="popoverPresentation" identifier="showMenuPicker" popoverAnchorView="hN3-V6-Hso" id="D0j-qR-qZ7">
                             <popoverArrowDirection key="popoverArrowDirection"/>
                         </segue>
@@ -187,6 +194,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjU-SW-k8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="down" id="JMo-VB-EbI">
+                    <connections>
+                        <action selector="swipedDown:" destination="xjE-Dr-Pa7" id="8Rg-eB-qBf"/>
+                        <outlet property="delegate" destination="xjE-Dr-Pa7" id="eTc-tN-MT3"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1540" y="447.52623688155927"/>
         </scene>
@@ -224,7 +237,7 @@
             <objects>
                 <viewController id="5vX-5n-Png" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dMV-iU-Ip4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
