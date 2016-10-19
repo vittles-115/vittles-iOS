@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate {
 
@@ -20,6 +21,10 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate {
         // Do any additional setup after loading the view.
         imagePicker = ImagePickerHandler(currentViewController: self, withCropping: true)
         imagePicker!.delegate = self
+        
+        if FIRAuth.auth()?.currentUser != nil{
+            self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
+        }
 
     }
 
@@ -39,6 +44,14 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate {
         
        self.profileImageView.image = image
     }
+
+    @IBAction func didLogin(_ segue: UIStoryboardSegue) {
+        self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
+    }
+    
+//    @IBAction func didFinishPickingRestaurant(_ segue: UIStoryboardSegue) {
+//        self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
+//    }
 
 
     /*
