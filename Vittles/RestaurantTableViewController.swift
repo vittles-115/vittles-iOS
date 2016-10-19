@@ -82,7 +82,7 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMenus"{
-            let destinationVC = segue.destination as! RestaurantPickMenuTableViewController
+            let destinationVC = segue.destination as! RestaurantMainDetailViewController
             destinationVC.restaurant = sender as? RestaurantObject
         }
     }

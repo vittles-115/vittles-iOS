@@ -63,6 +63,8 @@
 		B197DD571DB49D9000D76DB5 /* MAFoodReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B197DD541DB49D9000D76DB5 /* MAFoodReviewTableViewCell.xib */; };
 		B197DD581DB49D9000D76DB5 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD551DB49D9000D76DB5 /* ReviewTableViewController.swift */; };
 		B1BCC3251DAB523C0016CA39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */; };
+		B1DE60CB1DB7409600055E0B /* RestaurantMainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DE60CA1DB7409600055E0B /* RestaurantMainDetailViewController.swift */; };
+		B1DE60CD1DB745E500055E0B /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DE60CC1DB745E500055E0B /* RestaurantSearchTableViewController.swift */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
 		B7492F651DAB381F002EADDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7492F631DAB381F002EADDC /* Main.storyboard */; };
@@ -150,6 +152,8 @@
 		B197DD541DB49D9000D76DB5 /* MAFoodReviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MAFoodReviewTableViewCell.xib; sourceTree = "<group>"; };
 		B197DD551DB49D9000D76DB5 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
 		B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B1DE60CA1DB7409600055E0B /* RestaurantMainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMainDetailViewController.swift; sourceTree = "<group>"; };
+		B1DE60CC1DB745E500055E0B /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5F1DAB381F002EADDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 				B197DD431DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift */,
 				B197DD451DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift */,
 				B197DD471DB35ED100D76DB5 /* ResturantMenuMainViewController.swift */,
+				B1DE60CA1DB7409600055E0B /* RestaurantMainDetailViewController.swift */,
+				B1DE60CC1DB745E500055E0B /* RestaurantSearchTableViewController.swift */,
 			);
 			name = Restaurant;
 			sourceTree = "<group>";
@@ -777,6 +783,7 @@
 				B197DD4C1DB43C3200D76DB5 /* ReviewMenuTableViewController.swift in Sources */,
 				B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */,
 				B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */,
+				B1DE60CD1DB745E500055E0B /* RestaurantSearchTableViewController.swift in Sources */,
 				B197DD561DB49D9000D76DB5 /* MAFoodReviewTableViewCell.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
@@ -796,6 +803,7 @@
 				B197DD461DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift in Sources */,
 				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,
 				B197DD311DB2FB5600D76DB5 /* DishObject.swift in Sources */,
+				B1DE60CB1DB7409600055E0B /* RestaurantMainDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

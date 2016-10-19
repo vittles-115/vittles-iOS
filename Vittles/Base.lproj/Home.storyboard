@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w10-hT-lRL">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w10-hT-lRL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -111,19 +111,102 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="hb2-WW-bnb" kind="show" identifier="showMenus" id="8St-Eo-JaU"/>
+                        <segue destination="nGQ-4o-FlO" kind="show" identifier="showMenus" id="Ilw-oa-RUW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ool-nq-e0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1490" y="539"/>
+            <point key="canvasLocation" x="1457" y="538"/>
+        </scene>
+        <!--Restaurant Main Detail View Controller-->
+        <scene sceneID="f0E-Bm-h7l">
+            <objects>
+                <viewController id="nGQ-4o-FlO" customClass="RestaurantMainDetailViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jlX-7s-Hnz"/>
+                        <viewControllerLayoutGuide type="bottom" id="vaA-an-v1c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oeQ-bM-FCi">
+                        <rect key="frame" x="0.0" y="64" width="375" height="511"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="P96-qy-DXX">
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ap-U4-Y6X">
+                                <connections>
+                                    <segue destination="hb2-WW-bnb" kind="embed" id="Wjw-6v-nUf"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B1-ao-xnY">
+                                <connections>
+                                    <segue destination="IFD-lY-uS7" kind="embed" id="xlL-g1-W9O"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3B1-ao-xnY" firstAttribute="leading" secondItem="8Ap-U4-Y6X" secondAttribute="leading" id="4QU-l0-Jiz"/>
+                            <constraint firstItem="3B1-ao-xnY" firstAttribute="bottom" secondItem="8Ap-U4-Y6X" secondAttribute="bottom" id="Ewj-2q-aR6"/>
+                            <constraint firstItem="8Ap-U4-Y6X" firstAttribute="top" secondItem="P96-qy-DXX" secondAttribute="bottom" constant="-44" id="HhV-aL-hNW"/>
+                            <constraint firstItem="P96-qy-DXX" firstAttribute="top" secondItem="oeQ-bM-FCi" secondAttribute="top" id="JeI-Dj-cgc"/>
+                            <constraint firstItem="P96-qy-DXX" firstAttribute="leading" secondItem="oeQ-bM-FCi" secondAttribute="leading" id="MpD-2W-0RL"/>
+                            <constraint firstAttribute="trailing" secondItem="P96-qy-DXX" secondAttribute="trailing" id="XBA-fd-aop"/>
+                            <constraint firstItem="3B1-ao-xnY" firstAttribute="top" secondItem="8Ap-U4-Y6X" secondAttribute="top" constant="44" id="ZCl-K6-pRf"/>
+                            <constraint firstItem="8Ap-U4-Y6X" firstAttribute="leading" secondItem="oeQ-bM-FCi" secondAttribute="leading" id="ZFE-xC-5VU"/>
+                            <constraint firstAttribute="trailing" secondItem="8Ap-U4-Y6X" secondAttribute="trailing" id="oox-OS-iac"/>
+                            <constraint firstItem="3B1-ao-xnY" firstAttribute="trailing" secondItem="8Ap-U4-Y6X" secondAttribute="trailing" id="uX9-dd-tOa"/>
+                            <constraint firstAttribute="bottom" secondItem="8Ap-U4-Y6X" secondAttribute="bottom" id="xtJ-9Q-xtj"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="pickMenuContainer" destination="8Ap-U4-Y6X" id="sn8-n5-3bD"/>
+                        <outlet property="searchBar" destination="P96-qy-DXX" id="RtK-pi-Tsn"/>
+                        <outlet property="searchMenuContainer" destination="3B1-ao-xnY" id="ePt-cl-R4S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7JH-ZP-Vvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2232.8000000000002" y="536.58170914542734"/>
+        </scene>
+        <!--Restaurant Search Table View Controller-->
+        <scene sceneID="WtG-Ra-cdh">
+            <objects>
+                <tableViewController id="IFD-lY-uS7" customClass="RestaurantSearchTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VjL-1T-wk9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ALw-gQ-DYL">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ALw-gQ-DYL" id="fuv-vW-IZZ">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IFD-lY-uS7" id="kET-So-HXz"/>
+                            <outlet property="delegate" destination="IFD-lY-uS7" id="wBh-CD-Slu"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="tjx-47-eQd" kind="show" identifier="showFoodDetails" id="ESP-gz-IDa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTZ-aE-iK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3065" y="537"/>
         </scene>
         <!--Restaurant Pick Menu Table View Controller-->
         <scene sceneID="CQI-j2-urP">
             <objects>
                 <tableViewController id="hb2-WW-bnb" customClass="RestaurantPickMenuTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wcu-kg-3yQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="511"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -142,12 +225,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="HXt-UB-tC4" kind="show" identifier="showSelectedMenu" id="9ms-WH-xsz"/>
+                        <segue destination="xbm-ci-VyS" kind="show" identifier="showSelectedMenu" id="9CL-hP-hjr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vp-ia-xAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303" y="538"/>
+            <point key="canvasLocation" x="2233" y="1246"/>
         </scene>
         <!--Home-->
         <scene sceneID="shI-B0-GKe">
@@ -309,7 +392,7 @@
             <objects>
                 <tableViewController id="xbm-ci-VyS" customClass="RestaurantMenuTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6u8-YY-WZc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="511"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -317,52 +400,13 @@
                             <outlet property="delegate" destination="xbm-ci-VyS" id="5BK-W7-Ujf"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="tjx-47-eQd" kind="show" identifier="showFoodDetails" id="ZgM-XD-IS5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOu-aw-1b2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4018" y="538"/>
-        </scene>
-        <!--Resturant Menu Main View Controller-->
-        <scene sceneID="J9u-4O-L3e">
-            <objects>
-                <viewController id="HXt-UB-tC4" customClass="ResturantMenuMainViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hra-9d-4vl"/>
-                        <viewControllerLayoutGuide type="bottom" id="bEf-sa-6U5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SlT-6d-UPz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6aa-nD-54v">
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-6b-IH0">
-                                <connections>
-                                    <segue destination="xbm-ci-VyS" kind="embed" id="a7I-tK-3cW"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RDa-6b-IH0" firstAttribute="leading" secondItem="SlT-6d-UPz" secondAttribute="leading" id="VhN-rB-4GP"/>
-                            <constraint firstAttribute="trailing" secondItem="RDa-6b-IH0" secondAttribute="trailing" id="adD-OW-jT1"/>
-                            <constraint firstItem="RDa-6b-IH0" firstAttribute="top" secondItem="6aa-nD-54v" secondAttribute="bottom" id="etD-16-3Zr"/>
-                            <constraint firstItem="6aa-nD-54v" firstAttribute="leading" secondItem="SlT-6d-UPz" secondAttribute="leading" id="feV-Fc-3XT"/>
-                            <constraint firstItem="6aa-nD-54v" firstAttribute="top" secondItem="SlT-6d-UPz" secondAttribute="top" id="lk9-BH-fsT"/>
-                            <constraint firstAttribute="trailing" secondItem="6aa-nD-54v" secondAttribute="trailing" id="oAp-Qf-ct4"/>
-                            <constraint firstAttribute="bottom" secondItem="RDa-6b-IH0" secondAttribute="bottom" id="seD-PG-tH0"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="searchBar" destination="6aa-nD-54v" id="SiP-GJ-aM8"/>
-                        <segue destination="Eng-bc-7yP" kind="unwind" identifier="pickedRestaurant" unwindAction="didFinishPickingRestaurant:" id="V8H-v8-7b1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wg2-HX-fho" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Eng-bc-7yP" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3170" y="538"/>
+            <point key="canvasLocation" x="3065" y="1245"/>
         </scene>
         <!--Review Table View Controller-->
         <scene sceneID="YO9-aq-T5U">
@@ -390,10 +434,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ney-Im-Ihq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3716" y="-94"/>
+            <point key="canvasLocation" x="4018" y="-395"/>
         </scene>
     </scenes>
     <resources>
         <image name="Search" width="15" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ESP-gz-IDa"/>
+    </inferredMetricsTieBreakers>
 </document>

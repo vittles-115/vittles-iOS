@@ -36,14 +36,6 @@ class ResturantMenuMainViewController: UIViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let childVC = self.childViewControllers.first as! RestaurantMenuTableViewController
-        childVC.filteredDishes = childVC.dishes.filter({ $0.name.localizedCaseInsensitiveContains(searchBar.text!) })
-        if self.searchBar.text == "" {
-            childVC.filteredDishes = childVC.dishes
-        }
-        childVC.tableView.reloadData()
-    }
     
 
     /*
