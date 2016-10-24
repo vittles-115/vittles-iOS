@@ -13,11 +13,17 @@ class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
+    
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         FirebaseUserHandler.sharedInstance.firebaseLoginSignupDelegate = self
+        self.loginButton.addBorder(width: 2, radius: 8, color: UIColor.white)
+        self.cancelButton.addBorder(width: 2, radius: 8, color: UIColor.white)
     }
 
     override func didReceiveMemoryWarning() {

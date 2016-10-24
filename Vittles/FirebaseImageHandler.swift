@@ -5,10 +5,30 @@
 
 
 import Foundation
-import FirebaseStorage
 import UIKit
+import FirebaseStorage
+import AlamofireImage
+import Alamofire
+
+typealias ImageCallback = (UIImage?,NSError?) -> Void
 
 class FirebaseImageHandler{
+    
+    static let sharedInstance = FirebaseUserHandler()
+    // 100MB  maximum capacity
+    //  60MB  preferred capacity
+    let imageCache = AutoPurgingImageCache(
+        memoryCapacity: 100 * 1024 * 1024,
+        preferredMemoryUsageAfterPurge: 60 * 1024 * 1024
+    )
+    
+    let imageDownloader = ImageDownloader(
+        configuration: ImageDownloader.defaultURLSessionConfiguration(),
+        downloadPrioritization: .fifo,
+        maximumActiveDownloads: 5,
+        imageCache: AutoPurgingImageCache()
+    )
+    
     
     //DEV NOTE: Working but imcomplete
     class func uploadImage(image:UIImage, path:String){
@@ -31,22 +51,59 @@ class FirebaseImageHandler{
         }
     }
     
-    class func downloadImage(imagePath:String)->UIImage{
-        var downloadedImage:UIImage?
+    class func downloadImage(URL:String, imageCallback:@escaping ImageCallback){
+        //var downloadedImage:UIImage?
         
-        let imageToDownloadRef = FirebaseImageRef.child(imagePath)
-        imageToDownloadRef.downloadURL { (URL, error) -> Void in
-            if (error != nil) {
-                // Handle any errors
-            } else {
-                // Get the download URL for 'images/stars.jpg'
+        Alamofire.request(URL).responseImage { response in
+            debugPrint(response)
+            
+            print(response.request)
+            print(response.response)
+            debugPrint(response.result)
+            
+            if let image = response.result.value {
+                print("image downloaded: \(image)")
+                imageCallback(image,nil)
+            }else{
+                let error = NSError(domain: "Failed to fetch Image", code: 420, userInfo: nil)
+                imageCallback(nil,error)
             }
         }
-        
-        FirebaseMenuRef.childByAutoId()
-        
-        return downloadedImage!
+    
     }
+    
+    
+    
+    
+    func downloadImageUsingImageCache(URL:String,imageCallback:@escaping ImageCallback){
+        guard let image = cachedImage(urlString: URL) else{
+            Alamofire.request(URL).responseImage { response in
+                debugPrint(response)
+                
+                print(response.request)
+                print(response.response)
+                debugPrint(response.result)
+                
+                if let image = response.result.value {
+                    print("image downloaded: \(image)")
+                    self.imageCache.add(image, withIdentifier: URL)
+                    imageCallback(image,nil)
+                }else{
+                    let error = NSError(domain: "Failed to fetch Image", code: 420, userInfo: nil)
+                    imageCallback(nil,error)
+                }
+            }
+            return
+        }
+        imageCallback(image, nil)
+    }
+    
+    func cachedImage(urlString: String) -> Image? {
+        return imageCache.image(withIdentifier: urlString)
+    }
+    
+    
+    
 }
 
 

@@ -17,11 +17,15 @@ let FirebaseResturantRef = FirebaseRootRef.child("Resturants")
 let FirebaseMenuRef = FirebaseRootRef.child("Menus")
 let FirebaseDishRef = FirebaseRootRef.child("Dishes")
 let FirebaseReviewRef = FirebaseRootRef.child("Reviews")
+let FirebaseImagePathRef = FirebaseRootRef.child("ImagePaths")
 
 //File Storage
 let FirebaseImageStorage = FIRStorage.storage()
 let FirebaseImageRef = FirebaseImageStorage.reference(forURL: "gs://vittles-1c0fb.appspot.com")
-let FirebaseFoodImageRef = FirebaseImageRef.child("FoodImages")
+let FirebaseImageThumbnailRef = FirebaseImageRef.child("thumbnailSized")
+let FirebaseImageFullSizedRef = FirebaseImageRef.child("fullSizedImage")
+
+
 
 //Firebase Object Keys
 
