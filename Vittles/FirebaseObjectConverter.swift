@@ -56,9 +56,15 @@ class FirebaseObjectConverter {
             return nil
         }
         
-        let aDish = DishObject(uniqueID:uniqueID,name:name,foodDescription:foodDescription, averageRating:averageRating,numberOfRatings:numberOfRatings,type:type,restaurantName:restaurantName,restaurantRefID:restaurantRefID)
+        var aDish:DishObject?
+        if  let imageURL = dictionary.object(forKey: FirebaseDishKey_thumbnail) as? String{
+             aDish = DishObject(uniqueID:uniqueID,name:name,foodDescription:foodDescription, averageRating:averageRating,numberOfRatings:numberOfRatings,type:type,restaurantName:restaurantName,restaurantRefID:restaurantRefID,imageURL: imageURL)
+        }else{
+            aDish = DishObject(uniqueID:uniqueID,name:name,foodDescription:foodDescription, averageRating:averageRating,numberOfRatings:numberOfRatings,type:type,restaurantName:restaurantName,restaurantRefID:restaurantRefID)
+        }
         
-        return aDish
+    
+        return aDish!
     }
     
     class func restaurantArrayFrom(dictionary:NSDictionary)->[RestaurantObject]{
@@ -148,6 +154,23 @@ class FirebaseObjectConverter {
         return arrayOfReviews
     }
     
+    class func UserFrom(dictionary:NSDictionary, UDID:String) -> UserObject?{
+        guard let name = dictionary.object(forKey: FirebaseUserKey_name) as? String else{
+            print("food description not found")
+            return nil
+        }
+        guard let generalLocation = dictionary.object(forKey: FirebaseUserKey_generalLocation) as? String else{
+            print("averageRating not found")
+            return nil
+        }
+        
+        if let thumbnail_URL =  dictionary.object(forKey: FirebaseUserKey_thumbnail_URL) as? String{
+            return UserObject(name: name, generalLocation: generalLocation, UDID: UDID, thumbnail_URL: thumbnail_URL)
+        }else{
+            return UserObject(name: name, generalLocation: generalLocation, UDID: UDID)
+
+        }
+    }
     
 }
 

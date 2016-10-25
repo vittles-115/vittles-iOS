@@ -5,8 +5,9 @@
 
 import UIKit
 import FirebaseAuth
+import Kingfisher
 
-class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate {
+class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,FirebaseProfileDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var tapToEditImageButton: UIButton!
@@ -22,10 +23,11 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate {
         imagePicker = ImagePickerHandler(currentViewController: self, withCropping: true)
         imagePicker!.delegate = self
         
-        if FIRAuth.auth()?.currentUser != nil{
-            self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
-        }
-
+        profileImageView.setCornerRadius(9)
+        self.setUserProfile()
+        FirebaseUserHandler.sharedInstance.firebaseProfileDelegate = self
+        
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,22 +48,41 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate {
     }
 
     @IBAction func didLogin(_ segue: UIStoryboardSegue) {
-        self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
+        self.setUserProfile()
     }
     
-//    @IBAction func didFinishPickingRestaurant(_ segue: UIStoryboardSegue) {
-//        self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
-//    }
+    func setUserProfile(){
+        if FIRAuth.auth()?.currentUser != nil{
+            self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
+            let currentUserDict = FirebaseUserHandler.currentUserDictionary
+            
+            print(FirebaseUserHandler.currentUDID)
+            print(FirebaseUserHandler.currentUserDictionary?.object(forKey: FirebaseUserKey_thumbnail_URL))
+            
+            
+            guard let currentUDID = FirebaseUserHandler.currentUDID else{
+                return
+            }
+            
+            guard let currentUser = FirebaseObjectConverter.UserFrom(dictionary: currentUserDict!, UDID: currentUDID) else{
+                return
+            }
+            print("user image url :",(currentUser.thumbnail_URL))
+            self.profileImageView.kf.setImage(with: URL(string: (currentUser.thumbnail_URL)), placeholder: UIImage(named: "icons1")!)
+            self.usernameLabel.text = currentUser.name
+            self.locationLabel.text = currentUser.generalLocation
+        }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    func clearUserProfile(){
+        self.profileImageView.image = UIImage(named:"icons1")!
+        self.usernameLabel.text = "Not Logged In"
+        self.locationLabel.text = ""
+    }
+    
+    func didLoadUserProfile() {
+        self.setUserProfile()
+    }
 
 }

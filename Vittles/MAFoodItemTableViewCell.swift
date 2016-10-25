@@ -8,6 +8,7 @@
 
 import UIKit
 import Cosmos
+import Kingfisher
 
 class MAFoodItemTableViewCell: UITableViewCell {
 
@@ -48,9 +49,43 @@ class MAFoodItemTableViewCell: UITableViewCell {
         foodDescriptionLabel.isHidden = false
         resturantNameLabel.isHidden = false
         
+        
+
+        if fromDish.imageURL != nil{
+            print("has image url :", fromDish.imageURL!)
+            self.foodImageView.kf.setImage(with: URL(string: fromDish.imageURL!), placeholder: UIImage(named: "icons1")!)
+        }else{
+            self.foodImageView.image = UIImage(named: "icons1")!
+        }
+        
+//        FirebaseThumbnailImagePathRef.child("Dishes").child(fromDish.uniqueID).queryLimited(toFirst: 1).observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//                print("value is WOWOWOW", snapshot.value)
+//                guard (snapshot.value as? String) != nil else{
+//                    return
+//                }
+//            
+//            
+//            self.reloadInputViews()
+//            
+//            }) { (error) in
+//            print(error.localizedDescription)
+//            
+//            }
+//    
   
-        self.foodImageView.image = UIImage(named: "icons1")!
-    
+        
+//        FirebaseImageHandler.sharedInstance.downloadThumbnailFor(dishID: fromDish.uniqueID, imageCallback:{(image:UIImage?,error:NSError?) in
+//            print("GOT IMAGE")
+//            print(image)
+//            guard image != nil else{
+//                print("NO Image IMAGE")
+//                return
+//            }
+//            print("GOOD IMAGE")
+//            self.foodImageView?.image = UIImage(named: "icons1")!
+//            self.reloadInputViews()
+//        })
         
         self.foodImageView.setCornerRadius(9)
         

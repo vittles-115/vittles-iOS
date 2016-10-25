@@ -18,6 +18,8 @@ let FirebaseMenuRef = FirebaseRootRef.child("Menus")
 let FirebaseDishRef = FirebaseRootRef.child("Dishes")
 let FirebaseReviewRef = FirebaseRootRef.child("Reviews")
 let FirebaseImagePathRef = FirebaseRootRef.child("ImagePaths")
+let FirebaseThumbnailImagePathRef = FirebaseImagePathRef.child("thumbnailSized")
+let FirebaseFullSizedImagePathRef = FirebaseImagePathRef.child("fullSizedImage")
 
 //File Storage
 let FirebaseImageStorage = FIRStorage.storage()
@@ -42,8 +44,12 @@ let FirebaseDishKey_name = "name"
 let FirebaseDishKey_numberOfRatings = "number_of_ratings"
 let FirebaseDishKey_restaurantID = "restaurant"
 let FirebaseDishKey_restaurantName = "restaurant_name"
-let FirebaseDish_Keytype = "type"
+let FirebaseDishKey_type = "type"
+let FirebaseDishKey_thumbnail = "thumbnail_URL"
 
-
+//User
+let FirebaseUserKey_name = "name"
+let FirebaseUserKey_generalLocation = "general_location"
+let FirebaseUserKey_thumbnail_URL = "thumbnail_URL"
 
 

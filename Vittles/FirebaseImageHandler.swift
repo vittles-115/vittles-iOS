@@ -14,7 +14,7 @@ typealias ImageCallback = (UIImage?,NSError?) -> Void
 
 class FirebaseImageHandler{
     
-    static let sharedInstance = FirebaseUserHandler()
+    static let sharedInstance = FirebaseImageHandler()
     // 100MB  maximum capacity
     //  60MB  preferred capacity
     let imageCache = AutoPurgingImageCache(
@@ -76,7 +76,10 @@ class FirebaseImageHandler{
     
     
     func downloadImageUsingImageCache(URL:String,imageCallback:@escaping ImageCallback){
-        guard let image = cachedImage(urlString: URL) else{
+        
+        if let image = cachedImage(urlString: URL){
+             imageCallback(image, nil)
+        }else{
             Alamofire.request(URL).responseImage { response in
                 debugPrint(response)
                 
@@ -93,15 +96,41 @@ class FirebaseImageHandler{
                     imageCallback(nil,error)
                 }
             }
-            return
+
         }
-        imageCallback(image, nil)
+        
+//        if let image = cachedImage(urlString: URL) else{
+//                        return
+//        }
+//        imageCallback(image, nil)
     }
     
     func cachedImage(urlString: String) -> Image? {
         return imageCache.image(withIdentifier: urlString)
     }
     
+    
+    func downloadThumbnailFor(dishID:String,imageCallback:@escaping ImageCallback){
+        
+        FirebaseThumbnailImagePathRef.child("Dishes").child(dishID).queryLimited(toFirst: 1).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            print("value is", snapshot.value)
+            guard (snapshot.value as? String) != nil else{
+                let error = NSError(domain: "Failed to fetch Image", code: 420, userInfo: nil)
+                imageCallback(nil,error)
+                return
+            }
+            
+            let imageURL = (snapshot.value as! String)
+            self.downloadImageUsingImageCache(URL: imageURL, imageCallback: imageCallback)
+            
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            
+        }
+
+    }
     
     
 }

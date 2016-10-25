@@ -20,6 +20,8 @@ class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(self.parent)
+        
         // Do any additional setup after loading the view.
         FirebaseUserHandler.sharedInstance.firebaseLoginSignupDelegate = self
         self.loginButton.addBorder(width: 2, radius: 8, color: UIColor.white)
@@ -55,6 +57,7 @@ class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
     func signupFailedWithError(error:String){
         
     }
+
     
     /*
     // MARK: - Navigation
