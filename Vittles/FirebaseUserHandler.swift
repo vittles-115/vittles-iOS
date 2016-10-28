@@ -6,6 +6,8 @@
 import Foundation
 import Firebase
 
+typealias UserProfileCallback = (NSDictionary?) -> Void
+
 protocol FirebaseLoginSignupDelegate {
     //Login Callbacks
     func loginSucceeded()
@@ -29,6 +31,32 @@ class FirebaseUserHandler{
     static let sharedInstance = FirebaseUserHandler()
     static var currentUserDictionary:NSDictionary?
     static var currentUDID:String?
+    
+
+    class func getUserPublicProfileFor(userUDID:String?,completion:@escaping UserProfileCallback){
+        
+        guard userUDID != nil || userUDID == "" else{
+            completion(nil)
+            return
+        }
+        
+        let userRef = FirebaseUserRef.child(userUDID!)
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            guard (snapshot.value as? NSDictionary) != nil else{
+                completion(nil)
+                return
+            }
+            completion(snapshot.value as? NSDictionary)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            completion(nil)
+            
+        }
+        
+    }
     
     func loginWithEmail(email:String, password:String){
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in

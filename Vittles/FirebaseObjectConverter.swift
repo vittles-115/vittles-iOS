@@ -154,7 +154,7 @@ class FirebaseObjectConverter {
         return arrayOfReviews
     }
     
-    class func UserFrom(dictionary:NSDictionary, UDID:String) -> UserObject?{
+    class func dictionaryToUserObject(dictionary:NSDictionary, UDID:String) -> UserObject?{
         guard let name = dictionary.object(forKey: FirebaseUserKey_name) as? String else{
             print("food description not found")
             return nil

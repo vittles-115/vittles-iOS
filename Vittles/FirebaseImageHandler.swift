@@ -11,6 +11,7 @@ import AlamofireImage
 import Alamofire
 
 typealias ImageCallback = (UIImage?,NSError?) -> Void
+typealias ImageURLCallback = (String?) -> Void
 
 class FirebaseImageHandler{
     
@@ -28,6 +29,40 @@ class FirebaseImageHandler{
         maximumActiveDownloads: 5,
         imageCache: AutoPurgingImageCache()
     )
+    
+    
+    class func getImageUrlFor(userUDID:String?,completion:@escaping ImageURLCallback){
+        
+        guard userUDID != nil || userUDID == "" else{
+            completion(nil)
+            return
+        }
+        
+        let userRef = FirebaseUserRef.child(userUDID!)
+        userRef.child(FirebaseUserKey_thumbnail_URL).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+      
+            guard (snapshot.value as? String) != nil else{
+                completion(nil)
+                return
+            }
+            completion(snapshot.value as? String)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            completion(nil)
+            
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     //DEV NOTE: Working but imcomplete

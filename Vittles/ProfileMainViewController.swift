@@ -64,7 +64,7 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
                 return
             }
             
-            guard let currentUser = FirebaseObjectConverter.UserFrom(dictionary: currentUserDict!, UDID: currentUDID) else{
+            guard let currentUser = FirebaseObjectConverter.dictionaryToUserObject(dictionary: currentUserDict!, UDID: currentUDID) else{
                 return
             }
             print("user image url :",(currentUser.thumbnail_URL))
