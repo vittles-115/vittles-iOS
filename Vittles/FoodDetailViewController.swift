@@ -21,7 +21,7 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
   
     
     //var loadedObjects:[MAReview] = [MAReview]()
-    
+    var imageHandler:FirebaseImageHandler = FirebaseImageHandler()
   
     
     override func viewDidLoad() {
@@ -34,11 +34,23 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
         
         self.foodDescriptionLabel.text = dish?.foodDescription
         self.title = dish?.name
-    
+        
+        for childVC in self.childViewControllers{
+            if childVC is ReviewTableViewController{
+                let childVC = childVC as! ReviewTableViewController
+                childVC.dish = self.dish
+                childVC.dataHandler.fetchReviewsFor(dishID:(dish!.uniqueID), numberOfReviews:10)
+            }
+            
+            if childVC is DishImageCollectionViewController{
+                let childVC = childVC as! DishImageCollectionViewController
+                self.imageHandler.delegate = childVC
+                imageHandler.getImageThumbnailUrlsFor(dishID: (dish?.uniqueID)!, imageCount: 10)
+                
+            }
+        }
       
-        let childVC = self.childViewControllers.first as! ReviewTableViewController
-        childVC.dish = self.dish
-        childVC.dataHandler.fetchReviewsFor(dishID:(dish!.uniqueID), numberOfReviews:10)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,20 +70,17 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
         
     }
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "showAllImages"{
+            let destinationVC = segue.destination as? AllDishImageCollectionViewController
+            destinationVC?.dish = self.dish
+
+        }
     }
 
 }

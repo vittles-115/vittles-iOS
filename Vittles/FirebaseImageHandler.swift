@@ -7,31 +7,23 @@
 import Foundation
 import UIKit
 import FirebaseStorage
-import AlamofireImage
-import Alamofire
 
 typealias ImageCallback = (UIImage?,NSError?) -> Void
-typealias ImageURLCallback = (String?) -> Void
+typealias ImageSingleURLCallback = (String?) -> Void
+typealias ImageURLsCallback = (NSDictionary?) -> Void
+
+protocol FirebaseImageHandlerDelegate {
+    func didFetchUrls(urlDictArray:[NSDictionary])
+    func failedToFetchURLS(errorString:String)
+}
 
 class FirebaseImageHandler{
     
     static let sharedInstance = FirebaseImageHandler()
-    // 100MB  maximum capacity
-    //  60MB  preferred capacity
-    let imageCache = AutoPurgingImageCache(
-        memoryCapacity: 100 * 1024 * 1024,
-        preferredMemoryUsageAfterPurge: 60 * 1024 * 1024
-    )
-    
-    let imageDownloader = ImageDownloader(
-        configuration: ImageDownloader.defaultURLSessionConfiguration(),
-        downloadPrioritization: .fifo,
-        maximumActiveDownloads: 5,
-        imageCache: AutoPurgingImageCache()
-    )
+    var delegate:FirebaseImageHandlerDelegate?
     
     
-    class func getImageUrlFor(userUDID:String?,completion:@escaping ImageURLCallback){
+    class func getImageUrlFor(userUDID:String?,completion:@escaping ImageSingleURLCallback){
         
         guard userUDID != nil || userUDID == "" else{
             completion(nil)
@@ -57,8 +49,56 @@ class FirebaseImageHandler{
     }
     
     
+    class func getImageThumbnailUrlsFor(dishID:String,imageCount:UInt,completion:@escaping ImageURLsCallback){
+        
+        let imageUrlRef = FirebaseDishImagePathRef.child(dishID)
+        imageUrlRef.queryLimited(toFirst: imageCount).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            guard let urlDict = (snapshot.value as? NSDictionary) else{
+                completion(nil)
+                return
+            }
+  
+            completion(urlDict)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            completion(nil)
+            
+        }
+        
+    }
     
-    
+    func getImageThumbnailUrlsFor(dishID:String,imageCount:UInt){
+        
+        let imageUrlRef = FirebaseDishImagePathRef.child(dishID)
+        imageUrlRef.queryLimited(toFirst: imageCount).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            guard let urlDict = (snapshot.value as? NSDictionary) else{
+                self.delegate?.failedToFetchURLS(errorString: "Failed to fetch image urls")
+                return
+            }
+            
+            var urlDictArray = [NSDictionary]()
+            for value in urlDict.allValues{
+                guard let currValue = value as? NSDictionary else{
+                    self.delegate?.failedToFetchURLS(errorString: "Failed to fetch image urls")
+                    return
+                }
+                urlDictArray.append(currValue)
+            }
+            
+             self.delegate?.didFetchUrls(urlDictArray: urlDictArray)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchURLS(errorString: "Failed to fetch image urls")
+            
+        }
+        
+    }
     
     
     
@@ -86,86 +126,6 @@ class FirebaseImageHandler{
         }
     }
     
-    class func downloadImage(URL:String, imageCallback:@escaping ImageCallback){
-        //var downloadedImage:UIImage?
-        
-        Alamofire.request(URL).responseImage { response in
-            debugPrint(response)
-            
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-            
-            if let image = response.result.value {
-                print("image downloaded: \(image)")
-                imageCallback(image,nil)
-            }else{
-                let error = NSError(domain: "Failed to fetch Image", code: 420, userInfo: nil)
-                imageCallback(nil,error)
-            }
-        }
-    
-    }
-    
-    
-    
-    
-    func downloadImageUsingImageCache(URL:String,imageCallback:@escaping ImageCallback){
-        
-        if let image = cachedImage(urlString: URL){
-             imageCallback(image, nil)
-        }else{
-            Alamofire.request(URL).responseImage { response in
-                debugPrint(response)
-                
-                print(response.request)
-                print(response.response)
-                debugPrint(response.result)
-                
-                if let image = response.result.value {
-                    print("image downloaded: \(image)")
-                    self.imageCache.add(image, withIdentifier: URL)
-                    imageCallback(image,nil)
-                }else{
-                    let error = NSError(domain: "Failed to fetch Image", code: 420, userInfo: nil)
-                    imageCallback(nil,error)
-                }
-            }
-
-        }
-        
-//        if let image = cachedImage(urlString: URL) else{
-//                        return
-//        }
-//        imageCallback(image, nil)
-    }
-    
-    func cachedImage(urlString: String) -> Image? {
-        return imageCache.image(withIdentifier: urlString)
-    }
-    
-    
-    func downloadThumbnailFor(dishID:String,imageCallback:@escaping ImageCallback){
-        
-        FirebaseThumbnailImagePathRef.child("Dishes").child(dishID).queryLimited(toFirst: 1).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            print("value is", snapshot.value)
-            guard (snapshot.value as? String) != nil else{
-                let error = NSError(domain: "Failed to fetch Image", code: 420, userInfo: nil)
-                imageCallback(nil,error)
-                return
-            }
-            
-            let imageURL = (snapshot.value as! String)
-            self.downloadImageUsingImageCache(URL: imageURL, imageCallback: imageCallback)
-            
-            
-        }) { (error) in
-            print(error.localizedDescription)
-            
-        }
-
-    }
     
     
 }
