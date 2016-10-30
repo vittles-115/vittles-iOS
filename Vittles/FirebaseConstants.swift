@@ -55,6 +55,7 @@ let FirebaseUserKey_thumbnail_URL = "thumbnail_URL"
 //Images
 let FirebaseImageKey_thumbnail = "thumbnailSized"
 let FirebaseImageKey_fullSized = "fullSizedImage"
+let FirebaseImageKey_uploader = "uploader_UDID"
 
 
 

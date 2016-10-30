@@ -46,6 +46,7 @@
 		B167F1F31DAB4EE9008EE90B /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F21DAB4EE9008EE90B /* Review.storyboard */; };
 		B167F1F61DAB4F33008EE90B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F41DAB4F33008EE90B /* Profile.storyboard */; };
 		B167F1F81DAB4F71008EE90B /* SavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F71DAB4F71008EE90B /* SavedList.storyboard */; };
+		B169F7791DC67F16005705A6 /* MAPostPictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */; };
 		B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */; };
 		B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */; };
 		B197DD2F1DB1ABFD00D76DB5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */; };
@@ -142,6 +143,7 @@
 		B167F1F21DAB4EE9008EE90B /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		B167F1F51DAB4F33008EE90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		B167F1F71DAB4F71008EE90B /* SavedList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedList.storyboard; sourceTree = "<group>"; };
+		B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAPostPictureCollectionViewController.swift; sourceTree = "<group>"; };
 		B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataHandler.swift; sourceTree = "<group>"; };
 		B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		B167F1FB1DAB4FA2008EE90B /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */,
 				B167F1F21DAB4EE9008EE90B /* Review.storyboard */,
 				B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */,
 				B197DD4F1DB446E100D76DB5 /* PickRestaurant */,
@@ -827,6 +830,7 @@
 				B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */,
 				B1199BEB1DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift in Sources */,
 				B197DD4A1DB43B2300D76DB5 /* ReviewPickMenuTableViewController.swift in Sources */,
+				B169F7791DC67F16005705A6 /* MAPostPictureCollectionViewController.swift in Sources */,
 				B197DD3B1DB31A9800D76DB5 /* ReviewViewController.swift in Sources */,
 				B197DD371DB3115100D76DB5 /* UserObject.swift in Sources */,
 				B11B5DA21DADC19100614BB4 /* MARestaurantTableViewCell.swift in Sources */,

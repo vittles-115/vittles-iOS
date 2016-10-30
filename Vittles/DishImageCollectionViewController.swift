@@ -67,8 +67,12 @@ class DishImageCollectionViewController: UICollectionViewController ,FirebaseIma
         
         for image in urlDictArray{
             
-            let thumbnailURL = image.value(forKey: FirebaseImageKey_thumbnail) as! String
-            let fullSizedUrl = image.value(forKey: FirebaseImageKey_fullSized) as! String
+            guard let thumbnailURL = image.value(forKey: FirebaseImageKey_thumbnail) as? String else{
+                continue
+            }
+            guard let fullSizedUrl = image.value(forKey: FirebaseImageKey_fullSized) as? String else{
+                continue
+            }
             self.imageURLS.append((thumbnailURL,fullSizedUrl))
             
         }

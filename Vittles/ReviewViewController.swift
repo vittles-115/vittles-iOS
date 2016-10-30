@@ -142,6 +142,12 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: aReview.asDictionary())
         self.view.endEditing(true)
         
+        
+        let childVC = self.childViewControllers.first as! MAPostPictureCollectionViewController
+        for image in childVC.imagesToPost{
+            FirebaseImageHandler.uploadImage(for: pickedDish!, image: image, uploaderUDID: reviewerUDID)
+        }
+        
     }
     
     func successPostingReview() {
@@ -156,12 +162,6 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         //Persent alert
         self.present(alert, animated: true, completion: nil)
 
-        
-        
-        
-        
-        
-        
     }
     
     func doneButtonPressed(){

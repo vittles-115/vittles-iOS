@@ -13,8 +13,14 @@ class DishThumbnailCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
+    //NOTE: Kinda hacky code to hide the camera image in post image feature
     override func prepareForReuse() {
         thumbnailImageView.image = UIImage()
+        for subview in self.subviews{
+            if subview is UIImageView{
+                (subview as! UIImageView).image = UIImage()
+            }
+        }
     }
     
     
