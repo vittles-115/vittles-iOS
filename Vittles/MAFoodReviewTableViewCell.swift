@@ -81,6 +81,12 @@ class MAFoodReviewTableViewCell: UITableViewCell {
         reviewerImageView.image = UIImage(named: "icons1")
         self.loadReviewerInfoFor(review: review)
         
+        
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateFormat = "MMM yyy"
+        let dateString = dayTimePeriodFormatter.string(from: review.date as! Date)
+        
+        reviewDateLabel.text = dateString
         reviewerNameLabel.text = review.reviewer_name
         reviewerNameLabel.sizeToFit()
         reviewerGeneralLocationLabel.text = ""

@@ -28,7 +28,6 @@ let FirebaseImageThumbnailRef = FirebaseImageRef.child("thumbnailSized")
 let FirebaseImageFullSizedRef = FirebaseImageRef.child("fullSizedImage")
 
 
-
 //Firebase Object Keys
 
 //Review
@@ -37,6 +36,7 @@ let FirebaseReviewKey_reviewBody = "body"
 let FirebaseReviewKey_reviewRating = "rating"
 let FirebaseReviewKey_reviewUserID = "reviewer_UID"
 let FirebaseReviewKey_reviewerName = "reviewer_name"
+let FirebaseReviewKey_reviewDate = "date"
 
 //Dish
 let FirebaseDishKey_averageRating = "averageRating"
@@ -55,4 +55,7 @@ let FirebaseUserKey_thumbnail_URL = "thumbnail_URL"
 //Images
 let FirebaseImageKey_thumbnail = "thumbnailSized"
 let FirebaseImageKey_fullSized = "fullSizedImage"
+
+
+
 

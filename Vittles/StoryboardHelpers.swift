@@ -28,6 +28,7 @@ func pushFoodDetailVC(_ dish:DishObject){
         print("naviController ")
         (callingVC as! UINavigationController).pushViewController(vc, animated: true)
     }else{
+        print("push to navi controller ")
         callingVC.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -132,8 +132,14 @@ class FirebaseObjectConverter {
             print("type not found")
             return nil
         }
+        guard let timestamp =  dictionary.object(forKey: FirebaseReviewKey_reviewDate) as? TimeInterval else{
+            print("date not found")
+            return nil
+        }
         
-        let aReview = ReviewObject(uniqueID:uniqueID, title: title, body: body, rating: rating, reviewer_name: reviewerName, reviewer_UDID: userID)
+        let date = NSDate(timeIntervalSince1970: timestamp)
+        
+        let aReview = ReviewObject(uniqueID:uniqueID, title: title, body: body, rating: rating, reviewer_name: reviewerName, reviewer_UDID: userID, date:date)
         return aReview
     }
 

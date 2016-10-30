@@ -7,6 +7,7 @@
 import UIKit
 import Cosmos
 import FirebaseAuth
+import Firebase
 
 class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate, UIPopoverPresentationControllerDelegate,FirebaseDataHandlerDelegate {
 
@@ -111,7 +112,8 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
     }
     
     @IBAction func postButtonPressed(_ sender: AnyObject) {
-        guard let reviewBody = reviewBodyTextView.text && reviewBodyTextView.text != "Type review here" else {
+        let reviewBody = reviewBodyTextView.text
+        guard reviewBodyTextView.text != "Type review here" else {
             self.presentSimpleAlert(title: "Whoops!", message: "Please enter a your review.")
             return
         }
@@ -134,17 +136,37 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         }
        
         //NOTE: need to update this after we have login / signup
-       let aReview = ReviewObject(title: reviewTitle, body: reviewBody, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID)
+        //NOTE: need to add check to see if user has correct date set on device
+        
+        let aReview = ReviewObject(title: reviewTitle, body: reviewBody!, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID,date: NSDate())
         dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: aReview.asDictionary())
         self.view.endEditing(true)
         
     }
     
     func successPostingReview() {
-        presentSimpleAlert(title: "Success!", message: "Successfully posted review!")
-        self.clearButtonPressed(self)
-        pushFoodDetailVC(self.pickedDish)
+        //presentSimpleAlert(title: "Success!", message: "Successfully posted review!")
         
+        let message = "Your review has successfully been posted!"
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: UIAlertControllerStyle.alert)
+
+        
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler:{(actionSheet: UIAlertAction) in ((self.doneButtonPressed() ) )}  ))
+        
+        //Persent alert
+        self.present(alert, animated: true, completion: nil)
+
+        
+        
+        
+        
+        
+        
+    }
+    
+    func doneButtonPressed(){
+        pushFoodDetailVC(self.pickedDish!)
+        self.clearButtonPressed(self)
     }
     
     func failurePostingReview() {
