@@ -264,7 +264,7 @@
         <!--Food Detail View Controller-->
         <scene sceneID="Mgk-PL-b4o">
             <objects>
-                <viewController storyboardIdentifier="MASearchFoodDetailViewController" id="tjx-47-eQd" customClass="FoodDetailViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodDetailViewController" id="tjx-47-eQd" customClass="FoodDetailViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pQA-eJ-hBb"/>
                         <viewControllerLayoutGuide type="bottom" id="whL-po-Yn8"/>
@@ -487,11 +487,11 @@
         <scene sceneID="d4Z-Eq-r0E">
             <objects>
                 <collectionViewController id="WTv-Ia-rrL" customClass="AllDishImageCollectionViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c3T-b3-QqT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="c3T-b3-QqT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="868"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="I5h-uY-spU">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I5h-uY-spU">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>

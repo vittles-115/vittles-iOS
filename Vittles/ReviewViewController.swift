@@ -106,12 +106,12 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         self.restaurantTextfield.text = ""
         self.dishTextfield.text = ""
         self.reviewTitleTextfield.text = ""
-        self.reviewBodyTextView.text = ""
+        self.reviewBodyTextView.text = "Type review here"
         self.view.endEditing(true)
     }
     
     @IBAction func postButtonPressed(_ sender: AnyObject) {
-        guard let reviewBody = reviewBodyTextView.text else {
+        guard let reviewBody = reviewBodyTextView.text && reviewBodyTextView.text != "Type review here" else {
             self.presentSimpleAlert(title: "Whoops!", message: "Please enter a your review.")
             return
         }
@@ -143,6 +143,8 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
     func successPostingReview() {
         presentSimpleAlert(title: "Success!", message: "Successfully posted review!")
         self.clearButtonPressed(self)
+        pushFoodDetailVC(self.pickedDish)
+        
     }
     
     func failurePostingReview() {

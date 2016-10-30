@@ -69,6 +69,7 @@
 		B1BDD3BC1DC4215900F565A2 /* DishImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDD3BB1DC4215900F565A2 /* DishImageCollectionViewController.swift */; };
 		B1BDD3BE1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDD3BD1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift */; };
 		B1BDD3C11DC595E100F565A2 /* AllDishImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDD3C01DC595E100F565A2 /* AllDishImageCollectionViewController.swift */; };
+		B1BDD3C31DC59E5900F565A2 /* StoryboardHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDD3C21DC59E5900F565A2 /* StoryboardHelpers.swift */; };
 		B1DE60CB1DB7409600055E0B /* RestaurantMainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DE60CA1DB7409600055E0B /* RestaurantMainDetailViewController.swift */; };
 		B1DE60CD1DB745E500055E0B /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DE60CC1DB745E500055E0B /* RestaurantSearchTableViewController.swift */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
@@ -164,6 +165,7 @@
 		B1BDD3BB1DC4215900F565A2 /* DishImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishImageCollectionViewController.swift; sourceTree = "<group>"; };
 		B1BDD3BD1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1BDD3C01DC595E100F565A2 /* AllDishImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDishImageCollectionViewController.swift; sourceTree = "<group>"; };
+		B1BDD3C21DC59E5900F565A2 /* StoryboardHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelpers.swift; sourceTree = "<group>"; };
 		B1DE60CA1DB7409600055E0B /* RestaurantMainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMainDetailViewController.swift; sourceTree = "<group>"; };
 		B1DE60CC1DB745E500055E0B /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -461,6 +463,7 @@
 				B7492F5F1DAB381F002EADDC /* AppDelegate.swift */,
 				B11B5DC41DADC2D500614BB4 /* AppConstants.swift */,
 				B7492F611DAB381F002EADDC /* ViewController.swift */,
+				B1BDD3C21DC59E5900F565A2 /* StoryboardHelpers.swift */,
 				B7492F631DAB381F002EADDC /* Main.storyboard */,
 				B11B5DC31DADC2B800614BB4 /* Views */,
 				B7492F691DAB381F002EADDC /* Assets.xcassets */,
@@ -831,6 +834,7 @@
 				B1BDD3BC1DC4215900F565A2 /* DishImageCollectionViewController.swift in Sources */,
 				B197DD351DB2FE0C00D76DB5 /* FirebaseObjectConverter.swift in Sources */,
 				B197DD521DB4490B00D76DB5 /* ReviewPickDishMainViewController.swift in Sources */,
+				B1BDD3C31DC59E5900F565A2 /* StoryboardHelpers.swift in Sources */,
 				B167F1EC1DAB3D3F008EE90B /* FirebaseConstants.swift in Sources */,
 				B197DD461DB35EB000D76DB5 /* RestaurantMenuTableViewController.swift in Sources */,
 				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,
