@@ -10,7 +10,6 @@
 		489ED0083DCF466643F1E0BC /* Pods_Vittles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */; };
 		4C11684618F0458C8138CF59 /* Pods_VittlesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69218590389A6581B712C /* Pods_VittlesTests.framework */; };
 		6C202C4C035DAB45DE5A3B44 /* Pods_VittlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */; };
-		B1199BEA1DB7EDED00A221A9 /* MAProfileOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1199BE81DB7EDED00A221A9 /* MAProfileOptionsTableViewController.swift */; };
 		B1199BEB1DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1199BE91DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift */; };
 		B1199BED1DB7EFB900A221A9 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1199BEC1DB7EFB900A221A9 /* loginViewController.swift */; };
 		B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */; };
@@ -48,6 +47,7 @@
 		B167F1F81DAB4F71008EE90B /* SavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F71DAB4F71008EE90B /* SavedList.storyboard */; };
 		B169F7791DC67F16005705A6 /* MAPostPictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */; };
 		B169F77B1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */; };
+		B169F77D1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F77C1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift */; };
 		B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */; };
 		B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */; };
 		B197DD2F1DB1ABFD00D76DB5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */; };
@@ -107,7 +107,6 @@
 		658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VittlesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67317E34336183899428DB2F /* Pods-VittlesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VittlesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VittlesUITests/Pods-VittlesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vittles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vittles/Pods-Vittles.release.xcconfig"; sourceTree = "<group>"; };
-		B1199BE81DB7EDED00A221A9 /* MAProfileOptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MAProfileOptionsTableViewController.swift; path = ../../MenuApp/MenuApp/MAProfileOptionsTableViewController.swift; sourceTree = "<group>"; };
 		B1199BE91DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MAProfileOptionTableViewCell.swift; path = ../../MenuApp/MenuApp/MAProfileOptionTableViewCell.swift; sourceTree = "<group>"; };
 		B1199BEC1DB7EFB900A221A9 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +145,7 @@
 		B167F1F71DAB4F71008EE90B /* SavedList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedList.storyboard; sourceTree = "<group>"; };
 		B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAPostPictureCollectionViewController.swift; sourceTree = "<group>"; };
 		B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUploadeImagesCollectionViewController.swift; sourceTree = "<group>"; };
+		B169F77C1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAProfileOptionsTableViewController.swift; sourceTree = "<group>"; };
 		B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataHandler.swift; sourceTree = "<group>"; };
 		B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 		B167F1F91DAB4F87008EE90B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				B1199BE81DB7EDED00A221A9 /* MAProfileOptionsTableViewController.swift */,
+				B169F77C1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift */,
 				B1199BE91DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift */,
 				B167F1F41DAB4F33008EE90B /* Profile.storyboard */,
 				B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */,
@@ -804,6 +804,7 @@
 			files = (
 				B197DD581DB49D9000D76DB5 /* ReviewTableViewController.swift in Sources */,
 				B197DD331DB2FCDF00D76DB5 /* ReviewObject.swift in Sources */,
+				B169F77D1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift in Sources */,
 				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
 				B197DD441DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift in Sources */,
 				B1199BED1DB7EFB900A221A9 /* loginViewController.swift in Sources */,
@@ -815,7 +816,6 @@
 				B1BDD3BE1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift in Sources */,
 				B197DD2F1DB1ABFD00D76DB5 /* RestaurantObject.swift in Sources */,
 				B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */,
-				B1199BEA1DB7EDED00A221A9 /* MAProfileOptionsTableViewController.swift in Sources */,
 				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
 				B197DD3D1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift in Sources */,
 				B11B5D971DADBD7A00614BB4 /* RestaurantTableViewController.swift in Sources */,
