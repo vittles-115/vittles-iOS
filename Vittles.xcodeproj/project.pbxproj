@@ -47,6 +47,7 @@
 		B167F1F61DAB4F33008EE90B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F41DAB4F33008EE90B /* Profile.storyboard */; };
 		B167F1F81DAB4F71008EE90B /* SavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F71DAB4F71008EE90B /* SavedList.storyboard */; };
 		B169F7791DC67F16005705A6 /* MAPostPictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */; };
+		B169F77B1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */; };
 		B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */; };
 		B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */; };
 		B197DD2F1DB1ABFD00D76DB5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */; };
@@ -144,6 +145,7 @@
 		B167F1F51DAB4F33008EE90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		B167F1F71DAB4F71008EE90B /* SavedList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedList.storyboard; sourceTree = "<group>"; };
 		B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAPostPictureCollectionViewController.swift; sourceTree = "<group>"; };
+		B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUploadeImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataHandler.swift; sourceTree = "<group>"; };
 		B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				B167F1F41DAB4F33008EE90B /* Profile.storyboard */,
 				B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */,
 				B1199BEC1DB7EFB900A221A9 /* loginViewController.swift */,
+				B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				B197DD441DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift in Sources */,
 				B1199BED1DB7EFB900A221A9 /* loginViewController.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
+				B169F77B1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift in Sources */,
 				B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */,
 				B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */,
 				B11B5DA51DADC1E600614BB4 /* UtilityFunctions.swift in Sources */,

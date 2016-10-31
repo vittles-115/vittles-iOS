@@ -88,10 +88,10 @@ class MAPostPictureCollectionViewController: UICollectionViewController,ImagePic
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if (indexPath as NSIndexPath).section == 0{
-            if self.imagesToPost.count < 4{
+            if self.imagesToPost.count < 3{
                 imagePicker?.showOptions()
             }else{
-                let alert = UIAlertController(title: "Too many pictures", message: "Sorry you can only upload up to 4 pictures at a time", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Too many pictures", message: "Sorry you can only upload up to 3 pictures at a time", preferredStyle: UIAlertControllerStyle.alert)
                 //Add alert action that closes the VC when done is pressed
                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
                 //Persent alert

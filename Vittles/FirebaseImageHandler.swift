@@ -103,8 +103,6 @@ class FirebaseImageHandler{
     
     
     
-    
-    
     //DEV NOTE: Working but imcomplete
     class func uploadImage(for dish:DishObject, image:UIImage, uploaderUDID:String){
         
