@@ -10,7 +10,6 @@
 		489ED0083DCF466643F1E0BC /* Pods_Vittles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */; };
 		4C11684618F0458C8138CF59 /* Pods_VittlesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF69218590389A6581B712C /* Pods_VittlesTests.framework */; };
 		6C202C4C035DAB45DE5A3B44 /* Pods_VittlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */; };
-		B1199BEB1DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1199BE91DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift */; };
 		B1199BED1DB7EFB900A221A9 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1199BEC1DB7EFB900A221A9 /* loginViewController.swift */; };
 		B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */; };
 		B11B5D971DADBD7A00614BB4 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */; };
@@ -45,9 +44,10 @@
 		B167F1F31DAB4EE9008EE90B /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F21DAB4EE9008EE90B /* Review.storyboard */; };
 		B167F1F61DAB4F33008EE90B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F41DAB4F33008EE90B /* Profile.storyboard */; };
 		B167F1F81DAB4F71008EE90B /* SavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B167F1F71DAB4F71008EE90B /* SavedList.storyboard */; };
-		B169F7791DC67F16005705A6 /* MAPostPictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */; };
 		B169F77B1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */; };
 		B169F77D1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F77C1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift */; };
+		B169F77F1DC6FD89005705A6 /* MAProfileOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F77E1DC6FD89005705A6 /* MAProfileOptionTableViewCell.swift */; };
+		B169F7811DC6FDA8005705A6 /* MAPostPictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B169F7801DC6FDA8005705A6 /* MAPostPictureCollectionViewController.swift */; };
 		B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */; };
 		B197DD2C1DB1920A00D76DB5 /* FirebaseDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */; };
 		B197DD2F1DB1ABFD00D76DB5 /* RestaurantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */; };
@@ -107,7 +107,6 @@
 		658BCAF2C4FCE15A137CD9C3 /* Pods_VittlesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VittlesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67317E34336183899428DB2F /* Pods-VittlesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VittlesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VittlesUITests/Pods-VittlesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A086DC95081261199F7482AD /* Pods-Vittles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vittles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vittles/Pods-Vittles.release.xcconfig"; sourceTree = "<group>"; };
-		B1199BE91DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MAProfileOptionTableViewCell.swift; path = ../../MenuApp/MenuApp/MAProfileOptionTableViewCell.swift; sourceTree = "<group>"; };
 		B1199BEC1DB7EFB900A221A9 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		B11B5D941DADBD1300614BB4 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		B11B5D961DADBD7A00614BB4 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
@@ -143,9 +142,10 @@
 		B167F1F21DAB4EE9008EE90B /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		B167F1F51DAB4F33008EE90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		B167F1F71DAB4F71008EE90B /* SavedList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedList.storyboard; sourceTree = "<group>"; };
-		B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAPostPictureCollectionViewController.swift; sourceTree = "<group>"; };
 		B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUploadeImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		B169F77C1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAProfileOptionsTableViewController.swift; sourceTree = "<group>"; };
+		B169F77E1DC6FD89005705A6 /* MAProfileOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAProfileOptionTableViewCell.swift; sourceTree = "<group>"; };
+		B169F7801DC6FDA8005705A6 /* MAPostPictureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAPostPictureCollectionViewController.swift; sourceTree = "<group>"; };
 		B197DD291DB1688B00D76DB5 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B197DD2B1DB1920A00D76DB5 /* FirebaseDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataHandler.swift; sourceTree = "<group>"; };
 		B197DD2E1DB1ABFD00D76DB5 /* RestaurantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantObject.swift; sourceTree = "<group>"; };
@@ -330,7 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				B169F77C1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift */,
-				B1199BE91DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift */,
+				B169F77E1DC6FD89005705A6 /* MAProfileOptionTableViewCell.swift */,
 				B167F1F41DAB4F33008EE90B /* Profile.storyboard */,
 				B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */,
 				B1199BEC1DB7EFB900A221A9 /* loginViewController.swift */,
@@ -350,9 +350,9 @@
 		B167F1FB1DAB4FA2008EE90B /* Review */ = {
 			isa = PBXGroup;
 			children = (
-				B169F7781DC67F16005705A6 /* MAPostPictureCollectionViewController.swift */,
 				B167F1F21DAB4EE9008EE90B /* Review.storyboard */,
 				B197DD3A1DB31A9800D76DB5 /* ReviewViewController.swift */,
+				B169F7801DC6FDA8005705A6 /* MAPostPictureCollectionViewController.swift */,
 				B197DD4F1DB446E100D76DB5 /* PickRestaurant */,
 				B197DD501DB446EA00D76DB5 /* PickDish */,
 			);
@@ -809,6 +809,7 @@
 				B197DD441DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift in Sources */,
 				B1199BED1DB7EFB900A221A9 /* loginViewController.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
+				B169F7811DC6FDA8005705A6 /* MAPostPictureCollectionViewController.swift in Sources */,
 				B169F77B1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift in Sources */,
 				B167F1ED1DAB3D3F008EE90B /* FirebaseUserHandler.swift in Sources */,
 				B197DD2A1DB1688B00D76DB5 /* FoodDetailViewController.swift in Sources */,
@@ -818,6 +819,7 @@
 				B11B5D951DADBD1300614BB4 /* HomeSearchViewController.swift in Sources */,
 				B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */,
 				B197DD3D1DB32FF900D76DB5 /* ReviewPickRestaurantTableViewController.swift in Sources */,
+				B169F77F1DC6FD89005705A6 /* MAProfileOptionTableViewCell.swift in Sources */,
 				B11B5D971DADBD7A00614BB4 /* RestaurantTableViewController.swift in Sources */,
 				B1BDD3C11DC595E100F565A2 /* AllDishImageCollectionViewController.swift in Sources */,
 				B197DD4C1DB43C3200D76DB5 /* ReviewMenuTableViewController.swift in Sources */,
@@ -832,9 +834,7 @@
 				B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */,
 				B197DD3F1DB34D0500D76DB5 /* ReviewPickRestaurantMainViewController.swift in Sources */,
 				B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */,
-				B1199BEB1DB7EDED00A221A9 /* MAProfileOptionTableViewCell.swift in Sources */,
 				B197DD4A1DB43B2300D76DB5 /* ReviewPickMenuTableViewController.swift in Sources */,
-				B169F7791DC67F16005705A6 /* MAPostPictureCollectionViewController.swift in Sources */,
 				B197DD3B1DB31A9800D76DB5 /* ReviewViewController.swift in Sources */,
 				B197DD371DB3115100D76DB5 /* UserObject.swift in Sources */,
 				B11B5DA21DADC19100614BB4 /* MARestaurantTableViewCell.swift in Sources */,
