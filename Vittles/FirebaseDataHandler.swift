@@ -10,6 +10,9 @@ import UIKit
 typealias FirebaseResponse = (NSDictionary?) -> Void
 
 @objc protocol FirebaseDataHandlerDelegate {
+    
+    @objc optional func willBeginTask()
+    
     @objc optional func didFetchDishes(value:NSDictionary?)
     @objc optional func didFetchDishesForMenu(value:NSDictionary?)
     @objc optional func failedToFetchDishes(errorString:String)
@@ -30,6 +33,7 @@ class FirebaseDataHandler{
     var delegate:FirebaseDataHandlerDelegate?
 
     func getDishes(numberOfDishes:UInt){
+        delegate?.willBeginTask?()
         FirebaseDishRef.queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{
@@ -46,7 +50,7 @@ class FirebaseDataHandler{
     }
     
     func getDishesFor(restaurantID:String, menuNamed:String){
-        
+        delegate?.willBeginTask?()
         FirebaseMenuRef.child(restaurantID).child(menuNamed).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let menuObjects = snapshot.value as? NSDictionary else{
@@ -68,7 +72,7 @@ class FirebaseDataHandler{
                     dishDictionary[key] = value
                     currObject += 1;
                     if currObject == numberOfObjects{
-                        self.delegate?.didFetchDishesForMenu?(value:dishDictionary)
+                        self.delegate?.didFetchDishes?(value:dishDictionary)
                     }
                 })
                 
@@ -99,6 +103,7 @@ class FirebaseDataHandler{
     }
     
     func getRestaurants(numberOfRestaurants:UInt){
+        delegate?.willBeginTask?()
         FirebaseResturantRef.queryLimited(toFirst: numberOfRestaurants).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{
@@ -114,6 +119,7 @@ class FirebaseDataHandler{
     }
     
     func getRestaurantsWhereName(startsWith:String,numberOfRestaurants:UInt){
+        delegate?.willBeginTask?()
         let endingString = startsWith + "\u{f8ff}"
         FirebaseResturantRef.queryOrdered(byChild: "lowercased_name").queryStarting(atValue: startsWith).queryEnding(atValue: endingString).queryLimited(toFirst: numberOfRestaurants).observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -129,9 +135,28 @@ class FirebaseDataHandler{
         }
     }
     
+    
+    func getDishesWhereName(startsWith:String,numberOfDishes:UInt){
+        delegate?.willBeginTask?()
+        let endingString = startsWith + "\u{f8ff}"
+        FirebaseDishRef.queryOrdered(byChild: "name").queryStarting(atValue: startsWith).queryEnding(atValue: endingString).queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchDishes?(errorString: "Dish Not found")
+                return
+            }
+            self.delegate?.didFetchDishes!(value:value)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+        }
+    }
+    
+    
     //NOTE: Need to do error checking
     func postReviewFor(dishID:String, reviewDictionary:NSDictionary){
-        
+        delegate?.willBeginTask?()
         FirebaseDishRef.child(dishID).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{
@@ -159,6 +184,7 @@ class FirebaseDataHandler{
     }
     
     func fetchReviewsFor(dishID:String, numberOfReviews:UInt){
+        delegate?.willBeginTask?()
         FirebaseReviewRef.child(dishID).queryOrdered(byChild: FirebaseReviewKey_reviewDate).queryLimited(toFirst: numberOfReviews).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{

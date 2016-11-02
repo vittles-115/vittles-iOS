@@ -10,7 +10,7 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
 
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     var restaurants:[RestaurantObject] = [RestaurantObject]()
-
+    var loadingIndicator = DPLoadingIndicator.loadingIndicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,9 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         tableView.register(UINib(nibName: "MARestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
         dataHandler.delegate = self
         dataHandler.getRestaurants(numberOfRestaurants: 10)
+        
+        self.loadingIndicator.center = self.view.center
+        self.view.addSubview(loadingIndicator)
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,12 +70,19 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
     func didFetchRestaurants(value:NSDictionary?){
         self.restaurants = FirebaseObjectConverter.restaurantArrayFrom(dictionary: value!)
         self.tableView.reloadData()
+        self.loadingIndicator.isHidden = true
     }
     
     func failedToFetchRestaurants(errorString:String){
         print("failed to fetch restaurant: ", errorString)
+        self.restaurants.removeAll()
+        self.tableView.reloadData()
+        self.loadingIndicator.isHidden = true
     }
 
+    func willBeginTask(){
+        self.loadingIndicator.isHidden = false
+    }
  
 
    

@@ -28,6 +28,7 @@ class ResturantMenuMainViewController: UIViewController, UISearchBarDelegate {
         self.dataHandler.delegate = self.childViewControllers.first as! RestaurantMenuTableViewController
         self.dataHandler.getDishesFor(restaurantID: (restaurant?.uniqueID)!, menuNamed: selectedMenu!)
         
+            
         
     }
 

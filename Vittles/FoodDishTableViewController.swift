@@ -10,6 +10,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
 
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     var dishes:[DishObject] = [DishObject]()
+    var loadingIndicator = DPLoadingIndicator.loadingIndicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,13 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
 //            FirebaseResturantRef.child("-KTBwzEo1iRuMH8732bE").child("lowercased_name").setValue("burger.")
 //                FirebaseDishRef.child("-KTD3kA15O5pPCIv_ep5").child("food_description").setValue("A tasty burger topped with grilled onions, mayo, and house made dressing.")
         
+        
+ 
+        let centerHeightPt = self.tableView.frame.height/2 - screenSize.height/6 - self.tableView.contentOffset.y
+        let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
+        self.loadingIndicator.center = centerPoint
+        
+        self.view.addSubview(loadingIndicator)
         
     }
 
@@ -72,11 +80,20 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         
         self.dishes = FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
         self.tableView.reloadData()
+        self.loadingIndicator.isHidden = true
+
         //print("dishes",foodArray)
     }
     
     func failedToFetchDishes(errorString: String) {
         print("error is: ",errorString)
+        self.dishes.removeAll()
+        self.tableView.reloadData()
+        self.loadingIndicator.isHidden = true
+    }
+    
+    func willBeginTask(){
+        self.loadingIndicator.isHidden = false
     }
     
 }

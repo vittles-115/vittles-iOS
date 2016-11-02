@@ -27,6 +27,21 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
         self.setUserProfile()
         FirebaseUserHandler.sharedInstance.firebaseProfileDelegate = self
         
+        
+        var loadingImages = [UIImage]()
+        for i in 1 ... 7{
+            let image = UIImage(named: "icons\(i)")
+            print("icons\(i)")
+            loadingImages.append(image!)
+        }
+        loadingImages.reverse()
+        
+        let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
+        
+        let loadingIndicator = DPLoadingIndicator(frame: rect, loadingImages: loadingImages)
+        loadingIndicator.center = self.view.center
+        self.view.addSubview(loadingIndicator)
+        
        
     }
 
