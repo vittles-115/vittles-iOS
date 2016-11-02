@@ -37,7 +37,7 @@
         <!--Review View Controller-->
         <scene sceneID="RuS-iy-iOv">
             <objects>
-                <viewController id="xjE-Dr-Pa7" customClass="ReviewViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewViewController" id="xjE-Dr-Pa7" customClass="ReviewViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R5w-TX-bHL"/>
                         <viewControllerLayoutGuide type="bottom" id="uSo-hk-TaE"/>
@@ -138,13 +138,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zd2-ls-dHj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Type review here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zd2-ls-dHj">
                                 <rect key="frame" x="0.0" y="230" width="375" height="150"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="VJ1-TR-lAe"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

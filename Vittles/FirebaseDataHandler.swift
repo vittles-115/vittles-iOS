@@ -72,7 +72,7 @@ class FirebaseDataHandler{
                     dishDictionary[key] = value
                     currObject += 1;
                     if currObject == numberOfObjects{
-                        self.delegate?.didFetchDishes?(value:dishDictionary)
+                        self.delegate?.didFetchDishesForMenu?(value:dishDictionary)
                     }
                 })
                 

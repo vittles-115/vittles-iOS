@@ -67,36 +67,41 @@ class FirebaseObjectConverter {
         return aDish!
     }
     
+    class func dictionaryToRestaurantObject(dictionary:NSDictionary, uniqueID:String)->RestaurantObject?{
+ 
+    
+        guard let name = dictionary.object(forKey: "name") as? String else{
+            print("name not found")
+            return nil
+        }
+        
+        guard let address = dictionary.object(forKey: "address") as? String else{
+            print("address not found")
+            return nil
+        }
+        
+        guard let categories = dictionary.object(forKey: "categories") as? [String] else{
+            print("categories not found")
+            return nil
+        }
+        
+        guard let menuTitles = dictionary.object(forKey: "menu_titles") as? [String] else{
+            print("menu_titles not found")
+            return nil
+        }
+        
+        return RestaurantObject(uniqueID: uniqueID, name: name, address: address, categories: categories, menuTitles: menuTitles)
+
+    }
+    
     class func restaurantArrayFrom(dictionary:NSDictionary)->[RestaurantObject]{
         var arrayOfRestaurants:[RestaurantObject] = [RestaurantObject]()
         
         for (key,value) in dictionary{
-            guard let uniqueID = key as? String else{
-                print("key not found")
-                continue
-            }
             
-            guard let name = (value as! NSDictionary).object(forKey: "name") as? String else{
-                print("name not found")
+            guard let aRestaurant = self.dictionaryToRestaurantObject(dictionary: value as! NSDictionary, uniqueID: key as! String) else{
                 continue
             }
-            
-            guard let address = (value as! NSDictionary).object(forKey: "address") as? String else{
-                print("address not found")
-                continue
-            }
-
-            guard let categories = (value as! NSDictionary).object(forKey: "categories") as? [String] else{
-                print("categories not found")
-                continue
-            }
-            
-            guard let menuTitles = (value as! NSDictionary).object(forKey: "menu_titles") as? [String] else{
-                print("menu_titles not found")
-                continue
-            }
-            
-            let aRestaurant = RestaurantObject(uniqueID: uniqueID, name: name, address: address, categories: categories, menuTitles: menuTitles)
             arrayOfRestaurants.append(aRestaurant)
             
         }

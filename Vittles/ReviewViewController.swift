@@ -37,8 +37,13 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         dataHandler.delegate = self
         
         self.title = "Review"
+        if self.pickedDish != nil{
+            self.dishTextfield.text = pickedDish?.name
+            self.restaurantTextfield.text = pickedDish?.restaurantName
+        }
         
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,6 +107,7 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
     
     
     @IBAction func clearButtonPressed(_ sender: AnyObject) {
+        
         self.pickedRestaurant = nil
         self.pickedDish = nil
         self.restaurantTextfield.text = ""
@@ -130,7 +136,7 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
 //            return
 //        }
         
-        guard let reviewTitle = reviewTitleTextfield.text else {
+        guard reviewTitleTextfield.text != "" else {
             self.presentSimpleAlert(title: "Whoops!", message: "Please enter a title for the review.")
             return
         }
@@ -138,7 +144,7 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         //NOTE: need to update this after we have login / signup
         //NOTE: need to add check to see if user has correct date set on device
         
-        let aReview = ReviewObject(title: reviewTitle, body: reviewBody!, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID,date: NSDate())
+        let aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID,date: NSDate())
         dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: aReview.asDictionary())
         self.view.endEditing(true)
         

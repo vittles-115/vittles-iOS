@@ -34,3 +34,22 @@ func pushFoodDetailVC(_ dish:DishObject){
     
     
 }
+
+func pushReviewVC(dish:DishObject, restaurant:RestaurantObject){
+    let tabBarController = appDelegate.window!.rootViewController as! UITabBarController
+    tabBarController.selectedIndex = 1
+    let storyboard =  UIStoryboard(name: "Review", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
+    vc.pickedRestaurant = restaurant
+    vc.pickedDish = dish
+        
+    let callingVC = tabBarController.selectedViewController!
+    
+    if(callingVC is UINavigationController){
+        print("naviController ")
+        (callingVC as! UINavigationController).pushViewController(vc, animated: true)
+    }else{
+        print("push to navi controller ")
+        callingVC.navigationController?.pushViewController(vc, animated: true)
+    }
+}
