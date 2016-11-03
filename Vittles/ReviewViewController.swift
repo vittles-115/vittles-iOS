@@ -110,6 +110,21 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         
         self.pickedRestaurant = nil
         self.pickedDish = nil
+        guard self.restaurantTextfield != nil else {
+            return
+        }
+        guard self.dishTextfield != nil else {
+            return
+        }
+        guard self.restaurantTextfield != nil else {
+            return
+        }
+        guard self.reviewTitleTextfield != nil else {
+            return
+        }
+        guard self.reviewBodyTextView != nil else {
+            return
+        }
         self.restaurantTextfield.text = ""
         self.dishTextfield.text = ""
         self.reviewTitleTextfield.text = ""

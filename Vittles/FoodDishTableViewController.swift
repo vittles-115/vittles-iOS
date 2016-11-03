@@ -64,6 +64,40 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         return cell
     }
  
+//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+//        let more = UITableViewRowAction(style: .normal, title: "More") { action, index in
+//            print("more button tapped")
+//        }
+//        more.backgroundColor = UIColor.lightGray
+//        
+//        let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
+//            print("favorite button tapped")
+//        }
+//        favorite.backgroundColor = UIColor.orange
+//        
+//        let share = UITableViewRowAction(style: .normal, title: "Share") { action, index in
+//            print("share button tapped")
+//        }
+//        share.backgroundColor = UIColor.blue
+//        
+//        return [share, favorite, more]
+//    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // the cells you would like the actions to appear needs to be editable
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
+            self.showStarPopUp()
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
+        }
+        save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        return [save]
+
+    }
+    
     //Hide keyboard when tableview moves
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -73,6 +107,11 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.parent?.performSegue(withIdentifier: "showFoodDetails", sender: self.dishes[indexPath.row])
+    }
+    
+    func showStarPopUp(){
+        let popup = popupFadeIn(self.view, imageName: "SavePopup")
+        popupFadeOut(popup)
     }
     
     
