@@ -67,6 +67,23 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
     
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
+            self.showStarPopUp()
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
+        }
+        save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        return [save]
+        
+    }
+    
+    func showStarPopUp(){
+        let popup = popupFadeIn(self.view, imageName: "SavePopup")
+        popupFadeOut(popup)
+    }
+    
+    
+    
     func didFetchRestaurants(value:NSDictionary?){
         self.restaurants = FirebaseObjectConverter.restaurantArrayFrom(dictionary: value!)
         self.tableView.reloadData()
