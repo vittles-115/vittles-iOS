@@ -18,15 +18,15 @@ class DPLoadingIndicator: UIImageView {
     }
     */
     
-    static let sharedInstance = DPLoadingIndicator(frame: CGRect(x: 0, y: 0, width: 100, height: 100), loadingImages: [UIImage(named:"icons7")!, UIImage(named:"icons6")!, UIImage(named:"icons5")!,UIImage(named:"icons4")!,UIImage(named:"icons3")!,UIImage(named:"icons2")!,UIImage(named:"icons1")!] )
+    static let sharedInstance = DPLoadingIndicator(frame: CGRect(x: 0, y: 0, width: 100, height: 100), loadingImages: [ UIImage(named:"icons6")!, UIImage(named:"icons5")!,UIImage(named:"icons4")!,UIImage(named:"icons3")!,UIImage(named:"icons2")!,UIImage(named:"icons1")!] )
     
     
     convenience init(frame: CGRect, loadingImages:[UIImage]) {
         self.init(frame: frame)
         self.animationImages = loadingImages
-        self.animationDuration = 2
+        self.animationDuration = 1.0
         self.alpha = 0.7
-        self.setCornerRadius(9)
+        self.setCornerRadius(50)
         self.start()
     }
     

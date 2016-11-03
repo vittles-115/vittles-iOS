@@ -30,8 +30,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cvZ-ug-5rF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
-                                <color key="backgroundColor" red="0.97717696430000001" green="0.28314241769999998" blue="0.40630018709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="-2" y="63" width="379" height="31"/>
+                                <color key="backgroundColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VsT-SZ-FXU"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Food"/>
                                     <segment title="Restaurant"/>
@@ -42,13 +45,13 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZc-04-R3q">
-                                <rect key="frame" x="0.0" y="92" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="525"/>
                                 <connections>
                                     <segue destination="lx9-Mo-lfE" kind="embed" id="rFr-rU-imK"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xt-oN-gvf">
-                                <rect key="frame" x="0.0" y="92" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="525"/>
                                 <color key="tintColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="1Nv-MS-BHs" kind="embed" id="48G-1Z-TZv"/>
@@ -59,8 +62,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pZc-04-R3q" secondAttribute="trailing" id="CDX-9j-ZbY"/>
                             <constraint firstAttribute="bottom" secondItem="pZc-04-R3q" secondAttribute="bottom" constant="49" id="CZB-Sf-zZE"/>
-                            <constraint firstAttribute="trailing" secondItem="cvZ-ug-5rF" secondAttribute="trailing" id="Ekw-0k-oDp"/>
-                            <constraint firstItem="cvZ-ug-5rF" firstAttribute="leading" secondItem="1XF-44-OaT" secondAttribute="leading" id="HB0-iI-aJd"/>
+                            <constraint firstAttribute="trailing" secondItem="cvZ-ug-5rF" secondAttribute="trailing" constant="-2" id="Ekw-0k-oDp"/>
+                            <constraint firstItem="cvZ-ug-5rF" firstAttribute="leading" secondItem="1XF-44-OaT" secondAttribute="leading" constant="-2" id="HB0-iI-aJd"/>
                             <constraint firstAttribute="bottom" secondItem="6xt-oN-gvf" secondAttribute="bottom" constant="49" id="Lg8-tY-XG4"/>
                             <constraint firstItem="pZc-04-R3q" firstAttribute="leading" secondItem="1XF-44-OaT" secondAttribute="leading" id="MVc-f1-MYF"/>
                             <constraint firstItem="6xt-oN-gvf" firstAttribute="trailing" secondItem="pZc-04-R3q" secondAttribute="trailing" id="Mbk-vZ-Fsu"/>
@@ -68,7 +71,7 @@
                             <constraint firstItem="6xt-oN-gvf" firstAttribute="leading" secondItem="pZc-04-R3q" secondAttribute="leading" id="brT-KP-rOi"/>
                             <constraint firstItem="pZc-04-R3q" firstAttribute="top" secondItem="cvZ-ug-5rF" secondAttribute="bottom" id="eFr-ar-cek"/>
                             <constraint firstItem="6xt-oN-gvf" firstAttribute="bottom" secondItem="pZc-04-R3q" secondAttribute="bottom" id="hm1-Nb-DZw"/>
-                            <constraint firstItem="cvZ-ug-5rF" firstAttribute="top" secondItem="q1X-Qe-3wT" secondAttribute="bottom" id="jVA-OF-E5a"/>
+                            <constraint firstItem="cvZ-ug-5rF" firstAttribute="top" secondItem="q1X-Qe-3wT" secondAttribute="bottom" constant="-1" id="jVA-OF-E5a"/>
                             <constraint firstItem="6xt-oN-gvf" firstAttribute="leading" secondItem="1XF-44-OaT" secondAttribute="leading" id="qnl-0I-xb0"/>
                             <constraint firstAttribute="trailing" secondItem="6xt-oN-gvf" secondAttribute="trailing" id="r8A-GU-SMo"/>
                             <constraint firstItem="6xt-oN-gvf" firstAttribute="top" secondItem="cvZ-ug-5rF" secondAttribute="bottom" id="vvJ-He-s8l"/>
@@ -91,7 +94,7 @@
             <objects>
                 <tableViewController id="lx9-Mo-lfE" customClass="FoodDishTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZxU-kl-GVS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -109,7 +112,7 @@
             <objects>
                 <tableViewController id="1Nv-MS-BHs" customClass="RestaurantTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zA5-4Y-pHN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -134,7 +137,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vaA-an-v1c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oeQ-bM-FCi">
-                        <rect key="frame" x="0.0" y="64" width="375" height="462"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="461"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="P96-qy-DXX">
@@ -142,13 +145,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ap-U4-Y6X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="461"/>
                                 <connections>
                                     <segue destination="hb2-WW-bnb" kind="embed" id="Wjw-6v-nUf"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B1-ao-xnY">
-                                <rect key="frame" x="0.0" y="44" width="375" height="418"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="417"/>
                                 <connections>
                                     <segue destination="IFD-lY-uS7" kind="embed" id="xlL-g1-W9O"/>
                                 </connections>
@@ -185,7 +188,7 @@
             <objects>
                 <tableViewController id="IFD-lY-uS7" customClass="RestaurantSearchTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VjL-1T-wk9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="418"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="417"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -193,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ALw-gQ-DYL" id="fuv-vW-IZZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -216,7 +219,7 @@
             <objects>
                 <tableViewController id="hb2-WW-bnb" customClass="RestaurantPickMenuTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wcu-kg-3yQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="461"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -224,7 +227,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cMd-J5-rvF" id="Krx-S9-Fms">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -417,7 +420,7 @@
             <objects>
                 <tableViewController id="xbm-ci-VyS" customClass="RestaurantMenuTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6u8-YY-WZc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="461"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -488,7 +491,7 @@
         <scene sceneID="d4Z-Eq-r0E">
             <objects>
                 <collectionViewController id="WTv-Ia-rrL" customClass="AllDishImageCollectionViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="c3T-b3-QqT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c3T-b3-QqT">
                         <rect key="frame" x="0.0" y="64" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

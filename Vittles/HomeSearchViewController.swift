@@ -26,7 +26,7 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
         self.foodDishContainer.isHidden = false
         self.resturantContainer.isHidden = true
         setUpSearchBar()
-        
+                
         for childVC in self.childViewControllers{
             if childVC is RestaurantTableViewController{
                 restaurantVC = childVC as? RestaurantTableViewController
