@@ -77,6 +77,25 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         
     }
     
+    func setUpRefreshControl(){
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshTableView), for: UIControlEvents.valueChanged)
+        self.refreshControl?.backgroundColor = UIColor.white
+        self.refreshControl?.tintColor = MA_Red
+        self.tableView.addSubview(self.refreshControl!)
+        
+    }
+    
+    func refreshTableView(){
+        let parentVC = parent as! HomeSearchViewController
+        if parentVC.searchBar.text == ""{
+            dataHandler.getRestaurants(numberOfRestaurants:10)
+        }else{
+            dataHandler.getRestaurantsWhereName(startsWith: parentVC.searchBar.text!, numberOfRestaurants: 10)
+        }
+        
+    }
+    
     func showStarPopUp(){
         let popup = popupFadeIn(self.view, imageName: "SavePopup")
         popupFadeOut(popup)

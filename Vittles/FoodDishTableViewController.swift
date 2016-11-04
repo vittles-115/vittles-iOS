@@ -11,6 +11,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     var dishes:[DishObject] = [DishObject]()
     var loadingIndicator = DPLoadingIndicator.loadingIndicator()
+//    var refreshControl: UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +19,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         tableView.register(UINib(nibName: "MAFoodItemTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
         dataHandler.delegate = self
         dataHandler.getDishes(numberOfDishes: 10)
-//            FirebaseResturantRef.child("-KTBwNgW2e3fWmLpypWj").child("lowercased_name").setValue("munch")
-//            FirebaseResturantRef.child("-KTBwzEo1iRuMH8732bE").child("lowercased_name").setValue("burger.")
-//                FirebaseDishRef.child("-KTD3kA15O5pPCIv_ep5").child("food_description").setValue("A tasty burger topped with grilled onions, mayo, and house made dressing.")
-        
-        
+        self.setUpRefreshControl()
  
         let centerHeightPt = self.tableView.frame.height/2 - screenSize.height/6 - self.tableView.contentOffset.y
         let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
@@ -63,25 +60,6 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
 
         return cell
     }
- 
-//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-//        let more = UITableViewRowAction(style: .normal, title: "More") { action, index in
-//            print("more button tapped")
-//        }
-//        more.backgroundColor = UIColor.lightGray
-//        
-//        let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
-//            print("favorite button tapped")
-//        }
-//        favorite.backgroundColor = UIColor.orange
-//        
-//        let share = UITableViewRowAction(style: .normal, title: "Share") { action, index in
-//            print("share button tapped")
-//        }
-//        share.backgroundColor = UIColor.blue
-//        
-//        return [share, favorite, more]
-//    }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // the cells you would like the actions to appear needs to be editable
@@ -98,6 +76,24 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
 
     }
     
+    func setUpRefreshControl(){
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshTableView), for: UIControlEvents.valueChanged)
+        self.refreshControl?.backgroundColor = UIColor.white
+        self.refreshControl?.tintColor = MA_Red
+        self.tableView.addSubview(self.refreshControl!)
+        
+    }
+    
+    func refreshTableView(){
+        let parentVC = parent as! HomeSearchViewController
+        if parentVC.searchBar.text == ""{
+            dataHandler.getDishes(numberOfDishes:10)
+        }else{
+            dataHandler.getDishesWhereName(startsWith: parentVC.searchBar.text!, numberOfDishes: 10)
+        }
+        
+    }
     //Hide keyboard when tableview moves
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -116,7 +112,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     
     
     func didFetchDishes(value:NSDictionary?) {
-        
+        self.refreshControl?.endRefreshing()
         self.dishes = FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
         self.tableView.reloadData()
         self.loadingIndicator.isHidden = true
@@ -125,6 +121,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     }
     
     func failedToFetchDishes(errorString: String) {
+        self.refreshControl?.endRefreshing()
         print("error is: ",errorString)
         self.dishes.removeAll()
         self.tableView.reloadData()
