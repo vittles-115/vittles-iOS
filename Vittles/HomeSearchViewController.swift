@@ -30,6 +30,7 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
         for childVC in self.childViewControllers{
             if childVC is RestaurantTableViewController{
                 restaurantVC = childVC as? RestaurantTableViewController
+                FirebaseUserHandler.sharedInstance.firebaseSaveDegate = dishVC
             }
             
             if childVC is FoodDishTableViewController{
@@ -86,10 +87,12 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
         self.searchBar.text = ""
         switch sender.selectedSegmentIndex {
         case 0:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = dishVC
             self.foodDishContainer.isHidden = false
             self.resturantContainer.isHidden = true
             break
         case 1:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = restaurantVC
             self.foodDishContainer.isHidden = true
             self.resturantContainer.isHidden = false
             break

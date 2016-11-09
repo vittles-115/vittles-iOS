@@ -111,6 +111,8 @@ class FirebaseUserHandler{
             FirebaseUserHandler.currentUDID = (FIRAuth.auth()?.currentUser?.uid)!
             self.firebaseProfileDelegate?.didLoadUserProfile?()
             
+            print((userDictionary.object(forKey: "SavedDishes") as? NSDictionary)?.object(forKey: "-KTD3kA15O5pPCIv_ep4"))
+            
             
         }) { (error) in
             print(error.localizedDescription)
@@ -128,20 +130,22 @@ class FirebaseUserHandler{
         
         FirebaseSavedDishRef(for: UDID).child(dishID).observeSingleEvent(of: .value, with: { (snapshot) in
             
+            let savedDishDict = FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedDishes") as! NSDictionary
             
             guard let value = (snapshot.value as? Bool) else{
                 FirebaseSavedDishRef(for: UDID).child(dishID).setValue(true)
+                savedDishDict.setValue(true, forKey: dishID)
                 self.firebaseSaveDegate?.didUpdateSaveDish?()
                 return
             }
             FirebaseSavedDishRef(for: UDID).child(dishID).setValue(!value)
+            savedDishDict.setValue(!value, forKey: dishID)
             self.firebaseSaveDegate?.didUpdateSaveDish?()
-            
+            self.getCurrentUser()
         }) { (error) in
             self.firebaseSaveDegate?.failedToUpdateSaveDish?()
         }
 
-        
     }
     
     
@@ -153,15 +157,17 @@ class FirebaseUserHandler{
         
         FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).observeSingleEvent(of: .value, with: { (snapshot) in
             
+            let savedRestDict = FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as! NSDictionary
             
             guard let value = (snapshot.value as? Bool) else{
                 FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).setValue(true)
+                savedRestDict.setValue(true, forKey: restaurantID)
                 self.firebaseSaveDegate?.didUpdateSaveDish?()
                 return
             }
             FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).setValue(!value)
+            savedRestDict.setValue(!value, forKey: restaurantID)
             self.firebaseSaveDegate?.didUpdateSaveRestaurant?()
-            
         }) { (error) in
             self.firebaseSaveDegate?.failedToUpdateSaveDish?()
         }

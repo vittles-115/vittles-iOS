@@ -49,6 +49,13 @@ class MARestaurantTableViewCell: UITableViewCell {
 
         self.resturantImageView.image = UIImage(named: "icons1")!
     
+        //Star Saved Indicator 
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurant.uniqueID ) as? Bool == true{
+            self.savedStarImageView.image = UIImage(named: "Star")
+        }else{
+            self.savedStarImageView.image = UIImage()
+        }
+        
         
         self.resturantImageView.setCornerRadius(9)
         

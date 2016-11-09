@@ -25,7 +25,7 @@ func FirebaseSavedDishRef(for userID:String)->FIRDatabaseReference{
 }
 
 func FirebaseSavedRestaurantRef(for userID:String)->FIRDatabaseReference{
-    return FirebaseUserRef.child(userID).child("SavedResturants")
+    return FirebaseUserRef.child(userID).child("SavedRestaurants")
 }
 
 

@@ -40,6 +40,7 @@ class MAFoodItemTableViewCell: UITableViewCell {
         foodNameLabel.isHidden = true
         foodDescriptionLabel.isHidden = true
         resturantNameLabel.isHidden = true
+        self.savedStarImageView.image = UIImage()
     }
     
     //Setup cell from given MAFoodItem object
@@ -50,7 +51,7 @@ class MAFoodItemTableViewCell: UITableViewCell {
         resturantNameLabel.isHidden = false
         
         
-
+        //Thumbnail image
         if fromDish.imageURL != nil{
             print("has image url :", fromDish.imageURL!)
             self.foodImageView.kf.setImage(with: URL(string: fromDish.imageURL!), placeholder: UIImage(named: "icons1")!)
@@ -58,37 +59,15 @@ class MAFoodItemTableViewCell: UITableViewCell {
             self.foodImageView.image = UIImage(named: "icons1")!
         }
         
-//        FirebaseThumbnailImagePathRef.child("Dishes").child(fromDish.uniqueID).queryLimited(toFirst: 1).observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//                print("value is WOWOWOW", snapshot.value)
-//                guard (snapshot.value as? String) != nil else{
-//                    return
-//                }
-//            
-//            
-//            self.reloadInputViews()
-//            
-//            }) { (error) in
-//            print(error.localizedDescription)
-//            
-//            }
-//    
-  
-        
-//        FirebaseImageHandler.sharedInstance.downloadThumbnailFor(dishID: fromDish.uniqueID, imageCallback:{(image:UIImage?,error:NSError?) in
-//            print("GOT IMAGE")
-//            print(image)
-//            guard image != nil else{
-//                print("NO Image IMAGE")
-//                return
-//            }
-//            print("GOOD IMAGE")
-//            self.foodImageView?.image = UIImage(named: "icons1")!
-//            self.reloadInputViews()
-//        })
+        //Star Saved Indicator
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedDishes") as? NSDictionary)?.object(forKey: fromDish.uniqueID ) as? Bool == true{
+            self.savedStarImageView.image = UIImage(named: "Star")
+        }else{
+            self.savedStarImageView.image = UIImage()
+        }
+
         
         self.foodImageView.setCornerRadius(9)
-        
         self.foodNameLabel.text = fromDish.name
         self.foodDescriptionLabel.text = fromDish.foodDescription
         self.resturantNameLabel.text = fromDish.restaurantName

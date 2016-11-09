@@ -6,12 +6,13 @@
 
 import UIKit
 
-class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDelegate{
+class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDelegate,FirebaseSaveDelegate{
 
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     var dishes:[DishObject] = [DishObject]()
     var loadingIndicator = DPLoadingIndicator.loadingIndicator()
 //    var refreshControl: UIRefreshControl?
+    var currentSwipeIndex:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         self.view.addSubview(loadingIndicator)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,11 +71,23 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
             FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
             self.showStarPopUp()
-            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
+            //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }
-        save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        
+        let dishID = dishes[indexPath.row].uniqueID
+        
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedDishes") as? NSDictionary)?.object(forKey: dishID ) as? Bool == true{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        }else{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "save")!)
+        }
+        
         return [save]
 
+    }
+    
+    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        self.currentSwipeIndex = indexPath
     }
     
     func setUpRefreshControl(){
@@ -131,6 +144,13 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     
     func willBeginTask(){
         self.loadingIndicator.isHidden = false
+    }
+    
+    func didUpdateSaveDish() {
+        guard self.currentSwipeIndex != nil else {
+            return
+        }
+        self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
     }
     
 }

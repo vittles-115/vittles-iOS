@@ -6,11 +6,12 @@
 
 import UIKit
 
-class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDelegate {
+class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDelegate,FirebaseSaveDelegate {
 
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     var restaurants:[RestaurantObject] = [RestaurantObject]()
     var loadingIndicator = DPLoadingIndicator.loadingIndicator()
+    var currentSwipeIndex:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +21,10 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         dataHandler.getRestaurants(numberOfRestaurants: 10)
         
         self.loadingIndicator.center = self.view.center
+        self.setUpRefreshControl()
         self.view.addSubview(loadingIndicator)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,9 +76,21 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
             self.showStarPopUp()
             self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }
-        save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        
+        let restaurantID = restaurants[indexPath.row].uniqueID
+        
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurantID ) as? Bool == true{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        }else{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "save")!)
+        }
+        
         return [save]
         
+    }
+    
+    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        self.currentSwipeIndex = indexPath
     }
     
     func setUpRefreshControl(){
@@ -108,6 +123,7 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         self.restaurants = FirebaseObjectConverter.restaurantArrayFrom(dictionary: value!)
         self.tableView.reloadData()
         self.loadingIndicator.isHidden = true
+        self.refreshControl?.endRefreshing()
     }
     
     func failedToFetchRestaurants(errorString:String){
@@ -115,13 +131,19 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         self.restaurants.removeAll()
         self.tableView.reloadData()
         self.loadingIndicator.isHidden = true
+        self.refreshControl?.endRefreshing()
     }
 
     func willBeginTask(){
         self.loadingIndicator.isHidden = false
     }
  
-
+    func didUpdateSaveRestaurant() {
+        guard self.currentSwipeIndex != nil else {
+            return
+        }
+        self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
+    }
    
     
     // MARK: - Navigation
