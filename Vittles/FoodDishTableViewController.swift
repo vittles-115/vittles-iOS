@@ -20,8 +20,10 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         tableView.register(UINib(nibName: "MAFoodItemTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
         dataHandler.delegate = self
         dataHandler.getDishes(numberOfDishes: 10)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(FoodDishTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+        
         self.setUpRefreshControl()
- 
         let centerHeightPt = self.tableView.frame.height/2 - screenSize.height/6 - self.tableView.contentOffset.y
         let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
         self.loadingIndicator.center = centerPoint
@@ -153,4 +155,12 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
     }
     
+    func failedToUpdateSaveDish(){
+        self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
+        self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
+    }
+    
+    func reload(){
+        self.tableView.reloadData()
+    }
 }

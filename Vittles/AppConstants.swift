@@ -24,5 +24,6 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let loadingPizza:[UIImage] = [UIImage(named: "icons1")!,UIImage(named: "icons1")!,UIImage(named: "icons2")!,UIImage(named: "icons2")!,UIImage(named: "icons3")!,UIImage(named: "icons3")!,UIImage(named: "icons4")!,UIImage(named: "icons4")!,UIImage(named: "icons5")!,UIImage(named: "icons5")!,UIImage(named: "icons6")!,UIImage(named: "icons6")!,UIImage(named: "icons7")!,UIImage(named: "icons7")!,]
 
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
 let networkTimeoutDuration:TimeInterval = 10
+
+let loggedInNotificationKey = "com.firebase.did.login"

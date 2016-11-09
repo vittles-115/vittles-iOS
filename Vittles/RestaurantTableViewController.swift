@@ -20,6 +20,8 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         dataHandler.delegate = self
         dataHandler.getRestaurants(numberOfRestaurants: 10)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(RestaurantTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+        
         self.loadingIndicator.center = self.view.center
         self.setUpRefreshControl()
         self.view.addSubview(loadingIndicator)
@@ -145,6 +147,14 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
     }
    
+    func failedToUpdateSaveRestaurant(){
+        self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
+        self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
+    }
+    
+    func reload(){
+        self.tableView.reloadData()
+    }
     
     // MARK: - Navigation
 

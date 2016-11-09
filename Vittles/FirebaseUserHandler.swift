@@ -86,6 +86,7 @@ class FirebaseUserHandler{
                 self.firebaseLoginSignupDelegate?.signupFailedWithError(error: error.localizedDescription)
                 return
             }
+            NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
             self.firebaseLoginSignupDelegate?.signupSucceeded()
         }
     }
@@ -107,12 +108,14 @@ class FirebaseUserHandler{
                 self.firebaseProfileDelegate?.failedToLoadUserProfile?()
                 return
             }
-            FirebaseUserHandler.currentUserDictionary = userDictionary
+            if FirebaseUserHandler.currentUserDictionary == nil{
+                FirebaseUserHandler.currentUserDictionary = userDictionary
+                NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
+            }else{
+                FirebaseUserHandler.currentUserDictionary = userDictionary
+            }
             FirebaseUserHandler.currentUDID = (FIRAuth.auth()?.currentUser?.uid)!
             self.firebaseProfileDelegate?.didLoadUserProfile?()
-            
-            print((userDictionary.object(forKey: "SavedDishes") as? NSDictionary)?.object(forKey: "-KTD3kA15O5pPCIv_ep4"))
-            
             
         }) { (error) in
             print(error.localizedDescription)
