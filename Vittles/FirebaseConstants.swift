@@ -20,6 +20,14 @@ let FirebaseReviewRef = FirebaseRootRef.child("Reviews")
 let FirebaseImagePathRef = FirebaseRootRef.child("ImagePaths")
 let FirebaseDishImagePathRef = FirebaseImagePathRef.child("Dishes")
 
+func FirebaseSavedDishRef(for userID:String)->FIRDatabaseReference{
+    return FirebaseUserRef.child(userID).child("SavedDishes")
+}
+
+func FirebaseSavedRestaurantRef(for userID:String)->FIRDatabaseReference{
+    return FirebaseUserRef.child(userID).child("SavedResturants")
+}
+
 
 //File Storage
 let FirebaseImageStorage = FIRStorage.storage()

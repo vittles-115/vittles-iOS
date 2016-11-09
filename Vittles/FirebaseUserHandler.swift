@@ -24,10 +24,19 @@ protocol FirebaseLoginSignupDelegate {
     @objc optional func failedToLoadUserProfile()
 }
 
+@objc protocol FirebaseSaveDelegate{
+    @objc optional func didUpdateSaveDish()
+    @objc optional func didUpdateSaveRestaurant()
+    
+    @objc optional func failedToUpdateSaveDish()
+    @objc optional func failedToUpdateSaveRestaurant()
+}
+
 class FirebaseUserHandler{
     
     var firebaseLoginSignupDelegate:FirebaseLoginSignupDelegate?
     var firebaseProfileDelegate:FirebaseProfileDelegate?
+    var firebaseSaveDegate:FirebaseSaveDelegate?
     static let sharedInstance = FirebaseUserHandler()
     static var currentUserDictionary:NSDictionary?
     static var currentUDID:String?
@@ -108,5 +117,56 @@ class FirebaseUserHandler{
             self.firebaseProfileDelegate?.failedToLoadUserProfile?()
         }
     }
+    
+    
+    
+    func updateSavedDish(for dishID:String){
+        guard let UDID = FirebaseUserHandler.currentUDID else{
+            self.firebaseSaveDegate?.failedToUpdateSaveDish?()
+            return
+        }
+        
+        FirebaseSavedDishRef(for: UDID).child(dishID).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            guard let value = (snapshot.value as? Bool) else{
+                FirebaseSavedDishRef(for: UDID).child(dishID).setValue(true)
+                self.firebaseSaveDegate?.didUpdateSaveDish?()
+                return
+            }
+            FirebaseSavedDishRef(for: UDID).child(dishID).setValue(!value)
+            self.firebaseSaveDegate?.didUpdateSaveDish?()
+            
+        }) { (error) in
+            self.firebaseSaveDegate?.failedToUpdateSaveDish?()
+        }
+
+        
+    }
+    
+    
+    func updateSavedRestaurant(for restaurantID:String){
+        guard let UDID = FirebaseUserHandler.currentUDID else{
+            self.firebaseSaveDegate?.failedToUpdateSaveRestaurant?()
+            return
+        }
+        
+        FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
+            guard let value = (snapshot.value as? Bool) else{
+                FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).setValue(true)
+                self.firebaseSaveDegate?.didUpdateSaveDish?()
+                return
+            }
+            FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).setValue(!value)
+            self.firebaseSaveDegate?.didUpdateSaveRestaurant?()
+            
+        }) { (error) in
+            self.firebaseSaveDegate?.failedToUpdateSaveDish?()
+        }
+        
+    }
+    
     
 }

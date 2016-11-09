@@ -67,6 +67,7 @@
 		B197DD561DB49D9000D76DB5 /* MAFoodReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD531DB49D9000D76DB5 /* MAFoodReviewTableViewCell.swift */; };
 		B197DD571DB49D9000D76DB5 /* MAFoodReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B197DD541DB49D9000D76DB5 /* MAFoodReviewTableViewCell.xib */; };
 		B197DD581DB49D9000D76DB5 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B197DD551DB49D9000D76DB5 /* ReviewTableViewController.swift */; };
+		B19A940A1DCD58EC0027B4B4 /* DishLargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A94091DCD58EC0027B4B4 /* DishLargeImageViewController.swift */; };
 		B1BCC3251DAB523C0016CA39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */; };
 		B1BDD3BC1DC4215900F565A2 /* DishImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDD3BB1DC4215900F565A2 /* DishImageCollectionViewController.swift */; };
 		B1BDD3BE1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BDD3BD1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift */; };
@@ -166,6 +167,7 @@
 		B197DD531DB49D9000D76DB5 /* MAFoodReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAFoodReviewTableViewCell.swift; sourceTree = "<group>"; };
 		B197DD541DB49D9000D76DB5 /* MAFoodReviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MAFoodReviewTableViewCell.xib; sourceTree = "<group>"; };
 		B197DD551DB49D9000D76DB5 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		B19A94091DCD58EC0027B4B4 /* DishLargeImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishLargeImageViewController.swift; sourceTree = "<group>"; };
 		B1BCC3241DAB523C0016CA39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1BDD3BB1DC4215900F565A2 /* DishImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishImageCollectionViewController.swift; sourceTree = "<group>"; };
 		B1BDD3BD1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				B1BDD3BB1DC4215900F565A2 /* DishImageCollectionViewController.swift */,
 				B1BDD3BD1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift */,
 				B1BDD3C01DC595E100F565A2 /* AllDishImageCollectionViewController.swift */,
+				B19A94091DCD58EC0027B4B4 /* DishLargeImageViewController.swift */,
 			);
 			name = Dishes;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				B1DE60CD1DB745E500055E0B /* RestaurantSearchTableViewController.swift in Sources */,
 				B197DD561DB49D9000D76DB5 /* MAFoodReviewTableViewCell.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
+				B19A940A1DCD58EC0027B4B4 /* DishLargeImageViewController.swift in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
 				B11B5D991DADBD8E00614BB4 /* FoodDishTableViewController.swift in Sources */,
 				B197DD481DB35ED100D76DB5 /* ResturantMenuMainViewController.swift in Sources */,

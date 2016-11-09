@@ -32,53 +32,60 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Pods-Vittles.xcscheme</key>
+		<key>Pages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>Pods-VittlesTests.xcscheme</key>
+		<key>Pods-Vittles.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>Pods-VittlesUITests.xcscheme</key>
+		<key>Pods-VittlesTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>PromiseKit.xcscheme</key>
+		<key>Pods-VittlesUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
+		<key>PromiseKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0E367EB7616431C50F6EA9F1C446594D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1DE93A359FA21F91DFBE81309E851A4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>231E9A740E52E0369D96E7C53C3E28D2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>333E47F1004946B94926B19979768D18</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3FE0211978383734E9FC3056276EBEEF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>53F678DA5ED09BEDA3204876F4EFC5F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -99,6 +106,11 @@
 			<true/>
 		</dict>
 		<key>9F76412E02609E3659ACC452E34A8E48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D88EC3EA3259794DC24AA636D2D29615</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -69,6 +69,7 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
+            FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: self.restaurants[indexPath.row].uniqueID)
             self.showStarPopUp()
             self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }

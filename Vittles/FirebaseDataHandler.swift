@@ -32,6 +32,8 @@ class FirebaseDataHandler{
     static let sharedInstance = FirebaseDataHandler()
     var delegate:FirebaseDataHandlerDelegate?
 
+    //Mark : DISHES
+    
     func getDishes(numberOfDishes:UInt){
         delegate?.willBeginTask?()
         FirebaseDishRef.queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -85,22 +87,148 @@ class FirebaseDataHandler{
         }
 
         
-        FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//        FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            guard let value = snapshot.value as? NSDictionary else{
+//                self.delegate?.failurePostingReview?()
+//                return
+//            }
+//            
+//            self.delegate?.didFetchDishes?(value:value)
+//            
+//        }) { (error) in
+//            print(error.localizedDescription)
+//            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+//        }
+    }
+    
+    func getDishesWhereName(startsWith:String,numberOfDishes:UInt){
+        delegate?.willBeginTask?()
+        let endingString = startsWith + "\u{f8ff}"
+        FirebaseDishRef.queryOrdered(byChild: "name").queryStarting(atValue: startsWith).queryEnding(atValue: endingString).queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{
-                self.delegate?.failurePostingReview?()
+                self.delegate?.failedToFetchDishes?(errorString: "Dish Not found")
                 return
             }
-            
-            
-            
-            self.delegate?.didFetchDishes?(value:value)
+            self.delegate?.didFetchDishes!(value:value)
             
         }) { (error) in
             print(error.localizedDescription)
             self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
         }
     }
+    
+    
+    func getSavedDishesFor(userID:String){
+        delegate?.willBeginTask?()
+        FirebaseSavedDishRef(for: userID).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let savedDishDictionary = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchDishes?(errorString: "Saved Dishes failed to fetch")
+                return
+            }
+            
+            let dishDictionary:NSMutableDictionary = NSMutableDictionary()
+            let numberOfObjects = savedDishDictionary.count
+            var currObject = 0
+            for (key, _) in savedDishDictionary{
+                
+                currObject += 1
+                FirebaseDishRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // do some stuff once
+                    guard let value = snapshot.value as? NSDictionary else{
+                        self.delegate?.failedToFetchDishes?(errorString: "Dishes Not found")
+                        return
+                    }
+                    dishDictionary[key] = value
+                    if currObject == numberOfObjects{
+                        self.delegate?.didFetchDishesForMenu?(value:dishDictionary)
+                    }
+                })
+                
+                
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+        }
+        
+        
+//        FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            guard let value = snapshot.value as? NSDictionary else{
+//                self.delegate?.failedToFetchDishes!(errorString: "Error fetching dishes")
+//                return
+//            }
+//            
+//            
+//            
+//            self.delegate?.didFetchDishes?(value:value)
+//            
+//        }) { (error) in
+//            print(error.localizedDescription)
+//            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+//        }
+    }
+
+    //Mark : Restaurants
+    
+    func getSavedRestaurantsFor(userID:String){
+        delegate?.willBeginTask?()
+        FirebaseSavedRestaurantRef(for: userID).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let savedRestaurantDictionary = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchRestaurants?(errorString: "Saved Restaurants failed to fetch")
+                return
+            }
+            
+            let restaurantDict:NSMutableDictionary = NSMutableDictionary()
+            let numberOfObjects = savedRestaurantDictionary.count
+            var currObject = 0
+            for (key, _) in savedRestaurantDictionary{
+                
+                currObject += 1
+                FirebaseResturantRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // do some stuff once
+                    guard let value = snapshot.value as? NSDictionary else{
+                        self.delegate?.failedToFetchRestaurants?(errorString: "Restaurants Not found")
+                        return
+                    }
+                    restaurantDict[key] = value
+                    if currObject == numberOfObjects{
+                        self.delegate?.didFetchRestaurants?(value:restaurantDict)
+                    }
+                })
+                
+                
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchRestaurants?(errorString: "Restaurants Not found")
+        }
+        
+//        
+//        FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            guard let value = snapshot.value as? NSDictionary else{
+//                self.delegate?.failedToFetchRestaurants?(errorString: "Restaurants Not found")
+//                return
+//            }
+//            
+//            
+//            
+//            self.delegate?.didFetchDishes?(value:value)
+//            
+//        }) { (error) in
+//            print(error.localizedDescription)
+//            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+//        }
+    }
+
+    
     
     func getRestaurants(numberOfRestaurants:UInt){
         delegate?.willBeginTask?()
@@ -135,24 +263,8 @@ class FirebaseDataHandler{
         }
     }
     
-    
-    func getDishesWhereName(startsWith:String,numberOfDishes:UInt){
-        delegate?.willBeginTask?()
-        let endingString = startsWith + "\u{f8ff}"
-        FirebaseDishRef.queryOrdered(byChild: "name").queryStarting(atValue: startsWith).queryEnding(atValue: endingString).queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            guard let value = snapshot.value as? NSDictionary else{
-                self.delegate?.failedToFetchDishes?(errorString: "Dish Not found")
-                return
-            }
-            self.delegate?.didFetchDishes!(value:value)
-            
-        }) { (error) in
-            print(error.localizedDescription)
-            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
-        }
-    }
-    
+
+    //Mark : REVIEWS 
     
     //NOTE: Need to do error checking
     func postReviewFor(dishID:String, reviewDictionary:NSDictionary){
