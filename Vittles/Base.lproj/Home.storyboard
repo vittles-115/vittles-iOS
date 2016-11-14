@@ -278,7 +278,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwX-rf-nH3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="853"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-Ta-2gj">
                                         <rect key="frame" x="0.0" y="272" width="414" height="532"/>
@@ -589,6 +589,6 @@
         <image name="Search" width="15" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZqC-oR-FMA"/>
+        <segue reference="ZgM-XD-IS5"/>
     </inferredMetricsTieBreakers>
 </document>

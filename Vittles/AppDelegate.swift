@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseUserHandler.sharedInstance.loginWithEmail(email: "jenny@gmail.com", password: "aaaaaaaa")
         
 //        FirebaseSavedDishRef(for: "T38vhJZQiPfYgHCmb4cS03mOKbI3").child("-KTD3kA15O5pPCIv_ep4").setValue(true)
-        FirebaseSavedRestaurantRef(for: "T38vhJZQiPfYgHCmb4cS03mOKbI3").child("-KTBwNgW2e3fWmLpypWj").setValue(true)
+//        FirebaseSavedRestaurantRef(for: "T38vhJZQiPfYgHCmb4cS03mOKbI3").child("-KTBwNgW2e3fWmLpypWj").setValue(true)
         
         return true
     }

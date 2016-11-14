@@ -102,6 +102,10 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     }
     
     func refreshTableView(){
+        guard parent is HomeSearchViewController else {
+            self.refreshControl?.endRefreshing()
+            return
+        }
         let parentVC = parent as! HomeSearchViewController
         if parentVC.searchBar.text == ""{
             dataHandler.getDishes(numberOfDishes:10)
