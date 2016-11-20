@@ -13,7 +13,7 @@ import FirebaseStorage
 //Real-time Database
 let FirebaseRootRef = FIRDatabase.database().reference()
 let FirebaseUserRef = FirebaseRootRef.child("Users")
-let FirebaseResturantRef = FirebaseRootRef.child("Resturants")
+let FirebaseResturantRef = FirebaseRootRef.child("Restaurants")
 let FirebaseMenuRef = FirebaseRootRef.child("Menus")
 let FirebaseDishRef = FirebaseRootRef.child("Dishes")
 let FirebaseReviewRef = FirebaseRootRef.child("Reviews")

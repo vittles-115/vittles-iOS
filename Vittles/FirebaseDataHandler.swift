@@ -14,8 +14,11 @@ typealias FirebaseResponse = (NSDictionary?) -> Void
     @objc optional func willBeginTask()
     
     @objc optional func didFetchDishes(value:NSDictionary?)
+    @objc optional func didFetchAdditionalDishes(value:NSDictionary?)
     @objc optional func didFetchDishesForMenu(value:NSDictionary?)
     @objc optional func failedToFetchDishes(errorString:String)
+    
+    @objc optional func getLastObjectFetched(lastObject:Any?)
     
     @objc optional func didFetchRestaurants(value:NSDictionary?)
     @objc optional func failedToFetchRestaurants(errorString:String)
@@ -36,7 +39,8 @@ class FirebaseDataHandler{
     
     func getDishes(numberOfDishes:UInt){
         delegate?.willBeginTask?()
-        FirebaseDishRef.queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        FirebaseDishRef.queryOrderedByKey().queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{
                 self.delegate?.failedToFetchDishes?(errorString: "Dishes Not found")
@@ -44,12 +48,39 @@ class FirebaseDataHandler{
             }
   
             self.delegate?.didFetchDishes?(value:value)
-
+            let lastObject = value.allKeys.last
+            print("last object: \(lastObject)")
+            self.delegate?.getLastObjectFetched?(lastObject: lastObject)
+            
         }) { (error) in
             print(error.localizedDescription)
             self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
         }
     }
+    
+    func getAdditionalDishesStarting(at startingObject:Any?, numberOfDishes:UInt){
+        delegate?.willBeginTask?()
+        
+        FirebaseDishRef.queryOrderedByKey().queryStarting(atValue: startingObject).queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? NSMutableDictionary else{
+                self.delegate?.failedToFetchDishes?(errorString: "Dishes Not found")
+                return
+            }
+            
+            (value as? NSMutableDictionary)?.removeObject(forKey: startingObject)
+            self.delegate?.didFetchAdditionalDishes?(value:value)
+            let lastObject = value.allKeys.last
+            print("last object: \(lastObject)")
+            self.delegate?.getLastObjectFetched?(lastObject: lastObject)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
+        }
+    }
+    
+    
     
     func getDishesFor(restaurantID:String, menuNamed:String){
         delegate?.willBeginTask?()
@@ -112,6 +143,9 @@ class FirebaseDataHandler{
                 return
             }
             self.delegate?.didFetchDishes!(value:value)
+            let lastObject = value.allKeys.last
+            print("last object: \(lastObject)")
+            self.delegate?.getLastObjectFetched?(lastObject: lastObject)
             
         }) { (error) in
             print(error.localizedDescription)

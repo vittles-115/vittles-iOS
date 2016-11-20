@@ -11,8 +11,10 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     var dishes:[DishObject] = [DishObject]()
     var loadingIndicator = DPLoadingIndicator.loadingIndicator()
-//    var refreshControl: UIRefreshControl?
     var currentSwipeIndex:IndexPath?
+    var isFetching:Bool = false
+    
+    var lastObjectFetched:Any?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +94,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         self.currentSwipeIndex = indexPath
     }
     
+   
     func setUpRefreshControl(){
         self.refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshTableView), for: UIControlEvents.valueChanged)
@@ -119,6 +122,15 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         
         (self.parent as? HomeSearchViewController)?.searchBar.resignFirstResponder()
         
+        if (Int(scrollView.contentOffset.y + scrollView.frame.size.height) == Int(scrollView.contentSize.height + scrollView.contentInset.bottom)) {
+            if !isFetching && lastObjectFetched != nil{
+                isFetching = true
+                self.lastObjectFetched = dishes.last?.uniqueID
+                self.dataHandler.getAdditionalDishesStarting(at: dishes.last?.uniqueID, numberOfDishes: 11)
+            }
+        }
+
+        
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -131,9 +143,12 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     }
     
     
+    // MARK : Delegate Methods
+    
     func didFetchDishes(value:NSDictionary?) {
         self.refreshControl?.endRefreshing()
         self.dishes = FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
+        
         self.tableView.reloadData()
         self.loadingIndicator.isHidden = true
 
@@ -143,8 +158,8 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     func failedToFetchDishes(errorString: String) {
         self.refreshControl?.endRefreshing()
         print("error is: ",errorString)
-        self.dishes.removeAll()
-        self.tableView.reloadData()
+//        self.dishes.removeAll()
+//        self.tableView.reloadData()
         self.loadingIndicator.isHidden = true
     }
     
@@ -167,4 +182,31 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     func reload(){
         self.tableView.reloadData()
     }
+    
+    func getLastObjectFetched(lastObject: Any?) {
+        self.lastObjectFetched = lastObject
+    }
+    
+    func didFetchAdditionalDishes(value: NSDictionary?) {
+        isFetching = false
+        print("fetched next objects")
+        self.refreshControl?.endRefreshing()
+        //let indexPath = NSIndexPath(row: self.dishes.count-1, section: 0)
+        var newDishes =  FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
+        if(newDishes.count > 1){
+            newDishes.remove(at: 0)
+        }else{
+            return
+        }
+        self.dishes.append(contentsOf:newDishes)
+        //self.tableView.reloadRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
+        self.tableView.reloadData()
+        self.loadingIndicator.isHidden = true
+    }
+    
 }
+
+
+
+
+
