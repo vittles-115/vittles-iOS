@@ -210,7 +210,6 @@
                                 <color key="tintColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="                            Sign up now"/>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="0DJ-Vu-57g" eventType="touchUpInside" id="G6b-jq-Ysh"/>
                                     <segue destination="dqL-ll-JoV" kind="show" identifier="signupSegue" id="u4d-Ti-5Kk"/>
                                 </connections>
                             </button>
@@ -412,9 +411,11 @@
                         <outlet property="locationTextfield" destination="aul-sK-967" id="R2q-BS-UY0"/>
                         <outlet property="nameTextfield" destination="iJn-hb-ows" id="dbh-Dq-AiT"/>
                         <outlet property="passwordTextfield" destination="lhH-Of-gUy" id="Oh6-rd-4e8"/>
+                        <segue destination="a9k-QI-x3s" kind="unwind" identifier="loggedIn" unwindAction="didLogin:" id="A2m-wC-zoW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8O-Nj-VRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="a9k-QI-x3s" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2489" y="439"/>
         </scene>

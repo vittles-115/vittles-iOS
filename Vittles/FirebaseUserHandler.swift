@@ -8,14 +8,14 @@ import Firebase
 
 typealias UserProfileCallback = (NSDictionary?) -> Void
 
-protocol FirebaseLoginSignupDelegate {
+@objc protocol FirebaseLoginSignupDelegate {
     //Login Callbacks
-    func loginSucceeded()
-    func loginFailedWithError(error:String)
+    @objc optional func loginSucceeded()
+    @objc optional func loginFailedWithError(error:String)
 
     //Signup Callbacks
-    func signupSucceeded()
-    func signupFailedWithError(error:String)
+    @objc optional func signupSucceeded(user:FIRUser)
+    @objc optional func signupFailedWithError(error:String)
 
 }
 
@@ -70,12 +70,12 @@ class FirebaseUserHandler{
     func loginWithEmail(email:String, password:String){
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                self.firebaseLoginSignupDelegate?.loginFailedWithError(error: error.localizedDescription)
+                self.firebaseLoginSignupDelegate?.loginFailedWithError?(error: error.localizedDescription)
                 print("login fail")
                 return
             }
             print("login success")
-            self.firebaseLoginSignupDelegate?.loginSucceeded()
+            self.firebaseLoginSignupDelegate?.loginSucceeded?()
             self.getCurrentUser()
         }
     }
@@ -83,11 +83,13 @@ class FirebaseUserHandler{
     func signupWithEmail(email:String, password:String){
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                self.firebaseLoginSignupDelegate?.signupFailedWithError(error: error.localizedDescription)
+                self.firebaseLoginSignupDelegate?.signupFailedWithError?(error: error.localizedDescription)
                 return
             }
+        
+            
             NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
-            self.firebaseLoginSignupDelegate?.signupSucceeded()
+            self.firebaseLoginSignupDelegate?.signupSucceeded?(user: user!)
         }
     }
     

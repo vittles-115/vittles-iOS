@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
     
@@ -60,13 +61,13 @@ class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
         self.presentSimpleAlert(title: "Error", message: "Incorrect email or password")
     }
     
-    func signupSucceeded(){
-        
-    }
-    
-    func signupFailedWithError(error:String){
-        
-    }
+//    func signupSucceeded(user:FIRUser){
+//        
+//    }
+//    
+//    func signupFailedWithError(error:String){
+//        
+//    }
 
     
     /*
