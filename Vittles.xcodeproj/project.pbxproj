@@ -77,6 +77,9 @@
 		B1DE60CB1DB7409600055E0B /* RestaurantMainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DE60CA1DB7409600055E0B /* RestaurantMainDetailViewController.swift */; };
 		B1DE60CD1DB745E500055E0B /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DE60CC1DB745E500055E0B /* RestaurantSearchTableViewController.swift */; };
 		B1F5EA331DE27DF1009997FA /* SavedListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5EA321DE27DF1009997FA /* SavedListTableViewController.swift */; };
+		B1F5EA351DE2A746009997FA /* SavedMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5EA341DE2A746009997FA /* SavedMainViewController.swift */; };
+		B1F5EA371DE2A908009997FA /* SavedFoodDishTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5EA361DE2A908009997FA /* SavedFoodDishTableViewController.swift */; };
+		B1F5EA391DE2A923009997FA /* SavedRestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5EA381DE2A923009997FA /* SavedRestaurantTableViewController.swift */; };
 		B1FAF9621DC95A9A0030EB36 /* DPLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FAF9611DC95A9A0030EB36 /* DPLoadingIndicator.swift */; };
 		B7492F601DAB381F002EADDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F5F1DAB381F002EADDC /* AppDelegate.swift */; };
 		B7492F621DAB381F002EADDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7492F611DAB381F002EADDC /* ViewController.swift */; };
@@ -179,6 +182,9 @@
 		B1DE60CA1DB7409600055E0B /* RestaurantMainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMainDetailViewController.swift; sourceTree = "<group>"; };
 		B1DE60CC1DB745E500055E0B /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		B1F5EA321DE27DF1009997FA /* SavedListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedListTableViewController.swift; sourceTree = "<group>"; };
+		B1F5EA341DE2A746009997FA /* SavedMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedMainViewController.swift; sourceTree = "<group>"; };
+		B1F5EA361DE2A908009997FA /* SavedFoodDishTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedFoodDishTableViewController.swift; sourceTree = "<group>"; };
+		B1F5EA381DE2A923009997FA /* SavedRestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRestaurantTableViewController.swift; sourceTree = "<group>"; };
 		B1FAF9611DC95A9A0030EB36 /* DPLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLoadingIndicator.swift; sourceTree = "<group>"; };
 		B40AAFF0F980D4D576F09C95 /* Pods_Vittles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vittles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7492F5C1DAB381F002EADDC /* Vittles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vittles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,7 +367,10 @@
 			isa = PBXGroup;
 			children = (
 				B167F1F71DAB4F71008EE90B /* SavedList.storyboard */,
+				B1F5EA341DE2A746009997FA /* SavedMainViewController.swift */,
 				B1F5EA321DE27DF1009997FA /* SavedListTableViewController.swift */,
+				B1F5EA361DE2A908009997FA /* SavedFoodDishTableViewController.swift */,
+				B1F5EA381DE2A923009997FA /* SavedRestaurantTableViewController.swift */,
 			);
 			name = SavedList;
 			sourceTree = "<group>";
@@ -825,7 +834,9 @@
 				B197DD581DB49D9000D76DB5 /* ReviewTableViewController.swift in Sources */,
 				B197DD331DB2FCDF00D76DB5 /* ReviewObject.swift in Sources */,
 				B169F77D1DC6FD1F005705A6 /* MAProfileOptionsTableViewController.swift in Sources */,
+				B1F5EA371DE2A908009997FA /* SavedFoodDishTableViewController.swift in Sources */,
 				B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */,
+				B1F5EA351DE2A746009997FA /* SavedMainViewController.swift in Sources */,
 				B197DD441DB35E9800D76DB5 /* RestaurantPickMenuTableViewController.swift in Sources */,
 				B1199BED1DB7EFB900A221A9 /* loginViewController.swift in Sources */,
 				B7492F621DAB381F002EADDC /* ViewController.swift in Sources */,
@@ -848,6 +859,7 @@
 				B1F5EA331DE27DF1009997FA /* SavedListTableViewController.swift in Sources */,
 				B1DE60CD1DB745E500055E0B /* RestaurantSearchTableViewController.swift in Sources */,
 				B197DD561DB49D9000D76DB5 /* MAFoodReviewTableViewCell.swift in Sources */,
+				B1F5EA391DE2A923009997FA /* SavedRestaurantTableViewController.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
 				B19A940A1DCD58EC0027B4B4 /* DishLargeImageViewController.swift in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,

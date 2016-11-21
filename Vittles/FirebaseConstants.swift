@@ -19,6 +19,8 @@ let FirebaseDishRef = FirebaseRootRef.child("Dishes")
 let FirebaseReviewRef = FirebaseRootRef.child("Reviews")
 let FirebaseImagePathRef = FirebaseRootRef.child("ImagePaths")
 let FirebaseDishImagePathRef = FirebaseImagePathRef.child("Dishes")
+let FirebaseDishListRef = FirebaseRootRef.child("DishLists")
+let FirebaseRestaurantListRef = FirebaseRootRef.child("RestaurantLists")
 
 func FirebaseSavedDishRef(for userID:String)->FIRDatabaseReference{
     return FirebaseUserRef.child(userID).child("SavedDishes")

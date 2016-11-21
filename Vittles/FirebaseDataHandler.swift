@@ -156,7 +156,7 @@ class FirebaseDataHandler{
     
     func getSavedDishesFor(userID:String){
         delegate?.willBeginTask?()
-        FirebaseSavedDishRef(for: userID).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseSavedDishRef(for: userID).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let savedDishDictionary = snapshot.value as? NSDictionary else{
                 self.delegate?.failedToFetchDishes?(errorString: "Saved Dishes failed to fetch")
@@ -166,9 +166,10 @@ class FirebaseDataHandler{
             let dishDictionary:NSMutableDictionary = NSMutableDictionary()
             let numberOfObjects = savedDishDictionary.count
             var currObject = 0
-            for (key, _) in savedDishDictionary{
+            for (key, value) in savedDishDictionary{
                 
                 currObject += 1
+                if (value as! Bool) == false {continue}
                 FirebaseDishRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
                     // do some stuff once
                     guard let value = snapshot.value as? NSDictionary else{
@@ -177,7 +178,7 @@ class FirebaseDataHandler{
                     }
                     dishDictionary[key] = value
                     if currObject == numberOfObjects{
-                        self.delegate?.didFetchDishesForMenu?(value:dishDictionary)
+                        self.delegate?.didFetchDishes?(value:dishDictionary)
                     }
                 })
                 
@@ -189,29 +190,13 @@ class FirebaseDataHandler{
             self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
         }
         
-        
-//        FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            guard let value = snapshot.value as? NSDictionary else{
-//                self.delegate?.failedToFetchDishes!(errorString: "Error fetching dishes")
-//                return
-//            }
-//            
-//            
-//            
-//            self.delegate?.didFetchDishes?(value:value)
-//            
-//        }) { (error) in
-//            print(error.localizedDescription)
-//            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
-//        }
     }
 
     //Mark : Restaurants
     
     func getSavedRestaurantsFor(userID:String){
         delegate?.willBeginTask?()
-        FirebaseSavedRestaurantRef(for: userID).queryEqual(toValue: true).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseSavedRestaurantRef(for: userID).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let savedRestaurantDictionary = snapshot.value as? NSDictionary else{
                 self.delegate?.failedToFetchRestaurants?(errorString: "Saved Restaurants failed to fetch")
@@ -221,9 +206,10 @@ class FirebaseDataHandler{
             let restaurantDict:NSMutableDictionary = NSMutableDictionary()
             let numberOfObjects = savedRestaurantDictionary.count
             var currObject = 0
-            for (key, _) in savedRestaurantDictionary{
+            for (key, value) in savedRestaurantDictionary{
                 
                 currObject += 1
+                if (value as! Bool) == false {continue}
                 FirebaseResturantRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
                     // do some stuff once
                     guard let value = snapshot.value as? NSDictionary else{

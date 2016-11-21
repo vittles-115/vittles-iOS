@@ -75,7 +75,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
             FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
             self.showStarPopUp()
-            //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }
         
         let addToList = UITableViewRowAction(style: .normal, title: "         ") { action, index in

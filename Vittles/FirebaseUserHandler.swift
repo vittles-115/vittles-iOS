@@ -197,48 +197,4 @@ class FirebaseUserHandler{
         
     }
     
-    
-    func getSavedDishes(){
-        //delegate?.willBeginTask?()
-        
-    
-        FirebaseUserRef.child((FIRAuth.auth()?.currentUser?.uid)!).child("FirebaseUserKey_savedDishes").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            guard let menuObjects = snapshot.value as? NSDictionary else{
-                self.firebaseSaveDegate?.failedToFetchSavedDishes?(error: "Failed to fetch saved dishes")
-                return
-            }
-            
-            let dishDictionary:NSMutableDictionary = NSMutableDictionary()
-            let numberOfObjects = menuObjects.count
-            var currObject = 0
-            for (key, _) in menuObjects{
-                
-                FirebaseDishRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
-                    // do some stuff once
-                    guard let value = snapshot.value as? NSDictionary else{
-                        self.firebaseSaveDegate?.failedToFetchSavedDishes?(error: "Dishes Not found")
-                        return
-                    }
-                    dishDictionary[key] = value
-                    currObject += 1;
-                    if currObject == numberOfObjects{
-                        self.firebaseSaveDegate?.didFetchSavedDishes?(dishes:dishDictionary)
-                    }
-                })
-                
-                
-            }
-            
-        }) { (error) in
-            print(error.localizedDescription)
-            self.firebaseSaveDegate?.failedToFetchSavedDishes?(error: error.localizedDescription)
-        }
-
-    }
-    
-    func getSavedRestaurants(){
-        
-    }
-    
 }
