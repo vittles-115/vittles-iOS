@@ -34,6 +34,7 @@
 		B11B5DC11DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B11B5DB31DADC25400614BB4 /* SourceSansPro-SemiboldIt.otf */; };
 		B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DC41DADC2D500614BB4 /* AppConstants.swift */; };
 		B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */; };
+		B1309A691DE37C6A0048D47B /* GenericImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1309A681DE37C6A0048D47B /* GenericImageViewController.swift */; };
 		B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */; };
 		B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */; };
 		B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */; };
@@ -139,6 +140,7 @@
 		B11B5DC21DADC25D00614BB4 /* arialRoundedMT_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arialRoundedMT_Bold.ttf; sourceTree = "<group>"; };
 		B11B5DC41DADC2D500614BB4 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
+		B1309A681DE37C6A0048D47B /* GenericImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericImageViewController.swift; sourceTree = "<group>"; };
 		B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MALocationManager.swift; sourceTree = "<group>"; };
 		B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerHandler.swift; sourceTree = "<group>"; };
 		B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				B1BDD3BD1DC42BC000F565A2 /* DishThumbnailCollectionViewCell.swift */,
 				B1BDD3C01DC595E100F565A2 /* AllDishImageCollectionViewController.swift */,
 				B19A94091DCD58EC0027B4B4 /* DishLargeImageViewController.swift */,
+				B1309A681DE37C6A0048D47B /* GenericImageViewController.swift */,
 			);
 			name = Dishes;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				B1FAF9621DC95A9A0030EB36 /* DPLoadingIndicator.swift in Sources */,
 				B167F1EE1DAB3D3F008EE90B /* FirebaseImageHandler.swift in Sources */,
 				B197DD311DB2FB5600D76DB5 /* DishObject.swift in Sources */,
+				B1309A691DE37C6A0048D47B /* GenericImageViewController.swift in Sources */,
 				B1DE60CB1DB7409600055E0B /* RestaurantMainDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

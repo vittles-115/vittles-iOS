@@ -98,8 +98,11 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
         if segue.identifier == "showAllImages"{
             let destinationVC = segue.destination as? AllDishImageCollectionViewController
             destinationVC?.dish = self.dish
-
+        }else if segue.identifier == "viewLargeImage"{
+            let destinationVC = segue.destination as? DishLargeImageViewController
+            destinationVC?.imageURLS = sender as! [(String, String)]
         }
+        
     }
 
 }

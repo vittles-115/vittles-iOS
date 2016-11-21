@@ -75,8 +75,8 @@
                                     <constraint firstAttribute="height" constant="30" id="Dbl-Zl-16E"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Saved Dishes"/>
-                                    <segment title="Saved Restaurant"/>
+                                    <segment title="Dishes"/>
+                                    <segment title="Restaurant"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -408,6 +409,7 @@
                         <outlet property="scrollView" destination="IwX-rf-nH3" id="q3x-Fd-m7a"/>
                         <outlet property="showMoreButton" destination="GXN-Yu-DNu" id="ZMA-PH-ZEt"/>
                         <segue destination="d38-4F-QZo" kind="unwind" identifier="returnToMain" unwindAction="unwindToMainSearchVC:" id="4TA-IF-uwU"/>
+                        <segue destination="SnE-dC-tdL" kind="show" identifier="viewLargeImage" id="uTm-yP-Grg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HT8-Ad-22V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -533,28 +535,55 @@
                             <outlet property="delegate" destination="WTv-Ia-rrL" id="VBn-ms-dmi"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="SnE-dC-tdL" kind="show" identifier="viewLargeImage" id="Cu5-r3-So2"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVu-i1-a4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4453" y="-206"/>
+            <point key="canvasLocation" x="4451" y="-184"/>
         </scene>
         <!--Dish Large Image View Controller-->
-        <scene sceneID="Pjl-nm-zzd">
+        <scene sceneID="4Gr-Yj-H7V">
             <objects>
-                <viewController id="Yux-mn-w88" customClass="DishLargeImageViewController" customModule="Vittles" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="SnE-dC-tdL" customClass="DishLargeImageViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U0L-bU-miJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4374" y="-1213"/>
+        </scene>
+        <!--Generic Image View Controller-->
+        <scene sceneID="jrT-VG-zG0">
+            <objects>
+                <viewController storyboardIdentifier="GenericImageViewController" id="VwV-Ee-bJs" customClass="GenericImageViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="guS-eW-WYu"/>
-                        <viewControllerLayoutGuide type="bottom" id="cUT-Ok-95v"/>
+                        <viewControllerLayoutGuide type="top" id="pQB-bM-162"/>
+                        <viewControllerLayoutGuide type="bottom" id="stv-Af-q2n"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s4j-8a-R7x">
+                    <view key="view" contentMode="scaleToFill" id="7qs-8p-qmR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zWf-RR-QoU">
+                                <rect key="frame" x="-0.5" y="145.5" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zWf-RR-QoU" secondAttribute="height" multiplier="1:1" id="FR2-iy-cgj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zWf-RR-QoU" firstAttribute="centerY" secondItem="7qs-8p-qmR" secondAttribute="centerY" id="070-aG-p2H"/>
+                            <constraint firstItem="zWf-RR-QoU" firstAttribute="centerX" secondItem="7qs-8p-qmR" secondAttribute="centerX" id="0FO-Fg-vEd"/>
+                            <constraint firstItem="zWf-RR-QoU" firstAttribute="width" secondItem="7qs-8p-qmR" secondAttribute="width" id="be9-fE-hlF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="zWf-RR-QoU" id="VCa-KC-tcf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D1j-1O-izH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuE-L8-XRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4714" y="573"/>
+            <point key="canvasLocation" x="5540" y="-1211"/>
         </scene>
         <!--Review Table View Controller-->
         <scene sceneID="YO9-aq-T5U">
@@ -590,5 +619,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZqC-oR-FMA"/>
+        <segue reference="uTm-yP-Grg"/>
     </inferredMetricsTieBreakers>
 </document>
