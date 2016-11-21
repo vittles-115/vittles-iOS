@@ -59,6 +59,7 @@ let FirebaseDishKey_thumbnail = "thumbnail_URL"
 let FirebaseUserKey_name = "name"
 let FirebaseUserKey_generalLocation = "general_location"
 let FirebaseUserKey_thumbnail_URL = "thumbnail_URL"
+let FirebaseUserKey_savedDishes = "SavedDishes"
 
 //Images
 let FirebaseImageKey_thumbnail = "thumbnailSized"

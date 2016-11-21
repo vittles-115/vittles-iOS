@@ -24,6 +24,8 @@ class MAProfileOptionsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.separatorColor = UIColor.clear
         
+        print(FIRAuth.auth()?.currentUser)
+        
         if FIRAuth.auth()?.currentUser != nil{
             profileOptions[3] = "Log Out"
         }else{

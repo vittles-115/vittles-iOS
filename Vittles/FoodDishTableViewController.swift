@@ -78,6 +78,12 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
             //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }
         
+        let addToList = UITableViewRowAction(style: .normal, title: "         ") { action, index in
+//            FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
+//            self.showStarPopUp()
+            //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
+        }
+        
         let dishID = dishes[indexPath.row].uniqueID
         
         if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedDishes") as? NSDictionary)?.object(forKey: dishID ) as? Bool == true{
@@ -85,6 +91,8 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         }else{
             save.backgroundColor = UIColor(patternImage: UIImage(named: "save")!)
         }
+        
+        addToList.backgroundColor = UIColor(patternImage: UIImage(named: "addToList")!)
         
         return [save]
 

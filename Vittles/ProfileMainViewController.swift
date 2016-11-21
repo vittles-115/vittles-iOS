@@ -98,6 +98,8 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
     
     func didLoadUserProfile() {
         self.setUserProfile()
+        (self.childViewControllers.first as! MAProfileOptionsTableViewController).viewDidLoad()
+        (self.childViewControllers.first as! MAProfileOptionsTableViewController).tableView.reloadData()
     }
 
 }

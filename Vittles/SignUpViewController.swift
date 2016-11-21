@@ -72,13 +72,13 @@ class SignUpViewController: UIViewController, FirebaseLoginSignupDelegate {
 
         switch arc4random() % 3 {
         case 0:
-            FirebaseUserRef.child(user.uid).child(FirebaseUserKey_thumbnail_URL).setValue(default0)
+            FirebaseUserHandler.sharedInstance.setUserProfile(UDID: user.uid, name: self.nameTextfield.text!, generalLocation: self.locationTextfield.text!, profileURL: default0)
             break
         case 1:
-            FirebaseUserRef.child(user.uid).child(FirebaseUserKey_thumbnail_URL).setValue(default1)
+            FirebaseUserHandler.sharedInstance.setUserProfile(UDID: user.uid, name: self.nameTextfield.text!, generalLocation: self.locationTextfield.text!, profileURL: default1)
             break
         case 2:
-            FirebaseUserRef.child(user.uid).child(FirebaseUserKey_thumbnail_URL).setValue(default2)
+            FirebaseUserHandler.sharedInstance.setUserProfile(UDID: user.uid, name: self.nameTextfield.text!, generalLocation: self.locationTextfield.text!, profileURL: default2)
             break
         default:
             break

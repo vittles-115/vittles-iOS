@@ -25,18 +25,28 @@ typealias UserProfileCallback = (NSDictionary?) -> Void
 }
 
 @objc protocol FirebaseSaveDelegate{
+    //Save / Update Methods
     @objc optional func didUpdateSaveDish()
     @objc optional func didUpdateSaveRestaurant()
     
     @objc optional func failedToUpdateSaveDish()
     @objc optional func failedToUpdateSaveRestaurant()
+    
+    //Fetching Methods
+    @objc optional func didFetchSavedDishes(dishes:NSDictionary)
+    @objc optional func failedToFetchSavedDishes(error:String)
+    
+    @objc optional func didFetchSavedRestaurants()
+    @objc optional func failedToFetchSavedRestaurants(error:String)
 }
+
 
 class FirebaseUserHandler{
     
     var firebaseLoginSignupDelegate:FirebaseLoginSignupDelegate?
     var firebaseProfileDelegate:FirebaseProfileDelegate?
     var firebaseSaveDegate:FirebaseSaveDelegate?
+    
     static let sharedInstance = FirebaseUserHandler()
     static var currentUserDictionary:NSDictionary?
     static var currentUDID:String?
@@ -91,6 +101,14 @@ class FirebaseUserHandler{
             NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
             self.firebaseLoginSignupDelegate?.signupSucceeded?(user: user!)
         }
+    }
+    
+    func setUserProfile(UDID:String, name:String, generalLocation:String, profileURL:String){
+        
+        FirebaseUserRef.child(UDID).child(FirebaseUserKey_name).setValue(name)
+        FirebaseUserRef.child(UDID).child(FirebaseUserKey_generalLocation).setValue(generalLocation)
+        FirebaseUserRef.child(UDID).child(FirebaseUserKey_thumbnail_URL).setValue(profileURL)
+        self.getCurrentUser()
     }
     
     func logoutCurrentUser(){
@@ -179,5 +197,48 @@ class FirebaseUserHandler{
         
     }
     
+    
+    func getSavedDishes(){
+        //delegate?.willBeginTask?()
+        
+    
+        FirebaseUserRef.child((FIRAuth.auth()?.currentUser?.uid)!).child("FirebaseUserKey_savedDishes").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let menuObjects = snapshot.value as? NSDictionary else{
+                self.firebaseSaveDegate?.failedToFetchSavedDishes?(error: "Failed to fetch saved dishes")
+                return
+            }
+            
+            let dishDictionary:NSMutableDictionary = NSMutableDictionary()
+            let numberOfObjects = menuObjects.count
+            var currObject = 0
+            for (key, _) in menuObjects{
+                
+                FirebaseDishRef.child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // do some stuff once
+                    guard let value = snapshot.value as? NSDictionary else{
+                        self.firebaseSaveDegate?.failedToFetchSavedDishes?(error: "Dishes Not found")
+                        return
+                    }
+                    dishDictionary[key] = value
+                    currObject += 1;
+                    if currObject == numberOfObjects{
+                        self.firebaseSaveDegate?.didFetchSavedDishes?(dishes:dishDictionary)
+                    }
+                })
+                
+                
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.firebaseSaveDegate?.failedToFetchSavedDishes?(error: error.localizedDescription)
+        }
+
+    }
+    
+    func getSavedRestaurants(){
+        
+    }
     
 }
