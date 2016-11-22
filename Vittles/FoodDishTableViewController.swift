@@ -138,6 +138,9 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
             }
         }
 
+        let centerHeightPt = self.tableView.contentOffset.y - screenSize.height/6 + screenSize.height/2
+        let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
+        self.loadingIndicator.center = centerPoint
         
     }
 
@@ -193,6 +196,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     
     func getLastObjectFetched(lastObject: Any?) {
         self.lastObjectFetched = lastObject
+        self.loadingIndicator.isHidden = true
     }
     
     func didFetchAdditionalDishes(value: NSDictionary?) {
