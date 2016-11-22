@@ -35,6 +35,7 @@
 		B11B5DC51DADC2D500614BB4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DC41DADC2D500614BB4 /* AppConstants.swift */; };
 		B11B5DC71DADCA8700614BB4 /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */; };
 		B1309A691DE37C6A0048D47B /* GenericImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1309A681DE37C6A0048D47B /* GenericImageViewController.swift */; };
+		B1309A6D1DE3BB2F0048D47B /* UserReviewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1309A6C1DE3BB2F0048D47B /* UserReviewsTableViewController.swift */; };
 		B167F1E51DAB3CE1008EE90B /* MALocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */; };
 		B167F1E61DAB3CE1008EE90B /* ImagePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */; };
 		B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */; };
@@ -141,6 +142,7 @@
 		B11B5DC41DADC2D500614BB4 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		B11B5DC61DADCA8700614BB4 /* ProfileMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		B1309A681DE37C6A0048D47B /* GenericImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericImageViewController.swift; sourceTree = "<group>"; };
+		B1309A6C1DE3BB2F0048D47B /* UserReviewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserReviewsTableViewController.swift; sourceTree = "<group>"; };
 		B167F1E21DAB3CE1008EE90B /* MALocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MALocationManager.swift; sourceTree = "<group>"; };
 		B167F1E31DAB3CE1008EE90B /* ImagePickerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerHandler.swift; sourceTree = "<group>"; };
 		B167F1E41DAB3CE1008EE90B /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				B1199BEC1DB7EFB900A221A9 /* loginViewController.swift */,
 				B169F77A1DC6D1D3005705A6 /* UserUploadeImagesCollectionViewController.swift */,
 				B16D8A1C1DE25393006E9438 /* SignUpViewController.swift */,
+				B1309A6C1DE3BB2F0048D47B /* UserReviewsTableViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				B197DD561DB49D9000D76DB5 /* MAFoodReviewTableViewCell.swift in Sources */,
 				B1F5EA391DE2A923009997FA /* SavedRestaurantTableViewController.swift in Sources */,
 				B7492F681DAB381F002EADDC /* Vittles.xcdatamodeld in Sources */,
+				B1309A6D1DE3BB2F0048D47B /* UserReviewsTableViewController.swift in Sources */,
 				B19A940A1DCD58EC0027B4B4 /* DishLargeImageViewController.swift in Sources */,
 				B167F1E71DAB3CE1008EE90B /* InternetReachability.swift in Sources */,
 				B11B5D991DADBD8E00614BB4 /* FoodDishTableViewController.swift in Sources */,

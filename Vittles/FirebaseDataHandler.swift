@@ -5,6 +5,7 @@
 
 import Foundation
 import FirebaseStorage
+import FirebaseAuth
 import UIKit
 
 typealias FirebaseResponse = (NSDictionary?) -> Void
@@ -230,22 +231,7 @@ class FirebaseDataHandler{
             self.delegate?.failedToFetchRestaurants?(errorString: "Restaurants Not found")
         }
         
-//        
-//        FirebaseDishRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            guard let value = snapshot.value as? NSDictionary else{
-//                self.delegate?.failedToFetchRestaurants?(errorString: "Restaurants Not found")
-//                return
-//            }
-//            
-//            
-//            
-//            self.delegate?.didFetchDishes?(value:value)
-//            
-//        }) { (error) in
-//            print(error.localizedDescription)
-//            self.delegate?.failedToFetchDishes?(errorString: error.localizedDescription)
-//        }
+
     }
 
     
@@ -306,6 +292,9 @@ class FirebaseDataHandler{
             
             let newReview = FirebaseReviewRef.child(dishID).childByAutoId()
             newReview.setValue(reviewDictionary)
+            
+            FirebaseUserReviewRef.child(newReview.key).setValue(reviewDictionary)
+            
             self.delegate?.successPostingReview?()
             
         }) { (error) in
@@ -330,6 +319,30 @@ class FirebaseDataHandler{
         }
 
     }
+    
+    func fetchReviewsFor(userID:String, numberOfReviews:UInt){
+        
+        delegate?.willBeginTask?()
+        FirebaseUserReviewRef.queryOrdered(byChild: "/reviewer_UID").queryStarting(atValue: userID).queryEnding(atValue: userID + "a").queryLimited(toFirst: numberOfReviews).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let value = snapshot.value as? NSDictionary else{
+                self.delegate?.failedToFetchReviews?(errorString: "Reviews Not found")
+                return
+            }
+            
+            for (key,object) in value{
+                print(key)
+                print(object)
+            }
+            
+            self.delegate?.didFetchReviews?(value:value)
+            
+        }) { (error) in
+            self.delegate?.failedToFetchReviews?(errorString: "Reviews Not found")
+        }
+        
+    }
+
     
 }
 

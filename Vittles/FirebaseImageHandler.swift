@@ -100,6 +100,41 @@ class FirebaseImageHandler{
         
     }
     
+    func getImageThumbnailUrlsFor(userID:String,imageCount:UInt){
+        
+//        let imageUrlRef = FirebaseDishImagePathRef.child(dishID)
+//        let imageURLRef = FirebaseUserPostedImageRef
+        
+        
+        
+        FirebaseUserPostedImageRef.queryOrdered(byChild: "/uploader_UDID").queryStarting(atValue: userID).queryEnding(atValue: userID + "a").queryLimited(toFirst: imageCount).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            print("Starting Query")
+            
+            guard let urlDict = (snapshot.value as? NSDictionary) else{
+                self.delegate?.failedToFetchURLS(errorString: "Failed to fetch image urls")
+                return
+            }
+            
+            var urlDictArray = [NSDictionary]()
+            for value in urlDict.allValues{
+                guard let currValue = value as? NSDictionary else{
+                    self.delegate?.failedToFetchURLS(errorString: "Failed to fetch image urls")
+                    return
+                }
+                urlDictArray.append(currValue)
+            }
+            
+            self.delegate?.didFetchUrls(urlDictArray: urlDictArray)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.delegate?.failedToFetchURLS(errorString: "Failed to fetch image urls")
+            
+        }
+        
+    }
+    
     
     
     //DEV NOTE: Working but imcomplete
@@ -136,6 +171,15 @@ class FirebaseImageHandler{
             thumbnailRef.setValue(text)
             let uploaderUDIDRef = imageUrlRef.child(FirebaseImageKey_uploader)
             uploaderUDIDRef.setValue(uploaderUDID)
+            
+            //Profile Opimized Object (workaround)
+            let image_profileOptimizedRef = FirebaseUserPostedImageRef.child(imageUrlRef.key)
+            let thumbnail_profileOptimizedRef = image_profileOptimizedRef.child(FirebaseImageKey_thumbnail)
+            thumbnail_profileOptimizedRef.setValue(text)
+            let uploaderUDID_profileOptimizedRef = image_profileOptimizedRef.child(FirebaseImageKey_uploader)
+            uploaderUDID_profileOptimizedRef.setValue(uploaderUDID)
+
+            
         }
         
         //Upload image data + meta data
@@ -148,6 +192,13 @@ class FirebaseImageHandler{
             fullSizedRef.setValue(text)
             let uploaderUDIDRef = imageUrlRef.child(FirebaseImageKey_uploader)
             uploaderUDIDRef.setValue(uploaderUDID)
+            
+            //Profile Opimized Object (workaround)
+            let image_profileOptimizedRef = FirebaseUserPostedImageRef.child(imageUrlRef.key)
+            let fullSized_profileOptimizedRef = image_profileOptimizedRef.child(FirebaseImageKey_fullSized)
+            fullSized_profileOptimizedRef.setValue(text)
+            let uploaderUDID_profileOptimizedRef = image_profileOptimizedRef.child(FirebaseImageKey_uploader)
+            uploaderUDID_profileOptimizedRef.setValue(uploaderUDID)
         }
     }
     

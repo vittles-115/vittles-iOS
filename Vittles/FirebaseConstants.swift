@@ -22,6 +22,12 @@ let FirebaseDishImagePathRef = FirebaseImagePathRef.child("Dishes")
 let FirebaseDishListRef = FirebaseRootRef.child("DishLists")
 let FirebaseRestaurantListRef = FirebaseRootRef.child("RestaurantLists")
 
+
+
+let FirebaseUserReviewRef = FirebaseRootRef.child("UserPostedReviews")
+let FirebaseUserPostedImageRef = FirebaseRootRef.child("UserPostedImages")
+
+
 func FirebaseSavedDishRef(for userID:String)->FIRDatabaseReference{
     return FirebaseUserRef.child(userID).child("SavedDishes")
 }
@@ -29,6 +35,15 @@ func FirebaseSavedDishRef(for userID:String)->FIRDatabaseReference{
 func FirebaseSavedRestaurantRef(for userID:String)->FIRDatabaseReference{
     return FirebaseUserRef.child(userID).child("SavedRestaurants")
 }
+
+//func FirebaseReviewRef(for userID:String)->FIRDatabaseReference{
+//    return FirebaseUserReviewRef.child(userID)
+//}
+//
+//func FirebaseImageRef(for userID:String)->FIRDatabaseReference{
+//    return FirebaseUserPostedImageRef.child(userID)
+//}
+
 
 
 //File Storage

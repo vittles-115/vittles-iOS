@@ -65,7 +65,16 @@ class MAProfileOptionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let parentVC = self.parent as! ProfileMainViewController
         
-        if indexPath.row == 3{
+        switch indexPath.row {
+        case 0:
+            parentVC.performSegue(withIdentifier: "showUserReviews", sender: nil)
+            break
+        case 1:
+            parentVC.performSegue(withIdentifier: "showUserUploadeImages", sender: nil)
+            break
+        case 2:
+            break
+        case 3:
             if FIRAuth.auth()?.currentUser != nil{
                 profileOptions[3] = "Login"
                 parentVC.clearUserProfile()
@@ -73,8 +82,11 @@ class MAProfileOptionsTableViewController: UITableViewController {
             }else{
                 parentVC.performSegue(withIdentifier: "showLogin", sender: nil)
             }
-
+            
             self.tableView.reloadData()
+            break
+        default:
+            break
         }
        
     }
