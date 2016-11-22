@@ -20,7 +20,7 @@ class GenericImageViewController: UIViewController {
         guard imageURL != nil else{
             return
         }
-        self.imageView.kf.setImage(with: URL(string: (imageURL?.1)!), placeholder: UIImage(named: "icons1")!)
+        self.imageView.kf.setImage(with: URL(string: (imageURL?.1)!), placeholder: UIImage(named: "placeholderPizza")!)
     }
     
     override func viewWillAppear(_ animated: Bool) {

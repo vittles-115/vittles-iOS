@@ -32,6 +32,12 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
         self.view.addSubview(loadingIndicator)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if ((FIRAuth.auth()?.currentUser) == nil){
+            self.dishes.removeAll()
+        }
+    }
 
     override func refreshTableView(){
         guard parent is SavedMainViewController else {

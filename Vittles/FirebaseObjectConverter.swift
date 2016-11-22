@@ -97,7 +97,12 @@ class FirebaseObjectConverter {
             return nil
         }
         
-        return RestaurantObject(uniqueID: uniqueID, name: name, address: address, categories: categories, menuTitles: menuTitles)
+        if let imageURL = dictionary.object(forKey: "thumbnail_URL") as? String{
+            return RestaurantObject(uniqueID: uniqueID, name: name, address: address, categories: categories, menuTitles: menuTitles, imageURL: imageURL)
+        }else{
+            return RestaurantObject(uniqueID: uniqueID, name: name, address: address, categories: categories, menuTitles: menuTitles)
+        }
+    
 
     }
     

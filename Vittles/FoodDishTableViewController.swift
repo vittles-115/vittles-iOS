@@ -48,16 +48,42 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dishes.count
+        
+        if dishes.count > 0{
+            return dishes.count
+        }else{
+            return 1
+        }
+        
     }
     
     //Row hieght of 80
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       
+        if dishes.count == 0{
+            return tableView.frame.height
+        }
+        
         return 80.0
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MAFoodItemTableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if dishes.count == 0{
+            let cell = UITableViewCell(frame: self.tableView.frame)
+            
+            let myString = "No dishes"
+            let myAttribute = [ NSForegroundColorAttributeName: MA_LightGray , NSFontAttributeName: UIFont(name: "SourceSansPro-Semibold", size: 15.0)!]
+            
+            let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+            cell.textLabel?.attributedText = myAttrString
+            cell.textLabel?.textAlignment = NSTextAlignment.center
+            return cell
+        }
+
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as! MAFoodItemTableViewCell
 
         // Configure the cell...
@@ -117,6 +143,7 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
             self.refreshControl?.endRefreshing()
             return
         }
+        
         let parentVC = parent as! HomeSearchViewController
         if parentVC.searchBar.text == ""{
             dataHandler.getDishes(numberOfDishes:10)
@@ -130,6 +157,14 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         
         (self.parent as? HomeSearchViewController)?.searchBar.resignFirstResponder()
         
+        let centerHeightPt = self.tableView.contentOffset.y - screenSize.height/6 + screenSize.height/2
+        let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
+        self.loadingIndicator.center = centerPoint
+        
+        guard self.dishes.count > 0 else{
+            return
+        }
+        
         if (Int(scrollView.contentOffset.y + scrollView.frame.size.height) == Int(scrollView.contentSize.height + scrollView.contentInset.bottom)) {
             if !isFetching && lastObjectFetched != nil{
                 isFetching = true
@@ -137,14 +172,14 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
                 self.dataHandler.getAdditionalDishesStarting(at: dishes.last?.uniqueID, numberOfDishes: 11)
             }
         }
-
-        let centerHeightPt = self.tableView.contentOffset.y - screenSize.height/6 + screenSize.height/2
-        let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
-        self.loadingIndicator.center = centerPoint
         
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard self.dishes.count > 0 else{
+            return
+        }
         self.parent?.performSegue(withIdentifier: "showFoodDetails", sender: self.dishes[indexPath.row])
     }
     
@@ -169,8 +204,8 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     func failedToFetchDishes(errorString: String) {
         self.refreshControl?.endRefreshing()
         print("error is: ",errorString)
-//        self.dishes.removeAll()
-//        self.tableView.reloadData()
+        self.dishes.removeAll()
+        self.tableView.reloadData()
         self.loadingIndicator.isHidden = true
     }
     

@@ -184,10 +184,11 @@
             </objects>
             <point key="canvasLocation" x="2232.8000000000002" y="536.58170914542734"/>
         </scene>
-        <!--Restaurant Search Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="WtG-Ra-cdh">
             <objects>
-                <tableViewController id="IFD-lY-uS7" customClass="RestaurantSearchTableViewController" customModule="Vittles" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTZ-aE-iK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="IFD-lY-uS7" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VjL-1T-wk9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="417"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +212,6 @@
                         <segue destination="tjx-47-eQd" kind="show" identifier="showFoodDetails" id="ESP-gz-IDa"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hTZ-aE-iK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3065" y="537"/>
         </scene>
@@ -279,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwX-rf-nH3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="853"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-Ta-2gj">
                                         <rect key="frame" x="0.0" y="272" width="414" height="532"/>
@@ -618,7 +618,7 @@
         <image name="Search" width="15" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZqC-oR-FMA"/>
+        <segue reference="ESP-gz-IDa"/>
         <segue reference="Cu5-r3-So2"/>
     </inferredMetricsTieBreakers>
 </document>

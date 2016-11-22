@@ -26,6 +26,7 @@ class RestaurantMenuTableViewController: FoodDishTableViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(FoodDishTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
         
         self.setUpRefreshControl()
+        self.refreshControl?.isEnabled = false
 
 
     }

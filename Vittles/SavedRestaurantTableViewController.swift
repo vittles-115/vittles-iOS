@@ -28,6 +28,12 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
         self.setUpRefreshControl()
         self.view.addSubview(loadingIndicator)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if ((FIRAuth.auth()?.currentUser) == nil){
+            self.restaurants.removeAll()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

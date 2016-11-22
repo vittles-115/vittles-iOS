@@ -61,7 +61,7 @@ class MAFoodReviewTableViewCell: UITableViewCell {
                 }
                 
                 print("got profile image : ",user.thumbnail_URL)
-                self.reviewerImageView?.kf.setImage(with: URL(string: user.thumbnail_URL ), placeholder: UIImage(named: "icons1")!)
+                self.reviewerImageView?.kf.setImage(with: URL(string: user.thumbnail_URL ), placeholder: UIImage(named: "placeholderPizza")!)
                 self.reviewerGeneralLocationLabel.text = user.generalLocation
             }
         })
@@ -78,7 +78,7 @@ class MAFoodReviewTableViewCell: UITableViewCell {
         ratingCosmosView.isHidden = false
         
         reviewerImageView.setCornerRadius(9)
-        reviewerImageView.image = UIImage(named: "icons1")
+        reviewerImageView.image = UIImage(named: "placeholderPizza")
         self.loadReviewerInfoFor(review: review)
         
         

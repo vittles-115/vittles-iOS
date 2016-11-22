@@ -83,7 +83,7 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
                 return
             }
             print("user image url :",(currentUser.thumbnail_URL))
-            self.profileImageView.kf.setImage(with: URL(string: (currentUser.thumbnail_URL)), placeholder: UIImage(named: "icons1")!)
+            self.profileImageView.kf.setImage(with: URL(string: (currentUser.thumbnail_URL)), placeholder: UIImage(named: "placeholderPizza")!)
             self.usernameLabel.text = currentUser.name
             self.locationLabel.text = currentUser.generalLocation
         }
