@@ -611,7 +611,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ney-Im-Ihq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552" y="-33"/>
+            <point key="canvasLocation" x="3552" y="-13"/>
         </scene>
     </scenes>
     <resources>
@@ -619,6 +619,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZqC-oR-FMA"/>
-        <segue reference="uTm-yP-Grg"/>
+        <segue reference="Cu5-r3-So2"/>
     </inferredMetricsTieBreakers>
 </document>

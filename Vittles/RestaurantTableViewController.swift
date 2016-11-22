@@ -69,6 +69,11 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         (self.parent as? HomeSearchViewController)?.searchBar.resignFirstResponder()
+        
+        let centerHeightPt = self.tableView.contentOffset.y - screenSize.height/6 + screenSize.height/2
+        let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
+        self.loadingIndicator.center = centerPoint
+
     
     }
     

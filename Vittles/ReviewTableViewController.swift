@@ -36,6 +36,7 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
     var reviews:[ReviewObject] = [ReviewObject]()
     let dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,11 +61,28 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return reviews.count
+        if reviews.count > 0{
+            return reviews.count
+        }else{
+            return 1
+        }
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MAFoodReviewTableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if reviews.count == 0{
+            let cell = UITableViewCell(frame: self.tableView.frame)
+            
+            let myString = "No reviews for this dish yet!"
+            let myAttribute = [ NSForegroundColorAttributeName: MA_LightGray , NSFontAttributeName: UIFont(name: "SourceSansPro-Semibold", size: 15.0)!]
+            
+            let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+            cell.textLabel?.attributedText = myAttrString
+            cell.textLabel?.textAlignment = NSTextAlignment.center
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! MAFoodReviewTableViewCell
         cell.setUpCellFromReview(review: reviews[indexPath.row])
         cell.loadReviewerInfoFor(review: reviews[indexPath.row])
@@ -73,17 +91,27 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if reviews.count == 0{
+            return 300
+        }
         return 115
     }
     
     func didFetchReviews(value: NSDictionary?) {
+        (self.parent as! FoodDetailViewController).scrollView.isScrollEnabled = true
         self.reviews = FirebaseObjectConverter.reviewArrayFrom(dictionary: value!)
+        self.tableView.isScrollEnabled = true
         self.tableView.reloadData()
     }
     
     func failedToFetchReviews(errorString: String) {
+        
         print("error :",errorString)
+        self.tableView.isScrollEnabled = false
+       (self.parent as! FoodDetailViewController).scrollView.isScrollEnabled = false
     }
+    
     
     //var isScrollinUp = false
     

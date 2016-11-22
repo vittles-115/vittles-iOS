@@ -40,6 +40,13 @@ class AllDishImageCollectionViewController: DishImageCollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        
+        return imageURLS.count
+    
+    }
+    
     override func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let width = screenSize.width / 3
         return CGSize(width: width, height: width)

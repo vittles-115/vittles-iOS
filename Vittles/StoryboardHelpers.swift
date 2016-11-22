@@ -43,8 +43,9 @@ func pushReviewVC(dish:DishObject, restaurant:RestaurantObject){
     reviewVC.clearButtonPressed(reviewVC)
     reviewVC.pickedRestaurant = restaurant
     reviewVC.pickedDish = dish
-    reviewVC.pickedRestaurant = restaurant
-    reviewVC.pickedDish = dish
+
+//    reviewVC.pickedRestaurant = restaurant
+//    reviewVC.pickedDish = dish
     
 //    let storyboard =  UIStoryboard(name: "Review", bundle: nil)
 //    let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
