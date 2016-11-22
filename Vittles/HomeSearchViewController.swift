@@ -12,6 +12,9 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var foodDishContainer: UIView!
     @IBOutlet weak var resturantContainer: UIView!
     
+    var restaurantVC:RestaurantTableViewController?
+    var dishVC:FoodDishTableViewController?
+    
     //Create searchBar to be used in NavigationBar
     lazy var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
@@ -23,6 +26,19 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
         self.foodDishContainer.isHidden = false
         self.resturantContainer.isHidden = true
         setUpSearchBar()
+                
+        for childVC in self.childViewControllers{
+            if childVC is RestaurantTableViewController{
+                restaurantVC = childVC as? RestaurantTableViewController
+                FirebaseUserHandler.sharedInstance.firebaseSaveDegate = dishVC
+            }
+            
+            if childVC is FoodDishTableViewController{
+                dishVC = childVC as? FoodDishTableViewController
+            }
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,23 +57,42 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.restaurantVC?.dataHandler.getRestaurants(numberOfRestaurants: 10)
+        self.dishVC?.dataHandler.getDishes(numberOfDishes: 10)
         self.searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Placeholder Code: ",searchBar.text)
+        
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            dishVC?.dataHandler.getDishesWhereName(startsWith: searchBar.text!, numberOfDishes: 10)
+            break
+        case 1:
+            restaurantVC?.dataHandler.getRestaurantsWhereName(startsWith: searchBar.text!.lowercased(), numberOfRestaurants: 10)
+            break
+        default:
+            break
+        }
+        
         self.searchBar.resignFirstResponder()
     }
 
     // MARK: - Segment Control
     
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
+        
+        self.searchBar.text = ""
         switch sender.selectedSegmentIndex {
         case 0:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = dishVC
             self.foodDishContainer.isHidden = false
             self.resturantContainer.isHidden = true
             break
         case 1:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = restaurantVC
             self.foodDishContainer.isHidden = true
             self.resturantContainer.isHidden = false
             break

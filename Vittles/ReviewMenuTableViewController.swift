@@ -10,9 +10,9 @@ import UIKit
 
 class ReviewMenuTableViewController: RestaurantMenuTableViewController {
 
-    var restaurant:RestaurantObject?
-    var selectedMenu:String?
-    var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
+//    var restaurant:RestaurantObject?
+//    var selectedMenu:String?
+//    var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
 
     
     override func viewDidLoad() {

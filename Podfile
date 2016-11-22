@@ -10,9 +10,11 @@ target 'Vittles' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
 
+    pod 'Pages'
 	pod 'AlamofireImage', '~> 3.0'
     pod 'Kingfisher', '~> 3.0'
     pod 'Cosmos', '~> 7.0'
+    pod 'PromiseKit', '~> 4.0'
 
   # Pods for Vittles
 

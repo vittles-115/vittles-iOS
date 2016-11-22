@@ -31,12 +31,13 @@ class MAFoodReviewTableViewCell: UITableViewCell {
         ratingCosmosView.isHidden = true
 
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
     
     //hide old fields in preperaton of reuse
     override func prepareForReuse() {
@@ -50,6 +51,21 @@ class MAFoodReviewTableViewCell: UITableViewCell {
 
     }
 
+    func loadReviewerInfoFor(review:ReviewObject){
+        FirebaseUserHandler.getUserPublicProfileFor(userUDID: review.reviewer_UDID, completion: {(userDict:NSDictionary?) in
+            
+            if userDict != nil{
+                
+                guard let user = FirebaseObjectConverter.dictionaryToUserObject(dictionary: userDict!, UDID: review.reviewer_UDID) else{
+                    return
+                }
+                
+                print("got profile image : ",user.thumbnail_URL)
+                self.reviewerImageView?.kf.setImage(with: URL(string: user.thumbnail_URL ), placeholder: UIImage(named: "icons1")!)
+                self.reviewerGeneralLocationLabel.text = user.generalLocation
+            }
+        })
+    }
     
     func setUpCellFromReview(review:ReviewObject){
         
@@ -61,12 +77,19 @@ class MAFoodReviewTableViewCell: UITableViewCell {
         reviewDescriptionLabel.isHidden = false
         ratingCosmosView.isHidden = false
         
-        
         reviewerImageView.setCornerRadius(9)
         reviewerImageView.image = UIImage(named: "icons1")
+        self.loadReviewerInfoFor(review: review)
+        
+        
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateFormat = "MMM yyy"
+        let dateString = dayTimePeriodFormatter.string(from: review.date as! Date)
+        
+        reviewDateLabel.text = dateString
         reviewerNameLabel.text = review.reviewer_name
         reviewerNameLabel.sizeToFit()
-        reviewerGeneralLocationLabel.text = "Santa Cruz, CA"
+        reviewerGeneralLocationLabel.text = ""
         //reviewDateLabel.text = dateToString(foodReview.date!,dateFormat: "MMM yyy")
         reviewTitleLabel.text = review.title
         reviewDescriptionLabel.text = review.body

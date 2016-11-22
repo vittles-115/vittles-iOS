@@ -56,41 +56,52 @@ class FirebaseObjectConverter {
             return nil
         }
         
-        let aDish = DishObject(uniqueID:uniqueID,name:name,foodDescription:foodDescription, averageRating:averageRating,numberOfRatings:numberOfRatings,type:type,restaurantName:restaurantName,restaurantRefID:restaurantRefID)
+        var aDish:DishObject?
+        if  let imageURL = dictionary.object(forKey: FirebaseDishKey_thumbnail) as? String{
+             aDish = DishObject(uniqueID:uniqueID,name:name,foodDescription:foodDescription, averageRating:averageRating,numberOfRatings:numberOfRatings,type:type,restaurantName:restaurantName,restaurantRefID:restaurantRefID,imageURL: imageURL)
+        }else{
+            aDish = DishObject(uniqueID:uniqueID,name:name,foodDescription:foodDescription, averageRating:averageRating,numberOfRatings:numberOfRatings,type:type,restaurantName:restaurantName,restaurantRefID:restaurantRefID)
+        }
         
-        return aDish
+    
+        return aDish!
+    }
+    
+    class func dictionaryToRestaurantObject(dictionary:NSDictionary, uniqueID:String)->RestaurantObject?{
+ 
+    
+        guard let name = dictionary.object(forKey: "name") as? String else{
+            print("name not found")
+            return nil
+        }
+        
+        guard let address = dictionary.object(forKey: "address") as? String else{
+            print("address not found")
+            return nil
+        }
+        
+        guard let categories = dictionary.object(forKey: "categories") as? [String] else{
+            print("categories not found")
+            return nil
+        }
+        
+        guard let menuTitles = dictionary.object(forKey: "menu_titles") as? [String] else{
+            print("menu_titles not found")
+            return nil
+        }
+        
+        return RestaurantObject(uniqueID: uniqueID, name: name, address: address, categories: categories, menuTitles: menuTitles)
+
     }
     
     class func restaurantArrayFrom(dictionary:NSDictionary)->[RestaurantObject]{
         var arrayOfRestaurants:[RestaurantObject] = [RestaurantObject]()
         
         for (key,value) in dictionary{
-            guard let uniqueID = key as? String else{
-                print("key not found")
-                continue
-            }
             
-            guard let name = (value as! NSDictionary).object(forKey: "name") as? String else{
-                print("name not found")
+            guard let aRestaurant = self.dictionaryToRestaurantObject(dictionary: value as! NSDictionary, uniqueID: key as! String) else{
                 continue
             }
-            
-            guard let address = (value as! NSDictionary).object(forKey: "address") as? String else{
-                print("address not found")
-                continue
-            }
-
-            guard let categories = (value as! NSDictionary).object(forKey: "categories") as? [String] else{
-                print("categories not found")
-                continue
-            }
-            
-            guard let menuTitles = (value as! NSDictionary).object(forKey: "menu_titles") as? [String] else{
-                print("menu_titles not found")
-                continue
-            }
-            
-            let aRestaurant = RestaurantObject(uniqueID: uniqueID, name: name, address: address, categories: categories, menuTitles: menuTitles)
             arrayOfRestaurants.append(aRestaurant)
             
         }
@@ -126,8 +137,14 @@ class FirebaseObjectConverter {
             print("type not found")
             return nil
         }
+        guard let timestamp =  dictionary.object(forKey: FirebaseReviewKey_reviewDate) as? TimeInterval else{
+            print("date not found")
+            return nil
+        }
         
-        let aReview = ReviewObject(uniqueID:uniqueID, title: title, body: body, rating: rating, reviewer_name: reviewerName, reviewer_UDID: userID)
+        let date = NSDate(timeIntervalSince1970: timestamp)
+        
+        let aReview = ReviewObject(uniqueID:uniqueID, title: title, body: body, rating: rating, reviewer_name: reviewerName, reviewer_UDID: userID, date:date)
         return aReview
     }
 
@@ -148,6 +165,23 @@ class FirebaseObjectConverter {
         return arrayOfReviews
     }
     
+    class func dictionaryToUserObject(dictionary:NSDictionary, UDID:String) -> UserObject?{
+        guard let name = dictionary.object(forKey: FirebaseUserKey_name) as? String else{
+            print("food description not found")
+            return nil
+        }
+        guard let generalLocation = dictionary.object(forKey: FirebaseUserKey_generalLocation) as? String else{
+            print("averageRating not found")
+            return nil
+        }
+        
+        if let thumbnail_URL =  dictionary.object(forKey: FirebaseUserKey_thumbnail_URL) as? String{
+            return UserObject(name: name, generalLocation: generalLocation, UDID: UDID, thumbnail_URL: thumbnail_URL)
+        }else{
+            return UserObject(name: name, generalLocation: generalLocation, UDID: UDID)
+
+        }
+    }
     
 }
 

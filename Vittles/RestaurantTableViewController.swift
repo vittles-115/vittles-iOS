@@ -6,11 +6,12 @@
 
 import UIKit
 
-class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDelegate {
+class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDelegate,FirebaseSaveDelegate {
 
     var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     var restaurants:[RestaurantObject] = [RestaurantObject]()
-
+    var loadingIndicator = DPLoadingIndicator.loadingIndicator()
+    var currentSwipeIndex:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,14 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
         tableView.register(UINib(nibName: "MARestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
         dataHandler.delegate = self
         dataHandler.getRestaurants(numberOfRestaurants: 10)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RestaurantTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+        
+        self.loadingIndicator.center = self.view.center
+        self.setUpRefreshControl()
+        self.view.addSubview(loadingIndicator)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,25 +72,96 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
     
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
+            FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: self.restaurants[indexPath.row].uniqueID)
+            self.showStarPopUp()
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
+        }
+        
+        let restaurantID = restaurants[indexPath.row].uniqueID
+        
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurantID ) as? Bool == true{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        }else{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "save")!)
+        }
+        
+        return [save]
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        self.currentSwipeIndex = indexPath
+    }
+    
+    func setUpRefreshControl(){
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshTableView), for: UIControlEvents.valueChanged)
+        self.refreshControl?.backgroundColor = UIColor.white
+        self.refreshControl?.tintColor = MA_Red
+        self.tableView.addSubview(self.refreshControl!)
+        
+    }
+    
+    func refreshTableView(){
+        let parentVC = parent as! HomeSearchViewController
+        if parentVC.searchBar.text == ""{
+            dataHandler.getRestaurants(numberOfRestaurants:10)
+        }else{
+            dataHandler.getRestaurantsWhereName(startsWith: parentVC.searchBar.text!, numberOfRestaurants: 10)
+        }
+        
+    }
+    
+    func showStarPopUp(){
+        let popup = popupFadeIn(self.view, imageName: "SavePopup")
+        popupFadeOut(popup)
+    }
+    
+    
+    
     func didFetchRestaurants(value:NSDictionary?){
         self.restaurants = FirebaseObjectConverter.restaurantArrayFrom(dictionary: value!)
         self.tableView.reloadData()
+        self.loadingIndicator.isHidden = true
+        self.refreshControl?.endRefreshing()
     }
     
     func failedToFetchRestaurants(errorString:String){
         print("failed to fetch restaurant: ", errorString)
+        self.restaurants.removeAll()
+        self.tableView.reloadData()
+        self.loadingIndicator.isHidden = true
+        self.refreshControl?.endRefreshing()
     }
 
+    func willBeginTask(){
+        self.loadingIndicator.isHidden = false
+    }
  
-
+    func didUpdateSaveRestaurant() {
+        guard self.currentSwipeIndex != nil else {
+            return
+        }
+        self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
+    }
    
+    func failedToUpdateSaveRestaurant(){
+        self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
+        self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
+    }
+    
+    func reload(){
+        self.tableView.reloadData()
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMenus"{
-            let destinationVC = segue.destination as! RestaurantPickMenuTableViewController
+            let destinationVC = segue.destination as! RestaurantMainDetailViewController
             destinationVC.restaurant = sender as? RestaurantObject
         }
     }

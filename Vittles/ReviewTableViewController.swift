@@ -67,6 +67,7 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MAFoodReviewTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! MAFoodReviewTableViewCell
         cell.setUpCellFromReview(review: reviews[indexPath.row])
+        cell.loadReviewerInfoFor(review: reviews[indexPath.row])
         
         return cell
     }

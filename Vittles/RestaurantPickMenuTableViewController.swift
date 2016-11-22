@@ -14,7 +14,6 @@ class RestaurantPickMenuTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = restaurant?.name
     }
 
@@ -60,7 +59,7 @@ class RestaurantPickMenuTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSelectedMenu"{
-            let destinationVC = segue.destination as! ResturantMenuMainViewController
+            let destinationVC = segue.destination as! RestaurantMenuTableViewController
             destinationVC.restaurant = self.restaurant
             destinationVC.selectedMenu = sender as? String
             

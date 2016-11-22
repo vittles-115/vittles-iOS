@@ -8,6 +8,7 @@
 
 import UIKit
 import Cosmos
+import Kingfisher
 
 class MAFoodItemTableViewCell: UITableViewCell {
 
@@ -39,6 +40,7 @@ class MAFoodItemTableViewCell: UITableViewCell {
         foodNameLabel.isHidden = true
         foodDescriptionLabel.isHidden = true
         resturantNameLabel.isHidden = true
+        self.savedStarImageView.image = UIImage()
     }
     
     //Setup cell from given MAFoodItem object
@@ -48,12 +50,24 @@ class MAFoodItemTableViewCell: UITableViewCell {
         foodDescriptionLabel.isHidden = false
         resturantNameLabel.isHidden = false
         
-  
-        self.foodImageView.image = UIImage(named: "icons1")!
-    
+        
+        //Thumbnail image
+        if fromDish.imageURL != nil{
+            print("has image url :", fromDish.imageURL!)
+            self.foodImageView.kf.setImage(with: URL(string: fromDish.imageURL!), placeholder: UIImage(named: "icons1")!)
+        }else{
+            self.foodImageView.image = UIImage(named: "icons1")!
+        }
+        
+        //Star Saved Indicator
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedDishes") as? NSDictionary)?.object(forKey: fromDish.uniqueID ) as? Bool == true{
+            self.savedStarImageView.image = UIImage(named: "Star")
+        }else{
+            self.savedStarImageView.image = UIImage()
+        }
+
         
         self.foodImageView.setCornerRadius(9)
-        
         self.foodNameLabel.text = fromDish.name
         self.foodDescriptionLabel.text = fromDish.foodDescription
         self.resturantNameLabel.text = fromDish.restaurantName
