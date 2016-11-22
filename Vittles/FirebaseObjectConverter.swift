@@ -55,6 +55,13 @@ class FirebaseObjectConverter {
             print("restaurantRefID not found")
             return nil
         }
+   
+        //Added to fix dishes to include lower cased name
+        if let _ = dictionary.object(forKey: "lowercased_name") as? String {
+            
+        }else{
+            FirebaseDishRef.child(uniqueID).child("lowercased_name").setValue(name.lowercased())
+        }
         
         var aDish:DishObject?
         if  let imageURL = dictionary.object(forKey: FirebaseDishKey_thumbnail) as? String{

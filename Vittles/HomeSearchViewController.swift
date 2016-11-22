@@ -79,6 +79,46 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
         
         self.searchBar.resignFirstResponder()
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            switch self.segmentedControl.selectedSegmentIndex {
+            case 0:
+                dishVC?.dataHandler.getDishes(numberOfDishes: 10)
+                break
+            case 1:
+                restaurantVC?.dataHandler.getRestaurants(numberOfRestaurants: 10)
+                break
+            default:
+                break
+            }
+        }
+        
+        NSObject.cancelPreviousPerformRequests(
+            withTarget: self,
+            selector: #selector(self.performSearch),
+            object: nil)
+        self.perform(
+            #selector(self.performSearch),
+            with: nil,
+            afterDelay: 0.3)
+        
+    }
+    
+    func performSearch() {
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            dishVC?.dataHandler.getDishesWhereName(startsWith: searchBar.text!, numberOfDishes: 10)
+            break
+        case 1:
+            restaurantVC?.dataHandler.getRestaurantsWhereName(startsWith: searchBar.text!.lowercased(), numberOfRestaurants: 10)
+            break
+        default:
+            break
+        }
+
+    }
+    
 
     // MARK: - Segment Control
     

@@ -23,7 +23,7 @@ class AllDishImageCollectionViewController: DishImageCollectionViewController {
             return
         }
         imageHandler.delegate = self
-        imageHandler.getImageThumbnailUrlsFor(dishID: (dish?.uniqueID)!, imageCount: 10)
+        imageHandler.getImageThumbnailUrlsFor(dishID: (dish?.uniqueID)!, imageCount: 200)
     }
 
     override func didReceiveMemoryWarning() {

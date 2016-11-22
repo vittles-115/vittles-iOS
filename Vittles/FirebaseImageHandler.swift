@@ -73,8 +73,9 @@ class FirebaseImageHandler{
     func getImageThumbnailUrlsFor(dishID:String,imageCount:UInt){
         
         let imageUrlRef = FirebaseDishImagePathRef.child(dishID)
-        imageUrlRef.queryLimited(toFirst: imageCount).observeSingleEvent(of: .value, with: { (snapshot) in
-            
+        //BUG: not fetching enoguh objects when using limited query
+//        imageUrlRef.queryLimited(toFirst: imageCount).observeSingleEvent(of: .value, with: { (snapshot) in
+        imageUrlRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let urlDict = (snapshot.value as? NSDictionary) else{
                 self.delegate?.failedToFetchURLS(errorString: "Failed to fetch image urls")

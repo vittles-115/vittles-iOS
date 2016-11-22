@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pages
 
 private let reuseIdentifier = "dishThumbnailCell"
 
@@ -30,7 +31,7 @@ class DishImageCollectionViewController: UICollectionViewController ,FirebaseIma
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -55,7 +56,27 @@ class DishImageCollectionViewController: UICollectionViewController ,FirebaseIma
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        (self.parent as! FoodDetailViewController).performSegue(withIdentifier: "viewLargeImage", sender: self.imageURLS)
+        //(self.parent as! FoodDetailViewController).performSegue(withIdentifier: "viewLargeImage", sender: self.imageURLS
+        var views:[UIViewController] = [UIViewController]()
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        for imageURL in imageURLS{
+            print("added image url")
+            let newVC = storyboard.instantiateViewController(withIdentifier: "GenericImageViewController") as! GenericImageViewController
+            newVC.imageURL = imageURL
+            views.append(newVC)
+        }
+        
+        let pagesVC:PagesController = PagesController(views)
+        pagesVC.startPage = indexPath.row
+        pagesVC.hidesBottomBarWhenPushed = true
+        
+    
+        if self is AllDishImageCollectionViewController{
+            self.navigationController?.pushViewController(pagesVC, animated: true)
+        }else{
+             self.parent?.navigationController?.pushViewController(pagesVC, animated: true)
+        }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
