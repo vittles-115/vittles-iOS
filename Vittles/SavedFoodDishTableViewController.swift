@@ -37,6 +37,7 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
         if ((FIRAuth.auth()?.currentUser) == nil){
             self.dishes.removeAll()
         }
+        self.refreshTableView()
     }
 
     override func refreshTableView(){

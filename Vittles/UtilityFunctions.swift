@@ -85,6 +85,27 @@ func popupFadeIn(_ mainView:UIView, imageName:String)->UIView{
     return popup
 }
 
+//Display an image popup on view controller
+func popupFadeIn(_ mainView:UIView, imageName:String, centerPoint:CGPoint)->UIView{
+    let popup = UIView(frame: CGRect(x: 0, y: 0, width: mainView.frame.width, height: mainView.frame.height))
+    popup.center = centerPoint
+    let image = UIImage(named: imageName)
+    let imageView = UIImageView(image: image)
+    imageView.center = popup.center
+    
+    popup.addSubview(imageView)
+    popup.alpha = 0
+    
+    UIView.animate(withDuration: 0.5, animations: {
+        popup.alpha = 1.0
+        popup.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+    });
+    
+    mainView.addSubview(popup)
+    return popup
+}
+
+
 func addPullToRefresh(){
     var refreshControl: UIRefreshControl!
     refreshControl = UIRefreshControl()

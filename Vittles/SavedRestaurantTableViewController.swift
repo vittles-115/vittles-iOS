@@ -33,6 +33,7 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
         if ((FIRAuth.auth()?.currentUser) == nil){
             self.restaurants.removeAll()
         }
+        self.refreshTableView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +56,27 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
         vc.restaurant = restaurants[indexPath.row]
         (self.parent?.parent as! UINavigationController).pushViewController(vc, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
+            FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: self.restaurants[indexPath.row].uniqueID)
+            self.showStarPopUp()
+            self.restaurants.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        let restaurantID = restaurants[indexPath.row].uniqueID
+        
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurantID ) as? Bool == true{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        }else{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "save")!)
+        }
+        
+        return [save]
+        
+    }
+
     
 
     /*

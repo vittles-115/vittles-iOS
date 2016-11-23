@@ -34,6 +34,10 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -184,7 +188,9 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     }
     
     func showStarPopUp(){
-        let popup = popupFadeIn(self.view, imageName: "SavePopup")
+        let centerHeightPt = screenSize.height/2 - screenSize.height/10
+        let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
+        let popup = popupFadeIn((self.parent?.view)!, imageName: "SavePopup",centerPoint:centerPoint)
         popupFadeOut(popup)
     }
     
