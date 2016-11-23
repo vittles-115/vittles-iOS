@@ -35,12 +35,13 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         reviewTitleTextfield.delegate = self
         reviewBodyTextView.delegate = self
         dataHandler.delegate = self
-        
         self.title = "Review"
         if self.pickedDish != nil{
             self.dishTextfield.text = pickedDish?.name
             self.restaurantTextfield.text = pickedDish?.restaurantName
         }
+        
+        addBottomDivider(self.reviewBodyTextView, thickness: 1, color: UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 0.8))
         
     }
     
@@ -223,6 +224,7 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
             textView.text = " Type review here"
             textView.textColor = UIColor.lightGray
             textView.layer.opacity = 0.8
+            textView.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
     

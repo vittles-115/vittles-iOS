@@ -65,10 +65,9 @@ class MAPostPictureCollectionViewController: UICollectionViewController,ImagePic
         
         // Configure the cell
         if((indexPath as NSIndexPath).section == 0){
-            cell.backgroundColor = MA_LightGray
-            
+            cell.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
             let cameraImageView = UIImageView(frame: CGRect(x: 17.5, y: 17.5, width: 35, height: 35))
-            cameraImageView.image =  UIImage(named: "Camera.png")!
+            cameraImageView.image =  UIImage(named: "Review")!
             
             
             //cameraImageView.center = cell.center
