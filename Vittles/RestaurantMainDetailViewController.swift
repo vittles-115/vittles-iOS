@@ -64,6 +64,20 @@ class RestaurantMainDetailViewController: UIViewController,UISearchBarDelegate {
         self.directionsButton.setCornerRadius(9)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //Star Saved Indicator
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurant?.uniqueID ) as? Bool == true{
+            self.saveButton.backgroundColor = MA_Yellow
+            self.saveButton.setTitleColor(UIColor.white, for: .normal)
+            self.saveButton.setTitle("Saved", for: .normal)
+        }else{
+            self.saveButton.backgroundColor = MA_ButtonGray
+            self.saveButton.setTitleColor(UIColor.darkGray, for: .normal)
+            self.saveButton.setTitle("Save", for: .normal)
+        }
+
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         pickMenuContainer.isHidden = true
         searchMenuContainer.isHidden = false
@@ -83,22 +97,37 @@ class RestaurantMainDetailViewController: UIViewController,UISearchBarDelegate {
     @IBAction func getDirectionsPressed(_ sender: Any) {
        // UIApplication.shared.openURL(NSURL(string: "http://maps.apple.com/?address=1600%PennsylvaniaAve.%20500")! as URL)
         
-        var geocoder = CLGeocoder()
-//        geocoder.geocodeAddressString((restaurant?.address)!, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-//            if let placemark = placemarks?[0] as? CLPlacemark {
-//                let mapitem = MKMapItem(placemark: placemark)
-//                let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-//                mapitem.openInMaps(launchOptions: options)
-//            }
-//        })
-        
-       
-        
-//        let options = [UIApplicationOpenURLOptionUniversalLinksOnly : true]
-//        UIApplication.shared.open(URL(string: "http://maps.apple.com/")! , options: options, completionHandler: { Void in
-//        
-//        })
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString((restaurant?.address)!) { placemarks, error in
+            if let placemark = placemarks?[0]{
+                let mapitem = MKMapItem(placemark: MKPlacemark(placemark: CLPlacemark(placemark: placemark)))
+                let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                mapitem.openInMaps(launchOptions: options)
+                
+            }
+
+        }
+
     }
+    
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: (self.restaurant?.uniqueID)!)
+        
+        if self.saveButton.backgroundColor == MA_ButtonGray{
+            self.saveButton.backgroundColor = MA_Yellow
+            self.saveButton.setTitleColor(UIColor.white, for: .normal)
+            self.saveButton.setTitle("Saved", for: .normal)
+        }else{
+            self.saveButton.backgroundColor = MA_ButtonGray
+            self.saveButton.setTitleColor(UIColor.darkGray, for: .normal)
+            self.saveButton.setTitle("Save", for: .normal)
+        }
+        
+
+    }
+    
 
     // MARK: - Navigation
     

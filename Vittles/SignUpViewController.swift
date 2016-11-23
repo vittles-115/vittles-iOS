@@ -92,6 +92,9 @@ class SignUpViewController: UIViewController, FirebaseLoginSignupDelegate {
         
     }
 
+    @IBAction func swipeDown(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
 
 }

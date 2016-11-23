@@ -45,26 +45,51 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if restaurants.count == 0{
+            return 1
+        }
         return self.restaurants.count
     }
     
     //Row hieght of 80
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if restaurants.count == 0{
+            return tableView.frame.height   
+        }
+        
         return 80.0
     }
     
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MARestaurantTableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if restaurants.count == 0{
+            let cell = UITableViewCell(frame: self.tableView.frame)
+            
+            let myString = "No Restaurants"
+            let myAttribute = [ NSForegroundColorAttributeName: MA_LightGray , NSFontAttributeName: UIFont(name: "SourceSansPro-Semibold", size: 15.0)!]
+            
+            let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+            cell.textLabel?.attributedText = myAttrString
+            cell.textLabel?.textAlignment = NSTextAlignment.center
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantCell", for: indexPath) as! MARestaurantTableViewCell
 
         // Configure the cell...
+       
         cell.setUpCell(restaurant: restaurants[indexPath.row])
-
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if restaurants.count == 0{
+            return
+        }
         self.performSegue(withIdentifier: "showMenus", sender: restaurants[indexPath.row])
     }
     

@@ -52,7 +52,7 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
 
     @IBAction func didLogin(_ segue: UIStoryboardSegue) {
         self.darkOverlayView.isHidden = true
-        self.navigationController?.navigationBar.layer.zPosition = 1;
+        self.navigationController?.navigationBar.layer.zPosition = 1
         self.setUserProfile()
     }
     

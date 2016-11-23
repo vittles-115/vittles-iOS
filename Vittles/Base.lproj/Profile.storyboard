@@ -181,7 +181,7 @@
                         <outlet property="profileImageView" destination="IO2-15-w2K" id="JLF-XM-1Ks"/>
                         <outlet property="tapToEditImageButton" destination="SrQ-Ac-ybL" id="hMr-Ul-Nso"/>
                         <outlet property="usernameLabel" destination="yjX-7t-gBS" id="bUT-Ig-Gyo"/>
-                        <segue destination="uSp-Cx-1BA" kind="presentation" identifier="showLogin" modalPresentationStyle="overCurrentContext" id="hQQ-pO-8zE"/>
+                        <segue destination="uSp-Cx-1BA" kind="presentation" identifier="showLogin" modalPresentationStyle="overFullScreen" id="hQQ-pO-8zE"/>
                         <segue destination="6qL-IN-SWW" kind="show" identifier="showUserUploadeImages" id="gzF-hl-NRG"/>
                         <segue destination="aod-ms-HN1" kind="show" identifier="showUserReviews" id="IGH-mK-mvK"/>
                     </connections>
@@ -348,8 +348,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bxF-11-RZH">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bxF-11-RZH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5je-U1-hWo" appends="YES" id="UBj-TK-yUk"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (At least 8 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhH-Of-gUy">
                                 <rect key="frame" x="10" y="292" width="355" height="42"/>
@@ -445,6 +449,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8O-Nj-VRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="a9k-QI-x3s" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="down" id="5je-U1-hWo">
+                    <connections>
+                        <action selector="swipeDown:" destination="dqL-ll-JoV" id="z23-qD-20g"/>
+                        <outlet property="delegate" destination="dqL-ll-JoV" id="PeI-gk-4Yk"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2489" y="439"/>
         </scene>
