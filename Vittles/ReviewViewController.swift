@@ -118,6 +118,12 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         
         self.pickedRestaurant = nil
         self.pickedDish = nil
+        
+        if let childVC = self.childViewControllers.first as? MAPostPictureCollectionViewController{
+            childVC.imagesToPost.removeAll()
+            childVC.collectionView?.reloadData()
+        }
+        
         guard self.restaurantTextfield != nil else {
             return
         }
@@ -202,6 +208,25 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         presentSimpleAlert(title: "Failed!", message: "Failed to posted review!")
 
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == " Type review here"{
+            textView.text = ""
+            textView.textColor = UIColor.black
+            textView.layer.opacity = 1
+        }
+    }
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = " Type review here"
+            textView.textColor = UIColor.lightGray
+            textView.layer.opacity = 0.8
+        }
+    }
+    
+    
     
     // MARK: - Navigation
 
