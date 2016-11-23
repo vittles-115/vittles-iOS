@@ -74,7 +74,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81D-A6-par">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81D-A6-par">
                                         <rect key="frame" x="122.5" y="129" width="130" height="18"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,7 +173,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="2q8-ea-jY6">
                         <barButtonItem key="leftBarButtonItem" id="6II-hH-Zb5"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zT6-lW-ql7"/>
                     </navigationItem>
                     <connections>
                         <outlet property="darkOverlayView" destination="ofi-ux-gx6" id="RjE-s4-Wqo"/>
