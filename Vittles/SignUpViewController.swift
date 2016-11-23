@@ -50,7 +50,7 @@ class SignUpViewController: UIViewController, FirebaseLoginSignupDelegate {
             return
         }
         
-        guard passwordTextfield.text != nil && (passwordTextfield.text?.characters.count)! > 8 else {
+        guard passwordTextfield.text != nil && (passwordTextfield.text?.characters.count)! >= 8 else {
             self.presentSimpleAlert(title: "Whoops!", message: "Password needs to be at least 8 characters long.")
             return
         }

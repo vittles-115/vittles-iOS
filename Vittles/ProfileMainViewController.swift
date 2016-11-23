@@ -14,6 +14,8 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
+    @IBOutlet weak var darkOverlayView: UIView!
+    
     var imagePicker: ImagePickerHandler?
     
     override func viewDidLoad() {
@@ -26,24 +28,10 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
         profileImageView.setCornerRadius(9)
         self.setUserProfile()
         FirebaseUserHandler.sharedInstance.firebaseProfileDelegate = self
-        
-        
-//        var loadingImages = [UIImage]()
-//        for i in 1 ... 7{
-//            let image = UIImage(named: "icons\(i)")
-//            print("icons\(i)")
-//            loadingImages.append(image!)
-//        }
-//        loadingImages.reverse()
-//        
-//        let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        
-//        let loadingIndicator = DPLoadingIndicator(frame: rect, loadingImages: loadingImages)
-//        loadingIndicator.center = self.view.center
-//        self.view.addSubview(loadingIndicator)
-        
-       
+        self.darkOverlayView.isHidden = true
+
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,15 +54,17 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
         self.setUserProfile()
     }
     
+    @IBAction func unwindFromLogin(_ segue: UIStoryboardSegue) {
+        self.darkOverlayView.isHidden = true
+        self.navigationController?.navigationBar.layer.zPosition = 1;
+        
+    }
+    
     func setUserProfile(){
         if FIRAuth.auth()?.currentUser != nil{
             self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
             let currentUserDict = FirebaseUserHandler.currentUserDictionary
-            
-            print(FirebaseUserHandler.currentUDID)
-            print(FirebaseUserHandler.currentUserDictionary?.object(forKey: FirebaseUserKey_thumbnail_URL))
-            
-            
+
             guard let currentUDID = FirebaseUserHandler.currentUDID else{
                 return
             }
@@ -82,7 +72,7 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
             guard let currentUser = FirebaseObjectConverter.dictionaryToUserObject(dictionary: currentUserDict!, UDID: currentUDID) else{
                 return
             }
-            print("user image url :",(currentUser.thumbnail_URL))
+
             self.profileImageView.kf.setImage(with: URL(string: (currentUser.thumbnail_URL)), placeholder: UIImage(named: "placeholderPizza")!)
             self.usernameLabel.text = currentUser.name
             self.locationLabel.text = currentUser.generalLocation

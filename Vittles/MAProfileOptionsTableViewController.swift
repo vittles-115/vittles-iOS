@@ -81,6 +81,8 @@ class MAProfileOptionsTableViewController: UITableViewController {
                 FirebaseUserHandler.sharedInstance.logoutCurrentUser()
             }else{
                 parentVC.performSegue(withIdentifier: "showLogin", sender: nil)
+                parentVC.darkOverlayView.isHidden = false
+                parentVC.navigationController?.navigationBar.layer.zPosition = -1;
             }
             
             self.tableView.reloadData()
