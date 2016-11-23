@@ -28,7 +28,7 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
         super.viewDidLoad()
         addTopDivider(self.showMoreButton, thickness: 1, color: MA_BGGray)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "review", style: .plain, target: self, action: #selector(reviewButtonPressed))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Review", style: .plain, target: self, action: #selector(reviewButtonPressed))
         
         //Setup delegates
         self.scrollView.delegate = self

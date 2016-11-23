@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pages
 
 private let reuseIdentifier = "dishThumbnailCell"
 
@@ -30,7 +31,7 @@ class DishImageCollectionViewController: UICollectionViewController ,FirebaseIma
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -42,10 +43,33 @@ class DishImageCollectionViewController: UICollectionViewController ,FirebaseIma
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return imageURLS.count
+        
+        if imageURLS.count > 0{
+            return imageURLS.count
+        }else{
+            return 1
+        }
+        
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> DishThumbnailCollectionViewCell {
+        
+        if imageURLS.count == 0{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DishThumbnailCollectionViewCell
+
+            let myString = "No images for this dish yet!"
+            let myAttribute = [ NSForegroundColorAttributeName: MA_LightGray , NSFontAttributeName: UIFont(name: "SourceSansPro-Semibold", size: 15.0)!]
+            
+            let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+            let label = UILabel(frame: cell.frame)
+            label.attributedText = myAttrString
+            label.textAlignment = NSTextAlignment.center
+            label.center = self.view.center
+            cell.addSubview(label)
+            return cell
+
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DishThumbnailCollectionViewCell
     
         // Configure the cell
@@ -55,10 +79,39 @@ class DishImageCollectionViewController: UICollectionViewController ,FirebaseIma
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        (self.parent as! FoodDetailViewController).performSegue(withIdentifier: "viewLargeImage", sender: self.imageURLS)
+        //(self.parent as! FoodDetailViewController).performSegue(withIdentifier: "viewLargeImage", sender: self.imageURLS
+        
+        if self.imageURLS.count == 0{
+            return
+        }
+        
+        var views:[UIViewController] = [UIViewController]()
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        for imageURL in imageURLS{
+            print("added image url")
+            let newVC = storyboard.instantiateViewController(withIdentifier: "GenericImageViewController") as! GenericImageViewController
+            newVC.imageURL = imageURL
+            views.append(newVC)
+        }
+        
+        let pagesVC:PagesController = PagesController(views)
+        pagesVC.startPage = indexPath.row
+        pagesVC.hidesBottomBarWhenPushed = true
+        
+    
+        if self is AllDishImageCollectionViewController{
+            self.navigationController?.pushViewController(pagesVC, animated: true)
+        }else{
+             self.parent?.navigationController?.pushViewController(pagesVC, animated: true)
+        }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        
+        if imageURLS.count == 0{
+            return (self.collectionView?.frame.size)!
+        }
         
         return CGSize(width: 70, height: 70)
         
@@ -80,11 +133,13 @@ class DishImageCollectionViewController: UICollectionViewController ,FirebaseIma
             self.imageURLS.append((thumbnailURL,fullSizedUrl))
             
         }
+        self.collectionView?.isScrollEnabled = true
         self.collectionView?.reloadData()
     }
     
     func failedToFetchURLS(errorString:String){
         print(errorString)
+        self.collectionView?.isScrollEnabled = false
     }
 
 }

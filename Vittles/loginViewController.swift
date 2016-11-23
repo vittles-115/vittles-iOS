@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
+class loginViewController: UIViewController,FirebaseLoginSignupDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,6 +18,12 @@ class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet var swipeRecognizer: UISwipeGestureRecognizer!
+    @IBOutlet var panRecognizer: UIPanGestureRecognizer!
+    
+    
+    var lastLocation:CGPoint = CGPoint(x:0,y: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +52,7 @@ class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
     
 
     @IBAction func cancelButtonPressed(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "dismissLoginView", sender: nil)
     }
     
     @IBAction func loginButtonPressed(_ sender: AnyObject) {
@@ -60,6 +66,53 @@ class loginViewController: UIViewController,FirebaseLoginSignupDelegate {
     func loginFailedWithError(error:String){
         self.presentSimpleAlert(title: "Error", message: "Incorrect email or password")
     }
+    @IBAction func swipedDown(_ sender: UISwipeGestureRecognizer) {
+        self.view.endEditing(true)
+        self.panRecognizer.isEnabled = true
+        print("guresture rec")
+    }
+    
+    @IBAction func pannedDown(_ sender: UIPanGestureRecognizer) {
+        
+        let translation  = sender.translation(in: self.view)
+        
+        if lastLocation.y + translation.y < screenSize.height/2{
+            return
+        }
+        self.view.center = CGPoint(x:lastLocation.x, y: lastLocation.y + translation.y)
+        
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if self.emailTextField.isFirstResponder || self.passwordTextField.isFirstResponder {
+            self.panRecognizer.isEnabled = false
+        }else{
+            self.panRecognizer.isEnabled = true
+        }
+        
+        
+        // Remember original location
+        lastLocation = self.view.center
+
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.view.center.y > 3*screenSize.height/4 {
+            
+            self.performSegue(withIdentifier: "dismissLoginView", sender: nil)
+            //self.dismiss(animated: true, completion: nil)
+        }else{
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.center = CGPoint(x: screenSize.width/2, y: screenSize.height/2)
+            })
+            
+        }
+
+    }
+    
     
 //    func signupSucceeded(user:FIRUser){
 //        

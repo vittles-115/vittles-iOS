@@ -27,6 +27,13 @@ class DishLargeImageViewController: PagesController {
         print("num of vies")
         print(views.count)
         self.add(views)
+        
+        self.enableSwipe = true
+        self.showBottomLine = true
+        
+        
     }
     
 }
+
+

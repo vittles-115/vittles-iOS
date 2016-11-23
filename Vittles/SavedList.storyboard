@@ -44,7 +44,7 @@
                 <navigationController id="8zt-RE-ChY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Save" image="slimStar" selectedImage="slimStar" id="kix-37-aTy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E58-zE-vPJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E58-zE-vPJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gYb-jG-L4I">
-                                <rect key="frame" x="-2" y="63" width="379" height="31"/>
+                                <rect key="frame" x="-5" y="63" width="385" height="31"/>
                                 <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Dbl-Zl-16E"/>
@@ -108,12 +108,12 @@
                             <constraint firstItem="d4o-sx-44D" firstAttribute="trailing" secondItem="gsZ-LV-bw0" secondAttribute="trailing" id="ZEF-az-atT"/>
                             <constraint firstItem="gsZ-LV-bw0" firstAttribute="leading" secondItem="6LJ-hj-6RS" secondAttribute="leading" id="cas-aw-gYb"/>
                             <constraint firstAttribute="trailing" secondItem="gsZ-LV-bw0" secondAttribute="trailing" id="hoW-Ms-H7d"/>
-                            <constraint firstItem="gYb-jG-L4I" firstAttribute="leading" secondItem="6LJ-hj-6RS" secondAttribute="leading" constant="-2" id="k9g-75-71J"/>
+                            <constraint firstItem="gYb-jG-L4I" firstAttribute="leading" secondItem="6LJ-hj-6RS" secondAttribute="leading" constant="-5" id="k9g-75-71J"/>
                             <constraint firstItem="d4o-sx-44D" firstAttribute="leading" secondItem="6LJ-hj-6RS" secondAttribute="leading" id="kQw-2X-15T"/>
                             <constraint firstAttribute="bottom" secondItem="d4o-sx-44D" secondAttribute="bottom" constant="49" id="nu5-d7-4BT"/>
                             <constraint firstItem="gsZ-LV-bw0" firstAttribute="top" secondItem="gYb-jG-L4I" secondAttribute="bottom" id="wRZ-tR-TaC"/>
                             <constraint firstItem="d4o-sx-44D" firstAttribute="top" secondItem="gYb-jG-L4I" secondAttribute="bottom" id="wdg-Dh-cgR"/>
-                            <constraint firstAttribute="trailing" secondItem="gYb-jG-L4I" secondAttribute="trailing" constant="-2" id="yZz-4a-bTT"/>
+                            <constraint firstAttribute="trailing" secondItem="gYb-jG-L4I" secondAttribute="trailing" constant="-5" id="yZz-4a-bTT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SQr-bE-frB"/>

@@ -23,7 +23,7 @@ class AllDishImageCollectionViewController: DishImageCollectionViewController {
             return
         }
         imageHandler.delegate = self
-        imageHandler.getImageThumbnailUrlsFor(dishID: (dish?.uniqueID)!, imageCount: 10)
+        imageHandler.getImageThumbnailUrlsFor(dishID: (dish?.uniqueID)!, imageCount: 200)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +38,13 @@ class AllDishImageCollectionViewController: DishImageCollectionViewController {
         cell.setUpCellFromURL(self.imageURLS[indexPath.row].0, square: true)
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        
+        return imageURLS.count
+    
     }
     
     override func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {

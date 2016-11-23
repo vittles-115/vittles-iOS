@@ -44,7 +44,15 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if self.pickedDish != nil{
+            self.dishTextfield.text = pickedDish?.name
+            self.restaurantTextfield.text = pickedDish?.restaurantName
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

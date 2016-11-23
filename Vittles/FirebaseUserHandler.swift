@@ -113,6 +113,7 @@ class FirebaseUserHandler{
     
     func logoutCurrentUser(){
         try! FIRAuth.auth()?.signOut()
+      
         FirebaseUserHandler.currentUserDictionary = nil
         FirebaseUserHandler.currentUDID = nil
     }

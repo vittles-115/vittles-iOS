@@ -16,7 +16,7 @@ class RestaurantMenuTableViewController: FoodDishTableViewController{
     //var dataHandler:FirebaseDataHandler = FirebaseDataHandler()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
 
         tableView.register(UINib(nibName: "MAFoodItemTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
         self.title = selectedMenu
@@ -26,40 +26,11 @@ class RestaurantMenuTableViewController: FoodDishTableViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(FoodDishTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
         
         self.setUpRefreshControl()
+        self.refreshControl?.isEnabled = false
 
 
     }
 
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//
-//    // MARK: - Table view data source
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return self.dishes.count
-//    }
-//    
-//    //Row hieght of 80
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80.0
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MAFoodItemTableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as! MAFoodItemTableViewCell
-//        
-//        // Configure the cell...
-//        cell.setupCell(fromDish: dishes[indexPath.row])
-//        
-//        return cell
-//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "showFoodDetails", sender: self.dishes[indexPath.row])
@@ -69,22 +40,15 @@ class RestaurantMenuTableViewController: FoodDishTableViewController{
         print("returned with : ", value)
         self.dishes = FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
         self.tableView.reloadData()
-        //print("dishes",foodArray)
+  
     }
-//    
-//    func failedToFetchDishes(errorString: String) {
-//        print("error is: ",errorString)
-//    }
-//
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        // the cells you would like the actions to appear needs to be editable
-//        return true
-//    }
+
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
             FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
             self.showStarPopUp()
+            self.tableView.reloadData()
             //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }
         

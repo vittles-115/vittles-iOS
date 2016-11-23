@@ -74,7 +74,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81D-A6-par">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81D-A6-par">
                                         <rect key="frame" x="122.5" y="129" width="130" height="18"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,6 +145,10 @@
                                     <segue destination="qC6-gG-vly" kind="embed" id="wFQ-Ge-d94"/>
                                 </connections>
                             </containerView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofi-ux-gx6">
+                                <rect key="frame" x="0.0" y="-153" width="375" height="820"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -158,28 +162,32 @@
                             <constraint firstItem="FGp-ak-Fue" firstAttribute="trailing" secondItem="Pfn-v5-tcm" secondAttribute="trailing" id="LWg-uT-Khu"/>
                             <constraint firstItem="fjA-M6-E0h" firstAttribute="top" secondItem="5gr-fS-qJR" secondAttribute="bottom" id="NQJ-hZ-9sk"/>
                             <constraint firstItem="5gr-fS-qJR" firstAttribute="top" secondItem="FGp-ak-Fue" secondAttribute="bottom" id="NaX-8U-vyr"/>
+                            <constraint firstAttribute="trailing" secondItem="ofi-ux-gx6" secondAttribute="trailing" id="XIa-Mg-EWJ"/>
                             <constraint firstItem="KKH-Sd-H23" firstAttribute="top" secondItem="fjA-M6-E0h" secondAttribute="bottom" id="dGA-Sk-wF6"/>
                             <constraint firstItem="Pfn-v5-tcm" firstAttribute="top" secondItem="Am8-JM-9eg" secondAttribute="bottom" id="hsa-to-92J"/>
                             <constraint firstItem="Pfn-v5-tcm" firstAttribute="leading" secondItem="tSn-9V-aOA" secondAttribute="leading" id="ivf-4P-yyg"/>
+                            <constraint firstItem="ofi-ux-gx6" firstAttribute="leading" secondItem="tSn-9V-aOA" secondAttribute="leading" id="m79-lO-65U"/>
+                            <constraint firstAttribute="bottom" secondItem="ofi-ux-gx6" secondAttribute="bottom" id="ne3-c8-1ly"/>
+                            <constraint firstItem="ofi-ux-gx6" firstAttribute="top" secondItem="tSn-9V-aOA" secondAttribute="top" constant="-153" id="wRt-Bs-ol0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="2q8-ea-jY6">
                         <barButtonItem key="leftBarButtonItem" id="6II-hH-Zb5"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zT6-lW-ql7"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="darkOverlayView" destination="ofi-ux-gx6" id="RjE-s4-Wqo"/>
                         <outlet property="locationLabel" destination="2tE-6P-lbS" id="nss-BS-nJp"/>
                         <outlet property="profileImageView" destination="IO2-15-w2K" id="JLF-XM-1Ks"/>
                         <outlet property="tapToEditImageButton" destination="SrQ-Ac-ybL" id="hMr-Ul-Nso"/>
                         <outlet property="usernameLabel" destination="yjX-7t-gBS" id="bUT-Ig-Gyo"/>
-                        <segue destination="uSp-Cx-1BA" kind="presentation" identifier="showLogin" id="hQQ-pO-8zE"/>
+                        <segue destination="uSp-Cx-1BA" kind="presentation" identifier="showLogin" modalPresentationStyle="overFullScreen" id="hQQ-pO-8zE"/>
                         <segue destination="6qL-IN-SWW" kind="show" identifier="showUserUploadeImages" id="gzF-hl-NRG"/>
                         <segue destination="aod-ms-HN1" kind="show" identifier="showUserReviews" id="IGH-mK-mvK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGy-6K-3Xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="1237"/>
+            <point key="canvasLocation" x="728.79999999999995" y="1236.4317841079462"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="iXR-RR-IaE">
@@ -193,21 +201,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="S2q-a9-H2i">
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="S2q-a9-H2i">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="VF6-MI-v7i" appends="YES" id="Xao-eK-aO7"/>
+                                    <outletCollection property="gestureRecognizers" destination="OVA-Zd-7CM" appends="YES" id="m1l-DQ-O4k"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New User?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icr-lO-IeW">
-                                <rect key="frame" x="37" y="396" width="57.5" height="35"/>
-                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                                <rect key="frame" x="122" y="397.5" width="66" height="35"/>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiu-82-Ysl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiu-82-Ysl">
                                 <rect key="frame" x="26" y="399" width="323" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="APY-2c-Nw1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
                                 <color key="tintColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="                            Sign up now"/>
                                 <connections>
@@ -252,10 +265,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PizzaLogoIttles" translatesAutoresizingMaskIntoConstraints="NO" id="gSL-tZ-eeh">
-                                <rect key="frame" x="86" y="53" width="202" height="150"/>
+                                <rect key="frame" x="107" y="83" width="162" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="ARP-f0-or6"/>
                                     <constraint firstAttribute="width" secondItem="gSL-tZ-eeh" secondAttribute="height" multiplier="490:364" id="UQ6-Ix-3hj"/>
+                                    <constraint firstAttribute="height" constant="120" id="XfQ-ED-803"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -264,11 +277,11 @@
                             <constraint firstItem="S2q-a9-H2i" firstAttribute="top" secondItem="feW-qh-V1i" secondAttribute="top" id="5JM-uX-FBI"/>
                             <constraint firstItem="tqC-Qf-uL7" firstAttribute="height" secondItem="ZlP-3B-mEM" secondAttribute="height" id="6gY-Eh-wso"/>
                             <constraint firstItem="UOo-BZ-8r2" firstAttribute="leading" secondItem="tqC-Qf-uL7" secondAttribute="trailing" constant="20" id="6kT-lr-s8Z"/>
-                            <constraint firstItem="Icr-lO-IeW" firstAttribute="bottom" secondItem="kiu-82-Ysl" secondAttribute="bottom" constant="-3" id="7Nd-to-fXA"/>
+                            <constraint firstItem="Icr-lO-IeW" firstAttribute="bottom" secondItem="kiu-82-Ysl" secondAttribute="bottom" constant="-1.5" id="7Nd-to-fXA"/>
                             <constraint firstItem="ZlP-3B-mEM" firstAttribute="top" secondItem="gE5-k0-A7T" secondAttribute="bottom" constant="20" id="B2V-iE-8Yl"/>
                             <constraint firstItem="S2q-a9-H2i" firstAttribute="leading" secondItem="feW-qh-V1i" secondAttribute="leading" id="Cgv-IV-HKP"/>
                             <constraint firstItem="gSL-tZ-eeh" firstAttribute="centerX" secondItem="feW-qh-V1i" secondAttribute="centerX" id="D9X-fP-8Hc"/>
-                            <constraint firstItem="Icr-lO-IeW" firstAttribute="leading" secondItem="kiu-82-Ysl" secondAttribute="leading" constant="11" id="Fci-m2-Kfm"/>
+                            <constraint firstItem="Icr-lO-IeW" firstAttribute="leading" secondItem="kiu-82-Ysl" secondAttribute="leading" constant="96" id="Fci-m2-Kfm"/>
                             <constraint firstAttribute="trailing" secondItem="S2q-a9-H2i" secondAttribute="trailing" id="Ffq-kO-OqA"/>
                             <constraint firstItem="gE5-k0-A7T" firstAttribute="centerX" secondItem="feW-qh-V1i" secondAttribute="centerX" id="HMs-UR-Dv2"/>
                             <constraint firstItem="UOo-BZ-8r2" firstAttribute="height" secondItem="ZlP-3B-mEM" secondAttribute="height" id="MeY-J3-oP6"/>
@@ -282,7 +295,7 @@
                             <constraint firstItem="gE5-k0-A7T" firstAttribute="leading" secondItem="feW-qh-V1i" secondAttribute="leadingMargin" constant="10" id="doJ-BV-CeT"/>
                             <constraint firstItem="tqC-Qf-uL7" firstAttribute="leading" secondItem="ZlP-3B-mEM" secondAttribute="leading" id="dxb-BV-geQ"/>
                             <constraint firstAttribute="bottom" secondItem="S2q-a9-H2i" secondAttribute="bottom" id="fGR-gc-Ga6"/>
-                            <constraint firstItem="Icr-lO-IeW" firstAttribute="top" secondItem="kiu-82-Ysl" secondAttribute="top" constant="-3" id="gOC-MM-y99"/>
+                            <constraint firstItem="Icr-lO-IeW" firstAttribute="top" secondItem="kiu-82-Ysl" secondAttribute="top" constant="-1.5" id="gOC-MM-y99"/>
                             <constraint firstItem="kiu-82-Ysl" firstAttribute="top" secondItem="UOo-BZ-8r2" secondAttribute="bottom" id="iax-aS-hlm"/>
                             <constraint firstItem="ZlP-3B-mEM" firstAttribute="leading" secondItem="gE5-k0-A7T" secondAttribute="leading" id="lrm-wh-fVb"/>
                             <constraint firstItem="kiu-82-Ysl" firstAttribute="trailing" secondItem="ZlP-3B-mEM" secondAttribute="trailing" id="oLn-yK-ubW"/>
@@ -298,13 +311,27 @@
                         <outlet property="cancelButton" destination="tqC-Qf-uL7" id="lms-3B-J5U"/>
                         <outlet property="emailTextField" destination="gE5-k0-A7T" id="sJq-Wc-FUn"/>
                         <outlet property="loginButton" destination="UOo-BZ-8r2" id="6rs-gC-9d9"/>
+                        <outlet property="panRecognizer" destination="OVA-Zd-7CM" id="4vi-Vz-hxC"/>
                         <outlet property="passwordTextField" destination="ZlP-3B-mEM" id="e8K-nu-bhU"/>
                         <outlet property="signUpButton" destination="kiu-82-Ysl" id="WIK-8B-dxR"/>
+                        <outlet property="swipeRecognizer" destination="VF6-MI-v7i" id="P7W-R2-A7T"/>
                         <segue destination="g6s-GV-umk" kind="unwind" identifier="loggedIn" unwindAction="didLogin:" id="Mz6-fS-oQH"/>
+                        <segue destination="g6s-GV-umk" kind="unwind" identifier="dismissLoginView" unwindAction="unwindFromLogin:" id="2GY-LA-tZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPF-aT-bFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer cancelsTouchesInView="NO" minimumNumberOfTouches="1" id="OVA-Zd-7CM">
+                    <connections>
+                        <action selector="pannedDown:" destination="0DJ-Vu-57g" id="ei0-dg-08l"/>
+                    </connections>
+                </panGestureRecognizer>
                 <exit id="g6s-GV-umk" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="down" id="VF6-MI-v7i">
+                    <connections>
+                        <action selector="swipedDown:" destination="0DJ-Vu-57g" id="fcj-FO-RnY"/>
+                        <outlet property="delegate" destination="S2q-a9-H2i" id="cPh-67-x7d"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1668" y="438.53073463268368"/>
         </scene>
@@ -320,10 +347,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bxF-11-RZH">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bxF-11-RZH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5je-U1-hWo" appends="YES" id="UBj-TK-yUk"/>
+                                </connections>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (At least 6 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhH-Of-gUy">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (At least 8 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhH-Of-gUy">
                                 <rect key="frame" x="10" y="292" width="355" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="e0T-j4-H3k"/>
@@ -417,6 +448,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8O-Nj-VRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="a9k-QI-x3s" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="down" id="5je-U1-hWo">
+                    <connections>
+                        <action selector="swipeDown:" destination="dqL-ll-JoV" id="z23-qD-20g"/>
+                        <outlet property="delegate" destination="dqL-ll-JoV" id="PeI-gk-4Yk"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2489" y="439"/>
         </scene>

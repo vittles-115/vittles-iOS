@@ -18,6 +18,7 @@ let MA_BGGray = UIColor(red: 247.0/255.0, green: 245.0/255.0, blue: 243.0/255.0,
 let MA_TabBarInactiveGray = UIColor(red: 140.0/255.0, green: 140.0/255.0, blue: 140.0/255.0, alpha: 1)
 let MA_ActionButtonBorderColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.85)
 let MA_NonActionButtonBorderColor = UIColor(red: 255.0/255.0, green: 45.0/255.0, blue: 85.0/255.0, alpha: 0.95)
+let MA_ButtonGray = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 

@@ -12,10 +12,10 @@ import FirebaseAuth
 class SavedFoodDishTableViewController: FoodDishTableViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
         
         tableView.register(UINib(nibName: "MAFoodItemTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
-        
+
         dataHandler.delegate = self
         
         if ((FIRAuth.auth()?.currentUser) != nil){
@@ -30,7 +30,21 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
         self.loadingIndicator.center = centerPoint
         
         self.view.addSubview(loadingIndicator)
+        self.refreshControl?.endEditing(true)
+        self.loadingIndicator.isHidden = true
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dataHandler.delegate = self
+        if ((FIRAuth.auth()?.currentUser) == nil){
+            self.dishes = [DishObject]()
+            self.refreshControl?.isEnabled = false
+        }else{
+            self.refreshControl?.isEnabled = true
+
+        }
+        self.refreshTableView()
     }
 
     override func refreshTableView(){
@@ -99,6 +113,10 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //self.parent?.performSegue(withIdentifier: "showFoodDetails", sender: self.dishes[indexPath.row])
+        
+        if dishes.count == 0{
+            return
+        }
         
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController

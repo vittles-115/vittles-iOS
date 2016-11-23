@@ -136,8 +136,8 @@ class FirebaseDataHandler{
     
     func getDishesWhereName(startsWith:String,numberOfDishes:UInt){
         delegate?.willBeginTask?()
-        let endingString = startsWith + "\u{f8ff}"
-        FirebaseDishRef.queryOrdered(byChild: "name").queryStarting(atValue: startsWith).queryEnding(atValue: endingString).queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
+        let endingString = startsWith.lowercased() + "\u{f8ff}"
+        FirebaseDishRef.queryOrdered(byChild: "lowercased_name").queryStarting(atValue: startsWith.lowercased()).queryEnding(atValue: endingString).queryLimited(toFirst: numberOfDishes).observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else{
                 self.delegate?.failedToFetchDishes?(errorString: "Dish Not found")

@@ -12,14 +12,18 @@ import FirebaseAuth
 class SavedRestaurantTableViewController: RestaurantTableViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
         
         tableView.register(UINib(nibName: "MARestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
+
         dataHandler.delegate = self
         
         
         if ((FIRAuth.auth()?.currentUser) != nil){
             dataHandler.getSavedRestaurantsFor(userID: (FIRAuth.auth()?.currentUser?.uid)!)
+        }else{
+            self.restaurants.removeAll()
+            self.tableView.reloadData()
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(RestaurantTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
@@ -27,8 +31,22 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
         self.loadingIndicator.center = self.view.center
         self.setUpRefreshControl()
         self.view.addSubview(loadingIndicator)
+        self.refreshControl?.endEditing(true)
+        self.loadingIndicator.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if ((FIRAuth.auth()?.currentUser) == nil){
+            self.restaurants = [RestaurantObject]()
+        }else{
+            self.refreshControl?.isEnabled = true
+            
+        }
+        
+        self.refreshTableView()
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,11 +61,35 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //self.performSegue(withIdentifier: "showMenus", sender: restaurants[indexPath.row])
         
+        if restaurants.count == 0{
+            return
+        }
+        
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RestaurantMainDetailViewController") as! RestaurantMainDetailViewController
     
         vc.restaurant = restaurants[indexPath.row]
         (self.parent?.parent as! UINavigationController).pushViewController(vc, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
+            FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: self.restaurants[indexPath.row].uniqueID)
+            self.showStarPopUp()
+            self.restaurants.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        let restaurantID = restaurants[indexPath.row].uniqueID
+        
+        if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurantID ) as? Bool == true{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "SaveSwipe")!)
+        }else{
+            save.backgroundColor = UIColor(patternImage: UIImage(named: "save")!)
+        }
+        
+        return [save]
+        
     }
     
 

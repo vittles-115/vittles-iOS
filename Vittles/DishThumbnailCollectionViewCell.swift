@@ -32,10 +32,10 @@ class DishThumbnailCollectionViewCell: UICollectionViewCell {
         }
         
         guard imageURL != nil else{
-            thumbnailImageView.image = UIImage(named: "icons1")
+            thumbnailImageView.image = UIImage(named: "placeholderPizza")
             return
         }
-        thumbnailImageView.kf.setImage(with: URL(string: imageURL!), placeholder: UIImage(named: "icons1")!)
+        thumbnailImageView.kf.setImage(with: URL(string: imageURL!), placeholder: UIImage(named: "placeholderPizza")!)
 
     }
     

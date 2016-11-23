@@ -47,7 +47,14 @@ class MARestaurantTableViewCell: UITableViewCell {
         //Load image from url and set corner radius
         
 
-        self.resturantImageView.image = UIImage(named: "icons1")!
+        //Thumbnail image
+        if restaurant.imageURL != nil{
+            print("has image url :", restaurant.imageURL!)
+            self.resturantImageView.kf.setImage(with: URL(string: restaurant.imageURL!), placeholder: UIImage(named: "placeholderPizza")!)
+        }else{
+            self.resturantImageView.image = UIImage(named: "icons1")!
+        }
+
     
         //Star Saved Indicator 
         if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurant.uniqueID ) as? Bool == true{

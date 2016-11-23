@@ -15,6 +15,7 @@ import UIKit
     
     open var startPage = 0
     open var setNavigationTitle = true
+    open var shouldHideTabbar = true
     
     open var enableSwipe = true {
         didSet {
@@ -83,6 +84,19 @@ import UIKit
             }
         }
     }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        if shouldHideTabbar{
+            self.tabBarController?.tabBar.isHidden = true
+        }
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        if shouldHideTabbar{
+            self.tabBarController?.tabBar.isHidden = false
+        }
+    }
+    
 }
 
 // MARK: Public methods
