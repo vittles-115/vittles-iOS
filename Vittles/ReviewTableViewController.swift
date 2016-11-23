@@ -74,7 +74,7 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
         if reviews.count == 0{
             let cell = UITableViewCell(frame: self.tableView.frame)
             
-            let myString = "No reviews for this dish yet!"
+            let myString = "No reviews yet!"
             let myAttribute = [ NSForegroundColorAttributeName: MA_LightGray , NSFontAttributeName: UIFont(name: "SourceSansPro-Semibold", size: 15.0)!]
             
             let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
@@ -99,6 +99,11 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
     }
     
     func didFetchReviews(value: NSDictionary?) {
+        
+        guard parent is FoodDetailViewController else{
+            return
+        }
+        
         (self.parent as! FoodDetailViewController).scrollView.isScrollEnabled = true
         self.reviews = FirebaseObjectConverter.reviewArrayFrom(dictionary: value!)
         self.tableView.isScrollEnabled = true
