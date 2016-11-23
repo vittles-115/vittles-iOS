@@ -29,7 +29,7 @@ class MAProfileOptionsTableViewController: UITableViewController {
         if FIRAuth.auth()?.currentUser != nil{
             profileOptions[3] = "Log Out"
         }else{
-            profileOptions[3] = "Login"
+            profileOptions[3] = "Login / Signup"
         }
         
     }
@@ -76,8 +76,9 @@ class MAProfileOptionsTableViewController: UITableViewController {
             break
         case 3:
             if FIRAuth.auth()?.currentUser != nil{
-                profileOptions[3] = "Login"
+                profileOptions[3] = "Login / Signup"
                 parentVC.clearUserProfile()
+                parentVC.presentSimpleAlert(title: "Logged Out!", message: "You have been logged out.")
                 FirebaseUserHandler.sharedInstance.logoutCurrentUser()
             }else{
                 parentVC.performSegue(withIdentifier: "showLogin", sender: nil)

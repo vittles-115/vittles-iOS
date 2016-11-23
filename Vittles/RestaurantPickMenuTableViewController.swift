@@ -53,6 +53,9 @@ class RestaurantPickMenuTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "showSelectedMenu", sender: restaurant?.menuTitles?[indexPath.row])
     }
    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
     // MARK: - Navigation
 
