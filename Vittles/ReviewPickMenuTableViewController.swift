@@ -49,9 +49,7 @@ class ReviewPickMenuTableViewController: RestaurantPickMenuTableViewController,U
         
 //        dataHandler.getRestaurantsWhereName(startsWith: (searchBar.text?.lowercased())!, numberOfRestaurants: 10)
     }
-
     
-
     
     // MARK: - Navigation
 

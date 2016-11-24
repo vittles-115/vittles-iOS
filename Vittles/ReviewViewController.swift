@@ -35,12 +35,13 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         reviewTitleTextfield.delegate = self
         reviewBodyTextView.delegate = self
         dataHandler.delegate = self
-        
         self.title = "Review"
         if self.pickedDish != nil{
             self.dishTextfield.text = pickedDish?.name
             self.restaurantTextfield.text = pickedDish?.restaurantName
         }
+        
+        addBottomDivider(self.reviewBodyTextView, thickness: 1, color: UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 0.8))
         
     }
     
@@ -118,6 +119,12 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         
         self.pickedRestaurant = nil
         self.pickedDish = nil
+        
+        if let childVC = self.childViewControllers.first as? MAPostPictureCollectionViewController{
+            childVC.imagesToPost.removeAll()
+            childVC.collectionView?.reloadData()
+        }
+        
         guard self.restaurantTextfield != nil else {
             return
         }
@@ -167,8 +174,15 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         //NOTE: need to update this after we have login / signup
         //NOTE: need to add check to see if user has correct date set on device
         
-        let aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID,date: NSDate())
-        dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: aReview.asDictionary())
+        var aReview:ReviewObject?
+        if let username = FirebaseUserHandler.currentUserObject?.name{
+            aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: username, reviewer_UDID: reviewerUDID,date: NSDate())
+        }else{
+              aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: " ", reviewer_UDID: reviewerUDID,date: NSDate())
+        }
+        
+//        let aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID,date: NSDate())
+        dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: (aReview?.asDictionary())!)
         self.view.endEditing(true)
         
         
@@ -202,6 +216,26 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         presentSimpleAlert(title: "Failed!", message: "Failed to posted review!")
 
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == " Type review here"{
+            textView.text = ""
+            textView.textColor = UIColor.black
+            textView.layer.opacity = 1
+        }
+    }
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = " Type review here"
+            textView.textColor = UIColor.lightGray
+            textView.layer.opacity = 0.8
+            textView.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
+    }
+    
+    
     
     // MARK: - Navigation
 

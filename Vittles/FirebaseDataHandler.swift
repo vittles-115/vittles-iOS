@@ -306,8 +306,9 @@ class FirebaseDataHandler{
     
     func fetchReviewsFor(dishID:String, numberOfReviews:UInt){
         delegate?.willBeginTask?()
-        FirebaseReviewRef.child(dishID).queryOrdered(byChild: FirebaseReviewKey_reviewDate).queryLimited(toFirst: numberOfReviews).observeSingleEvent(of: .value, with: { (snapshot) in
-            
+//        FirebaseReviewRef.child(dishID).queryOrdered(byChild: FirebaseReviewKey_reviewDate).queryLimited(toFirst: numberOfReviews).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseReviewRef.child(dishID).queryOrdered(byChild: FirebaseReviewKey_reviewDate).observeSingleEvent(of: .value, with: { (snapshot) in
+
             guard let value = snapshot.value as? NSDictionary else{
                 self.delegate?.failedToFetchReviews?(errorString: "Reviews Not found")
                 return

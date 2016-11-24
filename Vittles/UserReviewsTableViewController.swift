@@ -12,7 +12,7 @@ import FirebaseAuth
 class UserReviewsTableViewController: ReviewTableViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
         
         tableView.register(UINib(nibName: "MAFoodReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "reviewCell")
         dataHandler.delegate = self

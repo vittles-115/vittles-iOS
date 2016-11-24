@@ -36,16 +36,6 @@ func FirebaseSavedRestaurantRef(for userID:String)->FIRDatabaseReference{
     return FirebaseUserRef.child(userID).child("SavedRestaurants")
 }
 
-//func FirebaseReviewRef(for userID:String)->FIRDatabaseReference{
-//    return FirebaseUserReviewRef.child(userID)
-//}
-//
-//func FirebaseImageRef(for userID:String)->FIRDatabaseReference{
-//    return FirebaseUserPostedImageRef.child(userID)
-//}
-
-
-
 //File Storage
 let FirebaseImageStorage = FIRStorage.storage()
 let FirebaseImageRef = FirebaseImageStorage.reference(forURL: "gs://vittles-1c0fb.appspot.com")

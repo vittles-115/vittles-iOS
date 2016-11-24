@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBarGlobal()
         setupTabBarGlobal()
         
-        FirebaseUserHandler.sharedInstance.loginWithEmail(email: "jenny@gmail.com", password: "aaaaaaaa")
+        //FirebaseUserHandler.sharedInstance.loginWithEmail(email: "jenny@gmail.com", password: "aaaaaaaa")
         
         for family: String in UIFont.familyNames
         {
@@ -36,10 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        
-//        FirebaseSavedDishRef(for: "T38vhJZQiPfYgHCmb4cS03mOKbI3").child("-KTD3kA15O5pPCIv_ep4").setValue(true)
-//        FirebaseSavedRestaurantRef(for: "T38vhJZQiPfYgHCmb4cS03mOKbI3").child("-KTBwNgW2e3fWmLpypWj").setValue(true)
-        
         return true
     }
 
