@@ -6,6 +6,11 @@
 //  Copyright © 2016 Jenny Kwok. All rights reserved.
 //
 
+
+/*-----------------StoryboardHelpers Methods -----------------
+ Purpose of these methods is to help facilitate navigation between storyboards. 
+ */
+
 import Foundation
 import UIKit
 

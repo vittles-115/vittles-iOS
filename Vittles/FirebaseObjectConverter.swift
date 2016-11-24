@@ -3,6 +3,11 @@
 //  Vittles
 //
 
+/*-----------------FirebaseObjectConverter-----------------
+ Purpose of this class is to converte JSON data recieved from firebase and converting
+ it to custom classes that the app uses.
+ */
+
 import Foundation
 import UIKit
 

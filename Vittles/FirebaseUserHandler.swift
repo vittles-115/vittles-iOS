@@ -3,6 +3,17 @@
 //  Vittles
 //
 
+
+/*-----------------FirebaseUserHandler-----------------
+ Purpose of this class is to manage all user data between the app and Firebase.
+ All data should pass though this class and use callbacks to provide updates to the UI.
+ Includes handling:
+    - User Login / Signup
+    - Logout
+    - Profile updates
+    - Save dishes / restaurants
+ */
+
 import Foundation
 import Firebase
 
