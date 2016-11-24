@@ -15,11 +15,12 @@ class UserReviewsTableViewController: ReviewTableViewController {
         //super.viewDidLoad()
         
         tableView.register(UINib(nibName: "MAFoodReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "reviewCell")
-        dataHandler.delegate = self
+        
         
         guard FirebaseUserHandler.currentUDID != nil else{
             return
         }
+        dataHandler.delegate = self
         dataHandler.fetchReviewsFor(userID: (FIRAuth.auth()?.currentUser?.uid)!, numberOfReviews: 10)
         
     }

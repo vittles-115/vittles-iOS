@@ -117,6 +117,9 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
         
         print("error :",errorString)
         self.tableView.isScrollEnabled = false
+        guard self.parent is FoodDetailViewController else{
+            return
+        }
        (self.parent as! FoodDetailViewController).scrollView.isScrollEnabled = false
     }
     
@@ -126,6 +129,9 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
         if (self.parent as? FoodDetailViewController)?.scrollView.contentOffset.y > 200{
             scrollView.bounces = false
             if scrollView.contentOffset.y == 0{
+                guard self.parent is FoodDetailViewController else{
+                    return
+                }
                 (self.parent as? FoodDetailViewController)?.scrollView.becomeFirstResponder()
             }
         }

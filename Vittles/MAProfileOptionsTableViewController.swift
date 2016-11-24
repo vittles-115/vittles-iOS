@@ -12,7 +12,7 @@ import Firebase
 
 class MAProfileOptionsTableViewController: UITableViewController {
 
-    var profileOptions = ["Your Reviews","Your Pictures","Login / Signup"]
+    var profileOptions = ["Your Reviews","Your Pictures","Login / Sign up"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class MAProfileOptionsTableViewController: UITableViewController {
         if FirebaseUserHandler.currentUDID != nil{
             profileOptions[2] = "Log Out"
         }else{
-            profileOptions[2] = "Login / Signup"
+            profileOptions[2] = "Login / Sign up"
         }
         
     }
@@ -63,7 +63,7 @@ class MAProfileOptionsTableViewController: UITableViewController {
             break
         case 2:
             if FirebaseUserHandler.currentUDID != nil{
-                profileOptions[2] = "Login / Signup"
+                profileOptions[2] = "Login / Sign up"
                 parentVC.clearUserProfile()
                 parentVC.presentSimpleAlert(title: "Logged Out!", message: "You have been logged out.")
                 FirebaseUserHandler.sharedInstance.logoutCurrentUser()
