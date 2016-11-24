@@ -16,9 +16,8 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
         
         tableView.register(UINib(nibName: "MAFoodItemTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
 
-        dataHandler.delegate = self
         
-        if ((FIRAuth.auth()?.currentUser) != nil){
+        if (FirebaseUserHandler.currentUDID != nil){
             dataHandler.getSavedDishesFor(userID: (FIRAuth.auth()?.currentUser?.uid)!)
         }
         
@@ -36,17 +35,18 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataHandler.delegate = self
-        if ((FIRAuth.auth()?.currentUser) == nil){
+        if (FirebaseUserHandler.currentUDID == nil){
             self.dishes = [DishObject]()
+            self.tableView.reloadData()
             self.refreshControl?.isEnabled = false
         }else{
+            dataHandler.delegate = self
             self.refreshControl?.isEnabled = true
 
         }
         self.refreshTableView()
     }
-
+    
     override func refreshTableView(){
         guard parent is SavedMainViewController else {
             self.refreshControl?.endRefreshing()
@@ -60,20 +60,7 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
     }
     
     override func didFetchAdditionalDishes(value: NSDictionary?) {
-        isFetching = false
-        print("fetched next objects")
-        self.refreshControl?.endRefreshing()
-        //let indexPath = NSIndexPath(row: self.dishes.count-1, section: 0)
-        var newDishes =  FirebaseObjectConverter.dishArrayFrom(dictionary: value!)
-        if(newDishes.count > 1){
-            newDishes.remove(at: 0)
-        }else{
-            return
-        }
-        self.dishes.append(contentsOf:newDishes)
-        //self.tableView.reloadRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
-        self.tableView.reloadData()
-        self.loadingIndicator.isHidden = true
+       
     }
 
 
@@ -87,7 +74,13 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
             FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
             self.showStarPopUp()
             self.dishes.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            if self.dishes.count == 0{
+                self.tableView.reloadData()
+            }else{
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
+            }
             //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }
         
@@ -95,6 +88,10 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
             //            FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
             //            self.showStarPopUp()
             //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
+        }
+        
+        guard dishes.count > 0 else{
+            return []
         }
         
         let dishID = dishes[indexPath.row].uniqueID
@@ -127,6 +124,9 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
         
     }
     
+    override func didUpdateSaveDish() {
+   
+    }
     
     /*
     // MARK: - Navigation

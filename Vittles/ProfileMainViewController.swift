@@ -40,6 +40,11 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
     
     @IBAction func picturePressed(_ sender: AnyObject) {
         
+        guard FirebaseUserHandler.currentUDID != nil else {
+            self.presentSimpleAlert(title: "Whoops!", message: "You are not currently logged in.")
+            return
+        }
+        
         imagePicker?.showOptions()
         
     }

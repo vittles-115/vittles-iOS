@@ -167,16 +167,22 @@ class FirebaseUserHandler{
         
         FirebaseSavedDishRef(for: UDID).child(dishID).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let savedDishDict = FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedDishes") as! NSDictionary
+            var savedDishDict:NSMutableDictionary?
+            if let savedDictionary = FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedDishes") as? NSMutableDictionary{
+                savedDishDict = savedDictionary
+            }else{
+                savedDishDict = NSMutableDictionary()
+            }
+            
             
             guard let value = (snapshot.value as? Bool) else{
                 FirebaseSavedDishRef(for: UDID).child(dishID).setValue(true)
-                savedDishDict.setValue(true, forKey: dishID)
+                savedDishDict?.setValue(true, forKey: dishID)
                 self.firebaseSaveDegate?.didUpdateSaveDish?()
                 return
             }
             FirebaseSavedDishRef(for: UDID).child(dishID).setValue(!value)
-            savedDishDict.setValue(!value, forKey: dishID)
+            savedDishDict?.setValue(!value, forKey: dishID)
             self.firebaseSaveDegate?.didUpdateSaveDish?()
             self.getCurrentUser()
         }) { (error) in
@@ -194,16 +200,28 @@ class FirebaseUserHandler{
         
         FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let savedRestDict = FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as! NSDictionary
+            
+            guard FirebaseUserHandler.currentUserDictionary != nil else{
+                self.firebaseSaveDegate?.failedToUpdateSaveDish?()
+                return
+            }
+            
+            var savedRestDict:NSMutableDictionary?
+            
+            if let savedDict = FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSMutableDictionary{
+                savedRestDict = savedDict
+            }else{
+                savedRestDict = NSMutableDictionary()
+            }
             
             guard let value = (snapshot.value as? Bool) else{
                 FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).setValue(true)
-                savedRestDict.setValue(true, forKey: restaurantID)
+                savedRestDict?.setValue(true, forKey: restaurantID)
                 self.firebaseSaveDegate?.didUpdateSaveDish?()
                 return
             }
             FirebaseSavedRestaurantRef(for: UDID).child(restaurantID).setValue(!value)
-            savedRestDict.setValue(!value, forKey: restaurantID)
+            savedRestDict?.setValue(!value, forKey: restaurantID)
             self.firebaseSaveDegate?.didUpdateSaveRestaurant?()
         }) { (error) in
             self.firebaseSaveDegate?.failedToUpdateSaveDish?()

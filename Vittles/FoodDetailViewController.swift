@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
     
@@ -14,7 +15,11 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
     @IBOutlet weak var foodDescriptionLabel: UILabel!
     @IBOutlet weak var showMoreButton: UIButton!
     
+    @IBOutlet weak var starRating: CosmosView!
+    @IBOutlet weak var restaurantLabel: UILabel!
   
+    @IBOutlet weak var savedStarImageView: UIImageView!
+    
     var selectedImageURL:String = ""
     var selectedImage:UIImage?
     var dish:DishObject?
@@ -38,6 +43,8 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
         self.foodDescriptionLabel.text = dish?.foodDescription
         self.title = dish?.name
         
+    
+        
         for childVC in self.childViewControllers{
             if childVC is ReviewTableViewController{
                 let childVC = childVC as! ReviewTableViewController
@@ -54,6 +61,17 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
             }
         }
       
+        guard dish != nil else {
+            return
+        }
+        
+        if let rating = dish?.averageRating{
+            self.starRating.rating = rating
+        }
+        
+        if let restaurantName = dish?.restaurantName{
+            self.restaurantLabel.text = restaurantName
+        }
         
     }
 

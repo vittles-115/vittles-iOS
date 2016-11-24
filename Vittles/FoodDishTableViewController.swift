@@ -104,7 +104,15 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
-            FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
+            
+            if FirebaseUserHandler.currentUDID != nil{
+                FirebaseUserHandler.sharedInstance.updateSavedDish(for: self.dishes[indexPath.row].uniqueID)
+            }else{
+                self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
+            }
+            
+            
+            
             self.showStarPopUp()
             self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.right)
         }
@@ -229,7 +237,12 @@ class FoodDishTableViewController: UITableViewController ,FirebaseDataHandlerDel
     
     func failedToUpdateSaveDish(){
         self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
-        self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
+        if self.currentSwipeIndex != nil{
+            self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
+        }else{
+            self.tableView.reloadData()
+        }
+        
     }
     
     func reload(){

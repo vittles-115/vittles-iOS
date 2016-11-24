@@ -49,7 +49,6 @@ class MARestaurantTableViewCell: UITableViewCell {
 
         //Thumbnail image
         if restaurant.imageURL != nil{
-            print("has image url :", restaurant.imageURL!)
             self.resturantImageView.kf.setImage(with: URL(string: restaurant.imageURL!), placeholder: UIImage(named: "placeholderPizza")!)
         }else{
             self.resturantImageView.image = UIImage(named: "icons1")!

@@ -17,7 +17,7 @@ class UserReviewsTableViewController: ReviewTableViewController {
         tableView.register(UINib(nibName: "MAFoodReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "reviewCell")
         dataHandler.delegate = self
         
-        guard FIRAuth.auth()?.currentUser != nil else{
+        guard FirebaseUserHandler.currentUDID != nil else{
             return
         }
         dataHandler.fetchReviewsFor(userID: (FIRAuth.auth()?.currentUser?.uid)!, numberOfReviews: 10)

@@ -89,7 +89,7 @@ class SignUpViewController: UIViewController, FirebaseLoginSignupDelegate {
     }
     
     func signupFailedWithError(error:String){
-        
+        self.presentSimpleAlert(title: "Error!", message: error)
     }
 
     @IBAction func swipeDown(_ sender: Any) {
