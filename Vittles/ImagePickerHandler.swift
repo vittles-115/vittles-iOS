@@ -1,3 +1,7 @@
+/*-----------------ImagePickerHandler-----------------
+ Purpose of this class is to handle fething images from the camera and camera row.
+ */
+
 
 import Foundation
 import UIKit

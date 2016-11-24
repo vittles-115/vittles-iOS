@@ -41,6 +41,19 @@ class HomeSearchViewController: UIViewController,UISearchBarDelegate {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = dishVC
+            break
+        case 1:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = restaurantVC
+            break
+        default:
+            break
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

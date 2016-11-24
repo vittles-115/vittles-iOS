@@ -113,6 +113,11 @@ class RestaurantMainDetailViewController: UIViewController,UISearchBarDelegate {
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         
+        guard FirebaseUserHandler.currentUDID != nil else {
+            self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
+            return
+        }
+       
         FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: (self.restaurant?.uniqueID)!)
         
         if self.saveButton.backgroundColor == MA_ButtonGray{

@@ -27,16 +27,19 @@ class SavedMainViewController: UIViewController {
         self.foodDishContainer.isHidden = false
         self.resturantContainer.isHidden = true
         
-        for childVC in self.childViewControllers{
-            if childVC is SavedRestaurantTableViewController{
-                restaurantVC = childVC as? SavedRestaurantTableViewController
-                FirebaseUserHandler.sharedInstance.firebaseSaveDegate = dishVC
-            }
-            
-            if childVC is SavedFoodDishTableViewController{
-                dishVC = childVC as? SavedFoodDishTableViewController
-            }
-            
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = dishVC
+            break
+        case 1:
+            FirebaseUserHandler.sharedInstance.firebaseSaveDegate = restaurantVC
+            break
+        default:
+            break
         }
     }
 

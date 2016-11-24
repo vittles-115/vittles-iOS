@@ -16,7 +16,7 @@ class UserUploadeImagesCollectionViewController: AllDishImageCollectionViewContr
         
         
         imageHandler.delegate = self
-        guard FIRAuth.auth()?.currentUser != nil else {
+        guard FirebaseUserHandler.currentUDID != nil else {
             print("NO USER LOGGED IN")
             return
         }

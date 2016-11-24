@@ -15,11 +15,9 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
         //super.viewDidLoad()
         
         tableView.register(UINib(nibName: "MARestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
-
-        dataHandler.delegate = self
         
         
-        if ((FIRAuth.auth()?.currentUser) != nil){
+        if (FirebaseUserHandler.currentUDID != nil){
             dataHandler.getSavedRestaurantsFor(userID: (FIRAuth.auth()?.currentUser?.uid)!)
         }else{
             self.restaurants.removeAll()
@@ -36,9 +34,11 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if ((FIRAuth.auth()?.currentUser) == nil){
+        if (FirebaseUserHandler.currentUDID == nil){
             self.restaurants = [RestaurantObject]()
+            self.tableView.reloadData()
         }else{
+            dataHandler.delegate = self
             self.refreshControl?.isEnabled = true
             
         }
@@ -74,12 +74,30 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let save = UITableViewRowAction(style: .normal, title: "         ") { action, index in
-            FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: self.restaurants[indexPath.row].uniqueID)
+            
+            if FirebaseUserHandler.currentUDID != nil{
+                FirebaseUserHandler.sharedInstance.updateSavedRestaurant(for: self.restaurants[indexPath.row].uniqueID)
+            }else{
+                self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
+            }
+            
             self.showStarPopUp()
             self.restaurants.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            
+            if self.restaurants.count <= 1{
+                self.tableView.reloadData()
+            }else{
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+            }
+            
         }
         
+        guard restaurants.count > 0 else{
+            return []
+        }
+            
         let restaurantID = restaurants[indexPath.row].uniqueID
         
         if (FirebaseUserHandler.currentUserDictionary?.object(forKey: "SavedRestaurants") as? NSDictionary)?.object(forKey: restaurantID ) as? Bool == true{

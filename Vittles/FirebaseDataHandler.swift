@@ -3,6 +3,15 @@
 //  Vittles
 //
 
+/*-----------------FirebaseDataHandler-----------------
+ Purpose of this class is to manage all general data between the app and Firebase.
+ All data should pass though this class and use callbacks to provide updates to the UI.
+ Includes handling:
+    - Fetching Dishes
+    - Fetching Restaurants
+    - Fetching Reviews
+ */
+
 import Foundation
 import FirebaseStorage
 import FirebaseAuth

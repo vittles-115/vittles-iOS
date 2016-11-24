@@ -17,6 +17,9 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
     @IBOutlet weak var reviewBodyTextView: UITextView!
     @IBOutlet weak var startRatingView: CosmosView!
     
+    @IBOutlet weak var overlayView: UIView!
+    
+    
     var pickedRestaurant:RestaurantObject?
     var pickedDish:DishObject?
     
@@ -51,6 +54,12 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
             self.dishTextfield.text = pickedDish?.name
             self.restaurantTextfield.text = pickedDish?.restaurantName
         }
+        
+        guard FirebaseUserHandler.currentUDID != nil else {
+            self.presentSimpleAlert(title: "Whoops!", message: "You are not currently logged in.")
+            return
+        }
+
     }
     
     
@@ -160,11 +169,7 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
             self.presentSimpleAlert(title: "Whoops!", message: "You are not currently logged in.")
             return
         }
-        
-//        guard let reviewerName =  FIRAuth.auth()?.currentUser?.displayName else {
-//            self.presentSimpleAlert(title: "Whoops!", message: "You are not currently logged in.")
-//            return
-//        }
+
         
         guard reviewTitleTextfield.text != "" else {
             self.presentSimpleAlert(title: "Whoops!", message: "Please enter a title for the review.")

@@ -184,6 +184,9 @@ class RestaurantTableViewController: UITableViewController,FirebaseDataHandlerDe
    
     func failedToUpdateSaveRestaurant(){
         self.presentSimpleAlert(title: "Failed to Save!", message: "You are not logged in! Please log in to save dishes and restaurants")
+        guard self.currentSwipeIndex != nil else {
+            return
+        }
         self.tableView.reloadRows(at: [self.currentSwipeIndex!], with: .right)
     }
     

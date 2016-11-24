@@ -12,7 +12,7 @@ import Firebase
 
 class MAProfileOptionsTableViewController: UITableViewController {
 
-    var profileOptions = ["Your Reviews","Your Pictures","Help/Documentation","Login / Signup"]
+    var profileOptions = ["Your Reviews","Your Pictures","Login / Sign up"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +20,9 @@ class MAProfileOptionsTableViewController: UITableViewController {
         self.tableView.separatorColor = UIColor.clear
         
         if FirebaseUserHandler.currentUDID != nil{
-            profileOptions[3] = "Log Out"
+            profileOptions[2] = "Log Out"
         }else{
-            profileOptions[3] = "Login / Signup"
+            profileOptions[2] = "Login / Sign up"
         }
         
     }
@@ -37,7 +37,7 @@ class MAProfileOptionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 3
     }
 
     
@@ -62,10 +62,8 @@ class MAProfileOptionsTableViewController: UITableViewController {
             parentVC.performSegue(withIdentifier: "showUserUploadeImages", sender: nil)
             break
         case 2:
-            break
-        case 3:
             if FirebaseUserHandler.currentUDID != nil{
-                profileOptions[3] = "Login / Signup"
+                profileOptions[2] = "Login / Sign up"
                 parentVC.clearUserProfile()
                 parentVC.presentSimpleAlert(title: "Logged Out!", message: "You have been logged out.")
                 FirebaseUserHandler.sharedInstance.logoutCurrentUser()

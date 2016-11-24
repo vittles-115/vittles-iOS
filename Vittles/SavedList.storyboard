@@ -42,9 +42,9 @@
         <scene sceneID="edO-Oe-zHJ">
             <objects>
                 <navigationController id="8zt-RE-ChY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Save" image="slimStar" selectedImage="slimStar" id="kix-37-aTy"/>
+                    <tabBarItem key="tabBarItem" title="Save" image="StarTabIcon" selectedImage="StarTabIcon" id="kix-37-aTy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E58-zE-vPJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E58-zE-vPJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -157,6 +157,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="slimStar" width="23" height="22"/>
+        <image name="StarTabIcon" width="23" height="22"/>
     </resources>
 </document>
