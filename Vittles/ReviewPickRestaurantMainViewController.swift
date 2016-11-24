@@ -49,7 +49,32 @@ class ReviewPickRestaurantMainViewController: UIViewController,UISearchBarDelega
     }
 
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        NSObject.cancelPreviousPerformRequests(
+            withTarget: self,
+            selector: #selector(self.performSearch),
+            object: nil)
+        self.perform(
+            #selector(self.performSearch),
+            with: nil,
+            afterDelay: 0.3)
+        
+    }
+    
 
+    
+    func performSearch() {
+        
+        if self.searchBar.text == ""{
+            dataHandler.getRestaurants(numberOfRestaurants: 10)
+        }else{
+            dataHandler.getRestaurantsWhereName(startsWith: (searchBar.text?.lowercased())!, numberOfRestaurants: 10)
+        }
+
+        
+    }
+    
     
     // MARK: - Navigation
 

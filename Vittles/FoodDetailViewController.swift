@@ -19,6 +19,7 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
     var selectedImage:UIImage?
     var dish:DishObject?
   
+    var childReviewTable:ReviewTableViewController?
     
     //var loadedObjects:[MAReview] = [MAReview]()
     var imageHandler:FirebaseImageHandler = FirebaseImageHandler()
@@ -41,7 +42,8 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
             if childVC is ReviewTableViewController{
                 let childVC = childVC as! ReviewTableViewController
                 childVC.dish = self.dish
-                childVC.dataHandler.fetchReviewsFor(dishID:(dish!.uniqueID), numberOfReviews:10)
+                childVC.dataHandler.fetchReviewsFor(dishID:(dish!.uniqueID), numberOfReviews:40)
+                self.childReviewTable = childVC
             }
             
             if childVC is DishImageCollectionViewController{
@@ -63,11 +65,11 @@ class FoodDetailViewController: UIViewController, UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 200{
-            //scrollView.bounces = false
-            //childTableVC?.tableView.isScrollEnabled = true
+            scrollView.bounces = false
+            childReviewTable?.tableView.isScrollEnabled = true
         }else{
-            //scrollView.bounces = true
-            //childTableVC?.tableView.isScrollEnabled = false
+            scrollView.bounces = true
+            childReviewTable?.tableView.isScrollEnabled = false
         }
         
     }

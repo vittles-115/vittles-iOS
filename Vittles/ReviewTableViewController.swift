@@ -100,14 +100,17 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
     
     func didFetchReviews(value: NSDictionary?) {
         
+        self.reviews = FirebaseObjectConverter.reviewArrayFrom(dictionary: value!)
+        self.reviews.sort(by: { $0.date?.compare($1.date as! Date) == ComparisonResult.orderedDescending })
+        self.tableView.isScrollEnabled = true
+        self.tableView.reloadData()
+        
         guard parent is FoodDetailViewController else{
             return
         }
         
         (self.parent as! FoodDetailViewController).scrollView.isScrollEnabled = true
-        self.reviews = FirebaseObjectConverter.reviewArrayFrom(dictionary: value!)
-        self.tableView.isScrollEnabled = true
-        self.tableView.reloadData()
+       
     }
     
     func failedToFetchReviews(errorString: String) {
@@ -118,18 +121,14 @@ class ReviewTableViewController: UITableViewController,FirebaseDataHandlerDelega
     }
     
     
-    //var isScrollinUp = false
-    
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
- 
-        
-
-    }
-    
-    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-
+        if (self.parent as? FoodDetailViewController)?.scrollView.contentOffset.y > 200{
+            scrollView.bounces = false
+            if scrollView.contentOffset.y == 0{
+                (self.parent as? FoodDetailViewController)?.scrollView.becomeFirstResponder()
+            }
+        }
     }
   
 }

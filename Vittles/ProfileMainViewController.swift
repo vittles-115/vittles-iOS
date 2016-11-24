@@ -63,9 +63,9 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
     
     func setUserProfile(){
         if FIRAuth.auth()?.currentUser != nil{
-            self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
+        
             let currentUserDict = FirebaseUserHandler.currentUserDictionary
-
+            
             guard let currentUDID = FirebaseUserHandler.currentUDID else{
                 return
             }
@@ -73,7 +73,9 @@ class ProfileMainViewController: UIViewController,ImagePickerHandlerDelegate,Fir
             guard let currentUser = FirebaseObjectConverter.dictionaryToUserObject(dictionary: currentUserDict!, UDID: currentUDID) else{
                 return
             }
-
+            
+            self.usernameLabel.text = FIRAuth.auth()?.currentUser?.email
+        
             self.profileImageView.kf.setImage(with: URL(string: (currentUser.thumbnail_URL)), placeholder: UIImage(named: "placeholderPizza")!)
             self.usernameLabel.text = currentUser.name
             self.locationLabel.text = currentUser.generalLocation

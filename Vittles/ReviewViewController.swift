@@ -174,8 +174,15 @@ class ReviewViewController: UIViewController,UITextFieldDelegate, UITextViewDele
         //NOTE: need to update this after we have login / signup
         //NOTE: need to add check to see if user has correct date set on device
         
-        let aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID,date: NSDate())
-        dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: aReview.asDictionary())
+        var aReview:ReviewObject?
+        if let username = FirebaseUserHandler.currentUserObject?.name{
+            aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: username, reviewer_UDID: reviewerUDID,date: NSDate())
+        }else{
+              aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: " ", reviewer_UDID: reviewerUDID,date: NSDate())
+        }
+        
+//        let aReview = ReviewObject(title: reviewTitleTextfield.text!, body: reviewBody!, rating: rating, reviewer_name: "Jenny Kwok", reviewer_UDID: reviewerUDID,date: NSDate())
+        dataHandler.postReviewFor(dishID: (self.pickedDish?.uniqueID)!, reviewDictionary: (aReview?.asDictionary())!)
         self.view.endEditing(true)
         
         

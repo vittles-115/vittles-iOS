@@ -50,7 +50,7 @@ class FirebaseUserHandler{
     static let sharedInstance = FirebaseUserHandler()
     static var currentUserDictionary:NSDictionary?
     static var currentUDID:String?
-    
+    static var currentUserObject:UserObject?
 
     class func getUserPublicProfileFor(userUDID:String?,completion:@escaping UserProfileCallback){
         
@@ -116,6 +116,7 @@ class FirebaseUserHandler{
       
         FirebaseUserHandler.currentUserDictionary = nil
         FirebaseUserHandler.currentUDID = nil
+        FirebaseUserHandler.currentUserObject = nil
     }
     
     private func getCurrentUser(){
@@ -135,6 +136,7 @@ class FirebaseUserHandler{
             }else{
                 FirebaseUserHandler.currentUserDictionary = userDictionary
             }
+            FirebaseUserHandler.currentUserObject = FirebaseObjectConverter.dictionaryToUserObject(dictionary: userDictionary, UDID: (FIRAuth.auth()?.currentUser?.uid)!)
             FirebaseUserHandler.currentUDID = (FIRAuth.auth()?.currentUser?.uid)!
             self.firebaseProfileDelegate?.didLoadUserProfile?()
             

@@ -29,7 +29,7 @@ class SavedRestaurantTableViewController: RestaurantTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(RestaurantTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
         
         self.loadingIndicator.center = self.view.center
-        self.setUpRefreshControl()
+        //self.setUpRefreshControl()
         self.view.addSubview(loadingIndicator)
         self.refreshControl?.endEditing(true)
         self.loadingIndicator.isHidden = true

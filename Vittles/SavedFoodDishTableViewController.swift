@@ -24,7 +24,7 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(SavedFoodDishTableViewController.reload), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
         
-        self.setUpRefreshControl()
+        //self.setUpRefreshControl()
         let centerHeightPt = self.tableView.frame.height/2 - screenSize.height/6 - self.tableView.contentOffset.y
         let centerPoint = CGPoint(x: self.tableView.frame.width/2 , y: centerHeightPt)
         self.loadingIndicator.center = centerPoint
@@ -126,6 +126,7 @@ class SavedFoodDishTableViewController: FoodDishTableViewController {
         
         
     }
+    
     
     /*
     // MARK: - Navigation
